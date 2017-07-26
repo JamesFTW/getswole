@@ -1,0 +1,62 @@
+{
+  "workout": "Leg Day",
+  "workout_id": 1232432,
+  "exercises": [
+    {
+      "type": "Barebell Squat",
+      "id": 32013923,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 320139142,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 3201332104,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 32312304,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 32312304,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 32312304,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 32312304,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+    {
+      "type": "Barebell Squat",
+      "id": 32312304,
+      "sets": 4,
+      "rep": 10,
+      "weight": 200
+    },
+  ],
+}
