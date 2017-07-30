@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   ScrollView,
   Image,
-  TouchableOpacity,
   View
 } from 'react-native';
 
