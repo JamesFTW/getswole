@@ -1,22 +1,14 @@
-import React from 'react'
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  View
-} from 'react-native';
-
+import React                         from 'react'
+import {View}                        from 'react-native';
 import { NativeRouter, Route, Link } from 'react-router-native'
+import WorkoutScreen                 from '../screens/WorkoutScreen.js'
+import ProfileScreen                 from '../screens/ProfileScreen.js'
 
-import Navbar  from '../components/navbar.js'
-import Workout from '../components/Workout.js'
 
-
-const routes = () => {
+const routes = () => (
   <NativeRouter>
-    <Route exact path="/" component={Workout}/>
+      <Route exact path="/" component={WorkoutScreen}/>
   </NativeRouter>
-}
+)
+
+export default routes
