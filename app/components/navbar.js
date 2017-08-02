@@ -5,8 +5,9 @@ import {
   View,
   Image,
   TouchableOpacity,
+  TouchableHighlight,
 } from 'react-native';
-
+import {Link}   from 'react-router-native'
 
 export default class Navbar extends Component{
   render(){
@@ -15,12 +16,18 @@ export default class Navbar extends Component{
         <TouchableOpacity>
           <Image style={{ marginLeft: 20 }} source={require('../../img/home/Home.png')} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <Link
+          to='/'
+          component={TouchableOpacity}
+          >
           <Image source={require('../../img/workout/Vector.png')} style={{ marginRight: 5}} />
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </Link>
+        <Link
+          to='/ProfileScreen'
+          component={TouchableOpacity}
+          >
           <Image style={{ marginRight: 20 }} source={require('../../img/user/noun.png')} />
-        </TouchableOpacity>
+        </Link>
       </View>
     )
   }
