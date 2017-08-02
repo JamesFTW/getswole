@@ -80,6 +80,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%'
   },
+  flexHeader:{
+    height: '8%'
+  },
   header:{
     zIndex: 2,
     textAlign: 'center',
