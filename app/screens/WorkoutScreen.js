@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   ScrollView,
+  ImageBackground,
   Image,
   View
 } from 'react-native';
@@ -23,14 +24,15 @@ export default class WorkoutScreen extends Component {
       }
   }
   render() {
+    console.log(this.state)
     return (
     <View style={styles.container2}>
       <View style={styles.flexContainer}>
 
         <View style={styles.flexHeader}>
-          <Image style={styles.image} source={require('../../img/header/header.png')}>
+          <ImageBackground style={styles.image} source={require('../../img/header/header.png')}>
             <Text style={styles.header}>{this.state.workoutName}</Text>
-          </Image>
+          </ImageBackground>
         </View>
 
         <ScrollView style={styles.flexBody}>
