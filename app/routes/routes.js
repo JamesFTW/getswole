@@ -1,17 +1,17 @@
 import React                          from 'react'
 import {View}                         from 'react-native';
-import { NativeRouter, Route, Switch} from 'react-router-native'
+import { MemoryRouter, Route, Switch} from 'react-router-native'
 import WorkoutScreen                  from '../screens/WorkoutScreen.js'
 import ProfileScreen                  from '../screens/ProfileScreen.js'
 
 
 const routes = () => (
-  <NativeRouter>
+  <MemoryRouter>
     <Switch>
       <Route exact path="/" component={WorkoutScreen}/>
       <Route path="/ProfileScreen" component={ProfileScreen}/>
     </Switch>
-  </NativeRouter>
+  </MemoryRouter>
 )
 
 export default routes
