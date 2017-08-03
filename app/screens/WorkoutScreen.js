@@ -24,7 +24,6 @@ export default class WorkoutScreen extends Component {
       }
   }
   render() {
-    console.log(this.state)
     return (
     <View style={styles.container2}>
       <View style={styles.flexContainer}>

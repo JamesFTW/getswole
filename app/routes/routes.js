@@ -1,17 +1,17 @@
-import React                          from 'react'
-import {View}                         from 'react-native';
-import { MemoryRouter, Route, Switch} from 'react-router-native'
-import WorkoutScreen                  from '../screens/WorkoutScreen.js'
-import ProfileScreen                  from '../screens/ProfileScreen.js'
-
+import React                                      from 'react'
+import {View}                                     from 'react-native';
+import {NativeRouter, Route, Switch,hashHistory}  from 'react-router-native'
+import WorkoutScreen                              from '../screens/WorkoutScreen.js'
+import ProfileScreen                              from '../screens/ProfileScreen.js'
+import Navbar                                     from '../components/navbar.js'
 
 const routes = () => (
-  <MemoryRouter>
+  <NativeRouter history={hashHistory}>
     <Switch>
-      <Route exact path="/" component={WorkoutScreen}/>
-      <Route path="/ProfileScreen" component={ProfileScreen}/>
+      <Route exact path="/" component={WorkoutScreen} overlayComponent={Navbar}/>
+      <Route path="/ProfileScreen" component={ProfileScreen} overlayComponent={Navbar}/>
     </Switch>
-  </MemoryRouter>
+  </NativeRouter>
 )
 
 export default routes
