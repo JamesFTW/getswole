@@ -67,8 +67,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 125,
-    alignItems: 'center',
-    backgroundColor: '#EDEDED',
+    alignItems: 'center'
   },
   workout: {
     fontSize: 36,
