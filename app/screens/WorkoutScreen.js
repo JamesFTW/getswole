@@ -38,7 +38,7 @@ export default class WorkoutScreen extends Component {
           {this.state.workouts.map((exercise, i) => {
             return (
               <View key={i}>
-                <Workout id={exercise.id} type={exercise.type} weight={exercise.weight} sets={exercise.sets} rep={exercise.rep}/>
+                <Workout keyId={i} id={exercise.id} type={exercise.type} weight={exercise.weight} sets={exercise.sets} rep={exercise.rep}/>
               </View>
             )
           })}
