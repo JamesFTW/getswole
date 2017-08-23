@@ -10,6 +10,7 @@ import {
 
 import Navbar         from '../components/navbar.js'
 let data = require('../../sampleProfile.json')
+
 export default class ProfileScreen extends React.Component {
   constructor(props){
     super(props)
@@ -28,16 +29,10 @@ export default class ProfileScreen extends React.Component {
               <Text style={styles.header}>{this.state.workoutName}</Text>
             </ImageBackground>
           </View>
+          {/* <ScrollView style={styles.flexBody}>
 
-          <ScrollView style={styles.flexBody}>
-            <View>
-              <Text>Profile</Text>
-            </View>
-          </ScrollView>
+          </ScrollView> */}
 
-          <View style={styles.flexFooter}>
-            <Navbar />
-          </View>
 
         </View>
       </View>
@@ -46,15 +41,12 @@ export default class ProfileScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  flexFooter: {
-    backgroundColor: 'red'
-  },
   flexHeader:{
-    height: '8%'
+    height: 45
   },
   container2: {
     position: 'absolute',
-    top: 20,
+    top: 0,
     bottom: 0,
     left: 0,
     right: 0
@@ -65,7 +57,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   header:{
-    zIndex: 2,
+    zIndex: 3,
     textAlign: 'center',
     top: 11,
     fontSize: 24,
@@ -75,6 +67,6 @@ const styles = StyleSheet.create({
     fontWeight: "300"
   },
   image:{
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
 });

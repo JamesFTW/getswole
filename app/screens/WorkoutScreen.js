@@ -44,10 +44,6 @@ export default class WorkoutScreen extends Component {
           })}
         </ScrollView>
 
-        <View style={styles.flexFooter}>
-          <Navbar />
-        </View>
-
       </View>
     </View>
     );
@@ -59,7 +55,8 @@ const styles = StyleSheet.create({
   flexBody:{
     flex: 1,
     display: 'flex',
-    backgroundColor: '#EDEDED'
+    backgroundColor: '#EDEDED',
+    top: 10
   },
   flexFooter: {
     backgroundColor: 'red'
@@ -69,7 +66,7 @@ const styles = StyleSheet.create({
   },
   container2: {
     position: 'absolute',
-    top: 20,
+    top: 0,
     bottom: 0,
     left: 0,
     right: 0
@@ -80,7 +77,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   flexHeader:{
-    height: '8%'
+    height: 45,
   },
   header:{
     zIndex: 2,
