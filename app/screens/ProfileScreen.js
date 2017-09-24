@@ -5,6 +5,7 @@ import {
   View,
   ImageBackground,
   Image,
+  TouchableOpacity,
   ScrollView
 } from 'react-native';
 
@@ -25,14 +26,15 @@ export default class ProfileScreen extends React.Component {
         <View style={styles.flexContainer}>
 
           <View style={styles.flexHeader}>
-            <ImageBackground style={styles.image} source={require('../../img/header/header.png')}>
+
+            <ImageBackground style={styles.image}>
               <Text style={styles.header}>{this.state.workoutName}</Text>
             </ImageBackground>
+
+            <TouchableOpacity>
+              <ImageBackground style={styles.settings} source={require('../../img/settings/Settings.png')}/>
+            </TouchableOpacity>
           </View>
-          {/* <ScrollView style={styles.flexBody}>
-
-          </ScrollView> */}
-
 
         </View>
       </View>
@@ -42,7 +44,8 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
   flexHeader:{
-    height: 45
+    height: 55,
+    backgroundColor: '#40D4BB'
   },
   container2: {
     position: 'absolute',
@@ -68,5 +71,11 @@ const styles = StyleSheet.create({
   },
   image:{
     backgroundColor: 'transparent',
+  },
+  settings:{
+    position: 'absolute',
+    left: 330,
+    bottom: 13,
+    zIndex: 102
   },
 });
