@@ -9,8 +9,11 @@ import {
   ScrollView
 } from 'react-native';
 
-import Navbar         from '../components/navbar.js'
+import Navbar from '../components/navbar.js'
 let data = require('../../sampleProfile.json')
+
+//Create object to store user data
+let profilePhoto = 'https://s3-us-west-1.amazonaws.com/swole-userphoto/me.jpg'
 
 export default class ProfileScreen extends React.Component {
   constructor(props){
@@ -24,7 +27,6 @@ export default class ProfileScreen extends React.Component {
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
-
           <View style={styles.flexHeader}>
 
             <ImageBackground style={styles.image}>
@@ -36,6 +38,10 @@ export default class ProfileScreen extends React.Component {
             </TouchableOpacity>
           </View>
 
+            <Image
+              style={styles.profileStyle}
+              source={{uri: profilePhoto}}
+            />
         </View>
       </View>
     )
@@ -53,6 +59,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0
+  },
+  profileStyle: {
+    width: 80,
+    height: 80,
+    borderRadius: 5,
+    left: 10,
+    top: 10
   },
   flexContainer:{
     display: 'flex',
