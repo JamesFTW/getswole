@@ -10,27 +10,27 @@ import {
 } from 'react-native';
 
 import Navbar from '../components/navbar.js'
-let data = require('../../sampleProfile.json')
-
-//Create object to store user data
-let profilePhoto = 'https://s3-us-west-1.amazonaws.com/swole-userphoto/me.jpg'
+let data = require('../../user.json')
 
 export default class ProfileScreen extends React.Component {
+
   constructor(props){
     super(props)
     this.state = {
-      workouts: data.exercises,
-      workoutName: data.workout
+      userName: data.userName,
+      profilePhoto: data.profilePhoto
       }
   }
+  
   render(){
+    console.log(this.state.profilePhoto)
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
           <View style={styles.flexHeader}>
 
             <ImageBackground style={styles.image}>
-              <Text style={styles.header}>{this.state.workoutName}</Text>
+              <Text style={styles.header}>{this.state.userName}</Text>
             </ImageBackground>
 
             <TouchableOpacity>
@@ -40,7 +40,7 @@ export default class ProfileScreen extends React.Component {
 
             <Image
               style={styles.profileStyle}
-              source={{uri: profilePhoto}}
+              source={{uri: this.state.profilePhoto}}
             />
         </View>
       </View>
