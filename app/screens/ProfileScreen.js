@@ -21,9 +21,8 @@ export default class ProfileScreen extends React.Component {
       profilePhoto: data.profilePhoto
       }
   }
-  
+
   render(){
-    console.log(this.state.profilePhoto)
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
