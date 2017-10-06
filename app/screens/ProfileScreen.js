@@ -18,7 +18,9 @@ export default class ProfileScreen extends React.Component {
     super(props)
     this.state = {
       userName: data.userName,
-      profilePhoto: data.profilePhoto
+      profilePhoto: data.profilePhoto,
+      following: data.following,
+      followers: data.followers
       }
   }
 
@@ -26,8 +28,8 @@ export default class ProfileScreen extends React.Component {
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
-          <View style={styles.flexHeader}>
 
+          <View style={styles.flexHeader}>
             <ImageBackground style={styles.image}>
               <Text style={styles.header}>{this.state.userName}</Text>
             </ImageBackground>
@@ -37,10 +39,22 @@ export default class ProfileScreen extends React.Component {
             </TouchableOpacity>
           </View>
 
+          <View style={styles.userContainer}>
             <Image
-              style={styles.profileStyle}
+              style={styles.profilePhotoStyle}
               source={{uri: this.state.profilePhoto}}
             />
+
+            <View style={styles.followingContainer}>
+              <View style={styles.followNumbersContainer}>
+                <Text style={styles.followingCount}>{this.state.following}</Text>
+                <Text style={styles.followerCount}>{this.state.followers}</Text>
+              </View>
+              <Text style={styles.followingText}> Following </Text>
+              <Text style={styles.followerText}> Followers </Text>
+            </View>
+          </View>
+
         </View>
       </View>
     )
@@ -52,6 +66,55 @@ const styles = StyleSheet.create({
     height: 55,
     backgroundColor: '#40D4BB'
   },
+  followingContainer:{
+    bottom: 40,
+    right: 5
+  },
+  followNumbersContainer:{
+    top: 27
+  },
+  followingText:{
+    zIndex: 30,
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: '#6C6B6B',
+    fontFamily: 'HelveticaNeue',
+    left: 100,
+    bottom: 10,
+    fontSize: 12
+  },
+  followingCount:{
+    zIndex: 434,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'black',
+    fontFamily: 'HelveticaNeue',
+    left: 115,
+    bottom: 15,
+    fontSize: 18
+  },
+  followerCount:{
+    zIndex: 3,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'black',
+    fontFamily: 'HelveticaNeue',
+    left: 173,
+    bottom: 36,
+    fontSize: 18
+  },
+  followerText:{
+    zIndex: 32,
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: '#6C6B6B',
+    fontFamily: 'HelveticaNeue',
+    left: 165,
+    bottom: 24,
+    fontSize: 12
+  },
+  userContainer:{
+    position: 'absolute',
+    top: 55
+  },
   container2: {
     position: 'absolute',
     top: 0,
@@ -59,7 +122,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0
   },
-  profileStyle: {
+  profilePhotoStyle: {
     width: 80,
     height: 80,
     borderRadius: 5,
