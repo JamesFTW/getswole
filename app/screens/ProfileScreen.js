@@ -46,15 +46,19 @@ export default class ProfileScreen extends React.Component {
             />
 
             <View style={styles.followingContainer}>
-              <View style={styles.followNumbersContainer}>
+
+              <View style={styles.following}>
                 <Text style={styles.followingCount}>{this.state.following}</Text>
-                <Text style={styles.followerCount}>{this.state.followers}</Text>
+                <Text style={styles.followingText}> Following </Text>
               </View>
-              <Text style={styles.followingText}> Following </Text>
-              <Text style={styles.followerText}> Followers </Text>
+
+              <View style={styles.followers}>
+                <Text style={styles.followerCount}>{this.state.followers}</Text>
+                <Text style={styles.followerText}> Followers </Text>
+              </View>
+
             </View>
           </View>
-
         </View>
       </View>
     )
@@ -67,53 +71,58 @@ const styles = StyleSheet.create({
     backgroundColor: '#40D4BB'
   },
   followingContainer:{
-    bottom: 40,
-    right: 5
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignContent: 'center',
+    bottom: 5,
+    left: 95
   },
-  followNumbersContainer:{
-    top: 27
+  followers:{
+    alignSelf: 'center',
+    bottom: 25
+  },
+  following:{
+    alignSelf: 'center',
+    paddingRight: 5,
+    bottom: 25
   },
   followingText:{
-    zIndex: 30,
     backgroundColor: 'rgba(0,0,0,0)',
     color: '#6C6B6B',
     fontFamily: 'HelveticaNeue',
-    left: 100,
-    bottom: 10,
+    letterSpacing: 1,
     fontSize: 12
   },
   followingCount:{
-    zIndex: 434,
+    position: 'relative',
+    alignSelf: 'center',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'black',
     fontFamily: 'HelveticaNeue',
-    left: 115,
-    bottom: 15,
-    fontSize: 18
+    letterSpacing: 1,
+    fontSize: 20
   },
   followerCount:{
-    zIndex: 3,
+    position: 'relative',
+    alignSelf: 'center',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'black',
     fontFamily: 'HelveticaNeue',
-    left: 173,
-    bottom: 36,
-    fontSize: 18
+    letterSpacing: 1,
+    fontSize: 20
   },
   followerText:{
-    zIndex: 32,
     backgroundColor: 'rgba(0,0,0,0)',
     color: '#6C6B6B',
     fontFamily: 'HelveticaNeue',
-    left: 165,
-    bottom: 24,
+    letterSpacing: 1,
     fontSize: 12
   },
   userContainer:{
-    position: 'absolute',
-    top: 55
+    position: 'relative',
+    width: '100%'
   },
   container2: {
     position: 'absolute',
