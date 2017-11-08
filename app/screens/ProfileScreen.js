@@ -9,7 +9,8 @@ import {
   ScrollView
 } from 'react-native';
 
-import Navbar from '../components/navbar.js'
+import Navbar       from '../components/navbar.js'
+import FollowButton from '../components/followButton'
 let data = require('../../user.json')
 
 export default class ProfileScreen extends React.Component {
@@ -56,11 +57,7 @@ export default class ProfileScreen extends React.Component {
                 <Text style={styles.followerText}> Followers </Text>
               </View>
 
-              <View style={styles.followButton}>
-                <View style={styles.otherButtonText}>
-                  <Text style={styles.ButtonText}>Follow</Text>
-                </View>
-              </View>
+              <FollowButton/>
             </View>
 
           </View>
@@ -88,19 +85,7 @@ const styles = StyleSheet.create({
   },
   following:{
     alignSelf: 'center',
-    // paddingRight: 5,
     bottom: 25
-  },
-  ButtonText:{
-    alignSelf: 'center',
-    color: '#FFFCFC',
-    fontFamily: 'HelveticaNeue',
-    letterSpacing: 1
-  },
-  otherButtonText:{
-    flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center'
   },
   followingText:{
     backgroundColor: 'rgba(0,0,0,0)',
@@ -135,16 +120,6 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1,
     fontSize: 12
-  },
-  followButton:{
-
-    height: 40,
-    width: 123,
-    left: 5,
-    borderColor: '#AFAEAE',
-    borderWidth: .5,
-    bottom: 25,
-    backgroundColor: '#DADADA',
   },
   userContainer:{
     position: 'relative',
