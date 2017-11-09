@@ -9,12 +9,20 @@ import {
   View
 } from 'react-native';
 
+let data = require('../../user.json')
+
 export default class FollowButton extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      following: false
+    }
+  }
   render(){
     return(
       <TouchableOpacity>
-        <View style={styles.followButton}>
-          <View style={styles.otherButtonText}>
+        <View style={styles.ButtonContainer}>
+          <View style={styles.ButtonTextContainer}>
             <Text style={styles.ButtonText}>Follow</Text>
           </View>
         </View>
@@ -23,7 +31,7 @@ export default class FollowButton extends Component {
   }
 }
 const styles = StyleSheet.create({
-  followButton:{
+  ButtonContainer:{
     height: 40,
     width: 123,
     left: 5,
@@ -32,7 +40,7 @@ const styles = StyleSheet.create({
     bottom: 25,
     backgroundColor: '#DADADA'
   },
-  otherButtonText:{
+  ButtonTextContainer:{
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center'
