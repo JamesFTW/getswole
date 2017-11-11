@@ -39,6 +39,9 @@ export default class ProfileScreen extends React.Component {
               <ImageBackground style={styles.settings} source={require('../../img/settings/Settings.png')}/>
             </TouchableOpacity>
           </View>
+          <View style={styles.firstName}>
+            <Text style={styles.firstNameText}>{this.state.firstName}</Text>
+          </View>
 
           <View style={styles.userContainer}>
             <Image
@@ -71,6 +74,20 @@ const styles = StyleSheet.create({
   flexHeader:{
     height: 55,
     backgroundColor: '#40D4BB'
+  },
+  firstName:{
+    zIndex: 2312,
+    alignItems: 'center',
+    top: 10,
+    marginLeft: 77,
+    right: 25,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  firstNameText:{
+    color: '#424040',
+    fontFamily: 'HelveticaNeue',
+    letterSpacing: 1,
+    fontSize: 18
   },
   followingContainer:{
     flexDirection: 'row',
@@ -123,6 +140,8 @@ const styles = StyleSheet.create({
   },
   userContainer:{
     position: 'relative',
+    left: 2,
+    bottom: 22,
     width: '100%'
   },
   container2: {
