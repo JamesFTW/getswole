@@ -19,9 +19,10 @@ export default class ProfileScreen extends React.Component {
     super(props)
     this.state = {
       userName: data.userName,
+      firstName: data.firstName,
       profilePhoto: data.profilePhoto,
-      following: data.following,
-      followers: data.followers
+      following: data.following_count,
+      followers: data.followers_count
       }
   }
 
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1,
+    left:1,
     fontSize: 20
   },
   followerText:{
