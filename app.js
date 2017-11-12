@@ -4,14 +4,14 @@
 
 
 // require dependencies
-var express = require('express')
-var pg = require('pg')
-var pgp = require("pg-promise")()
-var db = pgp("postgres://jmielasaempfsp:AZuvrWoc7raoWE2Lms8F55y8-U@ec2-54-243-249-176.compute-1.amazonaws.com:5432/d10iqa2fo5qdgp")
+const express = require('express')
+const pg      = require('pg')
+const pgp     = require("pg-promise")()
+const db      = pgp("postgres://jmielasaempfsp:AZuvrWoc7raoWE2Lms8F55y8-U@ec2-54-243-249-176.compute-1.amazonaws.com:5432/d10iqa2fo5qdgp")
 
 // init server
-var app = express()
-var port = process.env.PORT || 3000
+const app  = express()
+const port = process.env.PORT || 3000
 
 //app.set('view engine', 'pug')
 
