@@ -32,8 +32,8 @@ export default class FollowButton extends Component {
   }
   render(){
     let state = this.state
-    
-    state.following == false ?
+    console.log(state)
+    if(state.following == false){
       return(
         <TouchableOpacity onPress={this._onPressTrue}>
           <View style={styles.ButtonContainer}>
@@ -44,7 +44,7 @@ export default class FollowButton extends Component {
           </View>
         </TouchableOpacity>
       )
-    :
+    }else{
       return(
         <TouchableOpacity onPress={this._onPressFalse}>
           <View style={styles.ButtonContainerFalse}>
@@ -56,6 +56,7 @@ export default class FollowButton extends Component {
         </TouchableOpacity>
       )
     }
+
   }
 }
 const styles = StyleSheet.create({
