@@ -15,7 +15,7 @@ export default class FollowButton extends Component {
   constructor(props){
     super(props)
     this.state ={
-      following: false,
+      following: false
     }
     this._onPressTrue = this._onPressTrue.bind(this)
     this._onPressFalse = this._onPressFalse.bind(this)
@@ -32,7 +32,8 @@ export default class FollowButton extends Component {
   }
   render(){
     let state = this.state
-    if(state.following == false){
+    
+    state.following == false ?
       return(
         <TouchableOpacity onPress={this._onPressTrue}>
           <View style={styles.ButtonContainer}>
@@ -43,7 +44,7 @@ export default class FollowButton extends Component {
           </View>
         </TouchableOpacity>
       )
-    }else{
+    :
       return(
         <TouchableOpacity onPress={this._onPressFalse}>
           <View style={styles.ButtonContainerFalse}>
@@ -55,7 +56,6 @@ export default class FollowButton extends Component {
         </TouchableOpacity>
       )
     }
-
   }
 }
 const styles = StyleSheet.create({
