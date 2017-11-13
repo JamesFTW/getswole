@@ -12,9 +12,7 @@ const db      = pgp("postgres://jmielasaempfsp:AZuvrWoc7raoWE2Lms8F55y8-U@ec2-54
 // init server
 const app  = express()
 const port = process.env.PORT || 3000
-
-//app.set('view engine', 'pug')
-
+pg.defaults.ssl = true;
 
 app.get('/', function (req, res) {
   res.send('Hello World! \n' + process.env.DATABASE_URL)
