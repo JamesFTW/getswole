@@ -1,7 +1,3 @@
-//Goals for today
-//**** Get hello world hosted on heroku****///
-//**** Figure out what's wrong with that ssl error***//
-
 
 // require dependencies
 const express = require('express')
@@ -30,20 +26,20 @@ app.get('/db', function(req, res){
 })
 
 app.get('/plan', function(req, res){
-  db.any("SELECT * FROM plan")
+  db.any("SELECT * FROM _user")
     .then(function (data) {
-        console.log(data);
-        res.send(JSON.stringify(data))
+        console.log(JSON.stringify(data[0]));
+        res.send(JSON.stringify(data[0]))
     })
-    .catch(function (error) {
+    .catch(function (error){
         console.log("ERROR:", error);
     });
 })
 
 app.get('/plan/id', function(req, res){
-  db.any("SELECT * FROM workout")
+  db.any("select * from plan where planid='0cd96b6a-f4b8-4780-8d63-8803082361f9'")
     .then(function(data){
-      console.log(data)
+      console.log(JSON.stringify(data))
       res.send(JSON.stringify(data))
       //res.json(data)
     })
@@ -55,27 +51,3 @@ app.get('/plan/id', function(req, res){
 app.listen(port, function () {
   console.log("Express server listening on port: " + port)
 })
-
-
-
-/*** Was able to get everything to work using pg-promise***/
-
-// app.get('/db', function (request, response) {
-//   pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-//       if (err) {
-//       console.log(err)
-//       return response.send("Error " + err)
-//     }
-//
-//     client.query('SELECT * FROM test_table', function (err, result) {
-//       done()
-//       if (err) {
-//         console.error(err)
-//         response.send("Error " + err)
-//       } else {
-//         console.log(result.rows)
-//         response.send(JSON.stringify(result.row))
-//       }
-//     })
-//   })
-// })
