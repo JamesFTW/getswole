@@ -1,13 +1,22 @@
+//Goals for tomorrow
+  /*
+  Figure out swole architecture
+   - How will I handle state (most likely Redux)
+   - How will the server/routes work
+   - Implement either Redux or router stuff
 
+  */
 // require dependencies
 const express = require('express')
 const pg      = require('pg')
 const pgp     = require("pg-promise")()
 const db      = pgp("postgres://jmielasaempfsp:AZuvrWoc7raoWE2Lms8F55y8-U@ec2-54-243-249-176.compute-1.amazonaws.com:5432/d10iqa2fo5qdgp")
-
+const helmet  = require('helmet')
 // init server
 const app  = express()
 const port = process.env.PORT || 3000
+
+app.use(helmet())
 pg.defaults.ssl = true;
 
 app.get('/', function (req, res) {
