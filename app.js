@@ -45,6 +45,14 @@ app.get('/user', function(req, res){
     });
 })
 
+app.get(`/user/${userid}`, function(req, res){
+  db.any(`SELECT * FROM _user WHEN user_id=${userid}`)
+  .then(function(data){
+    console.log(JSON.stringify(data[0]))
+    res.send(JSON.stringify(data[0]))
+  })
+})
+
 app.get('/plan/id', function(req, res){
   db.any("select * from plan where planid='0cd96b6a-f4b8-4780-8d63-8803082361f9'")
     .then(function(data){
