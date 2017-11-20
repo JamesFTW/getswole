@@ -34,7 +34,7 @@ app.get('/db', function(req, res){
     });
 })
 
-app.get('/plan', function(req, res){
+app.get('/user', function(req, res){
   db.any("SELECT * FROM _user")
     .then(function (data) {
         console.log(JSON.stringify(data[0]));
