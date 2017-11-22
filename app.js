@@ -55,6 +55,13 @@ app.get('/users/:user_id', (req, res) => {
     .catch(error => console.log("ERROR:", error))
   })
 
+app.get('/tester', (req,res) => {
+  db.any("SELECT * FROM _user2")
+    .then(data => {
+      res.send(JSON.stringify(data))
+    })
+    .catch(error => console.log("Error:", error))
+})
 app.get('/plan/id', function(req, res){
   db.any("select * from plan where planid='0cd96b6a-f4b8-4780-8d63-8803082361f9'")
     .then(function(data){
