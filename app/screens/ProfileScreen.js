@@ -11,7 +11,7 @@ import {
 
 import Navbar       from '../components/navbar.js'
 import FollowButton from '../components/followButton'
-let data = require('../../user.json')
+let data = require('../../json/user.json')
 
 export default class ProfileScreen extends React.Component {
 
@@ -21,12 +21,13 @@ export default class ProfileScreen extends React.Component {
       userName: data.userName,
       firstName: data.firstName,
       profilePhoto: data.profilePhoto,
-      following: data.following_count,
-      followers: data.followers_count
+      following: data.following,
+      followers: data.followers
       }
   }
 
   render(){
+    console.log(this.state)
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
@@ -52,12 +53,12 @@ export default class ProfileScreen extends React.Component {
 
             <View style={styles.followingContainer}>
               <View style={styles.following}>
-                <Text style={styles.followingCount}>{this.state.following}</Text>
+                <Text style={styles.followingCount}>{this.state.following.length}</Text>
                 <Text style={styles.followingText}> Following </Text>
               </View>
 
               <View style={styles.followers}>
-                <Text style={styles.followerCount}>{this.state.followers}</Text>
+                <Text style={styles.followerCount}>{this.state.followers.length}</Text>
                 <Text style={styles.followerText}> Followers </Text>
               </View>
 
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1,
-    left:1,
+    right: 1,
     fontSize: 20
   },
   followerText:{
