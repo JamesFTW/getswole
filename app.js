@@ -46,7 +46,7 @@ app.get('/users/:user_id', (req, res) => {
   db.any("SELECT * FROM _user")
     .then(data => {
       for(let value of data){
-        if(value.user_id == req.params.user_id){
+        if(value.userid == req.params.user_id){
           res.send(JSON.stringify(value))
         }
         //figure out how to throw 404 if no id's match
