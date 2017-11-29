@@ -22,32 +22,6 @@ export default class FollowButton extends Component {
     this._onPressTrue = this._onPressTrue.bind(this)
     this._onPressFalse = this._onPressFalse.bind(this)
   }
-  componentDidMount(){
-    //possibly add some type of isLoading state
-    // fetch('https://swole.herokuapp.com/plan')
-    //   .then(res => res.json())
-    //   .then(data => this.setState({
-    //     followers: data.followers,
-    //     user: data.user_id,
-    //   }))
-    //   .catch(err => console.log(err))
-
-    fetch('https://swole.herokuapp.com/tester')
-      .then(res => res.json())
-      .then(data => {
-        data.forEach((element) =>{
-          console.log(element)
-        })
-      })
-
-  //   for(let i = 0; i < this.state.followers.length; i++){
-  //     if(this.state.followers[i] == this.state.user){
-  //       this.setState({
-  //         following: true
-  //       })
-  //     }
-  // }
-}
   _onPressTrue(){
     this.setState({
       following: true
