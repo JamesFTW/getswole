@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {
+  AsyncStorage,
+  ActivityIndicator,
   StyleSheet,
   Text,
   View,
@@ -11,23 +13,52 @@ import {
 
 import Navbar       from '../components/navbar.js'
 import FollowButton from '../components/followButton'
-let data = require('../../json/user.json')
+//let data = require('../../json/user.json')
+
+let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
+
 
 export default class ProfileScreen extends React.Component {
-
   constructor(props){
     super(props)
     this.state = {
-      userName: data.userName,
-      firstName: data.firstName,
-      profilePhoto: data.profilePhoto,
-      following: data.following,
-      followers: data.followers
+      userName: '',
+      firstName: '',
+      profilePhoto: '',
+      following: 0,
+      followers: 0,
+      isLoading: true
       }
+  }
+
+  componentDidMount(){
+    //possibly add some type of isLoading state
+    fetch(`https://swole.herokuapp.com/users/${userID}`)
+      .then(res => res.json())
+      //.then(data => console.log(data))
+      .then(data => this.setState({
+        userName: data.username,
+        firstName: data.firstname,
+        profilePhoto: data.profilephoto,
+        following: data.following,
+        followers: data.followercount,
+        isLoading: false,
+      }))
+      .catch(err => console.log(err))
   }
 
   render(){
     console.log(this.state)
+    if (this.state.isLoading) {
+     return (
+       <View style={styles.loading}>
+         <ActivityIndicator
+           size = "large"
+           //color = '#40D4BB'
+         />
+       </View>
+     );
+   }
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
@@ -53,12 +84,12 @@ export default class ProfileScreen extends React.Component {
 
             <View style={styles.followingContainer}>
               <View style={styles.following}>
-                <Text style={styles.followingCount}>{this.state.following.length}</Text>
+                <Text style={styles.followingCount}>{this.state.following}</Text>
                 <Text style={styles.followingText}> Following </Text>
               </View>
 
               <View style={styles.followers}>
-                <Text style={styles.followerCount}>{this.state.followers.length}</Text>
+                <Text style={styles.followerCount}>{this.state.followers}</Text>
                 <Text style={styles.followerText}> Followers </Text>
               </View>
 
@@ -77,6 +108,15 @@ const styles = StyleSheet.create({
     height: 55,
     backgroundColor: '#40D4BB'
   },
+  loading:{
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   firstName:{
     zIndex: 2312,
     alignItems: 'center',
@@ -89,7 +129,8 @@ const styles = StyleSheet.create({
     color: '#424040',
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1,
-    fontSize: 18
+    fontSize: 18,
+    right: 12,
   },
   followingContainer:{
     flexDirection: 'row',
@@ -144,7 +185,7 @@ const styles = StyleSheet.create({
   userContainer:{
     position: 'relative',
     left: 2,
-    bottom: 22,
+    bottom: 18,
     width: '100%'
   },
   container2: {
@@ -170,6 +211,7 @@ const styles = StyleSheet.create({
     zIndex: 3,
     textAlign: 'center',
     top: 11,
+    left: 11,
     fontSize: 24,
     fontFamily: 'HelveticaNeue-Thin',
     letterSpacing: 3,
@@ -183,6 +225,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 330,
     bottom: 13,
-    zIndex: 102
+    //zIndex: 102
   },
 });
