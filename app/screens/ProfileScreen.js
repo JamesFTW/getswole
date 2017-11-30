@@ -11,10 +11,12 @@ import {
   ScrollView
 } from 'react-native';
 
-import Navbar       from '../components/navbar.js'
-import FollowButton from '../components/followButton'
+import Navbar             from '../components/navbar.js'
+import CompletedWorkouts  from '../components/completedWorkouts.js'
+import FollowButton       from '../components/followButton'
 //let data = require('../../json/user.json')
 
+//Eventually have to figure out how to save this UUID for each user.
 let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
 
 
@@ -92,11 +94,11 @@ export default class ProfileScreen extends React.Component {
                 <Text style={styles.followerCount}>{this.state.followers}</Text>
                 <Text style={styles.followerText}> Followers </Text>
               </View>
-
               <FollowButton/>
             </View>
 
           </View>
+          <CompletedWorkouts/>
         </View>
       </View>
     )
