@@ -14,11 +14,13 @@ import {
 import Navbar             from '../components/navbar.js'
 import CompletedWorkouts  from '../components/completedWorkouts.js'
 import FollowButton       from '../components/followButton'
+import WorkoutStatus      from '../components/workoutstatus.js'
 //let data = require('../../json/user.json')
 
 //Eventually have to figure out how to save this UUID for each user.
 let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
 
+let data = require('../../completedworkout.json')
 
 export default class ProfileScreen extends React.Component {
   constructor(props){
@@ -29,7 +31,8 @@ export default class ProfileScreen extends React.Component {
       profilePhoto: '',
       following: 0,
       followers: 0,
-      isLoading: true
+      isLoading: true,
+      status: data
       }
   }
 
@@ -50,7 +53,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   render(){
-    console.log(this.state)
+    console.log(this.state.status)
     if (this.state.isLoading) {
      return (
        <View style={styles.loading}>
@@ -99,6 +102,16 @@ export default class ProfileScreen extends React.Component {
 
           </View>
           <CompletedWorkouts/>
+          <ScrollView>
+            {this.state.status.map((exercise) => {
+              return (
+                <View>
+                  <WorkoutStatus date={exercise.date} workout={exercise.workout}/>
+                </View>
+              )
+            })
+            }
+          </ScrollView>
         </View>
       </View>
     )
