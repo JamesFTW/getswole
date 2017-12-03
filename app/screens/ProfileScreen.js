@@ -102,7 +102,7 @@ export default class ProfileScreen extends React.Component {
 
           </View>
           <CompletedWorkouts/>
-          <ScrollView>
+          <ScrollView style={styles.workoutstats}>
             {this.state.status.map((exercise, i) => {
               return (
                 <View>
@@ -122,6 +122,9 @@ const styles = StyleSheet.create({
   flexHeader:{
     height: 55,
     backgroundColor: '#40D4BB'
+  },
+  workoutstats:{
+    marginBottom: 60
   },
   loading:{
     position: 'absolute',
