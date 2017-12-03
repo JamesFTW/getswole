@@ -103,10 +103,10 @@ export default class ProfileScreen extends React.Component {
           </View>
           <CompletedWorkouts/>
           <ScrollView>
-            {this.state.status.map((exercise) => {
+            {this.state.status.map((exercise, i) => {
               return (
                 <View>
-                  <WorkoutStatus date={exercise.date} workout={exercise.workout}/>
+                  <WorkoutStatus key={i} date={exercise.date} workout={exercise.workout}/>
                 </View>
               )
             })
