@@ -9,6 +9,8 @@ import {
   View
 } from 'react-native';
 
+let data = require('../../completedworkout.json')
+
 export default class CompletedWorkouts extends Component {
   constructor(props){
     super(props)
@@ -19,6 +21,7 @@ export default class CompletedWorkouts extends Component {
   render(){
     return(
       <View style={styles.workoutCompleteWrap}>
+        
         <View style={styles.workoutwrapper}>
           <Text style={styles.weight}>100 </Text>
           <Text style={styles.workoutText}>Workouts</Text>
@@ -29,6 +32,7 @@ export default class CompletedWorkouts extends Component {
         </View>
 
         <View style={styles.workoutwrapper}>
+          {/* Most likely will pass data ass props in ProfileScreen */}
           <Text style={styles.weight}>100k </Text>
           <Text style={styles.workoutText}>lbs</Text>
         </View>
