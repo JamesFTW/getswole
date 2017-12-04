@@ -33,7 +33,6 @@ export default class FollowButton extends Component {
     })
   }
   render(){
-    console.log(this.state)
     if(this.state.following == false){
       return(
         <TouchableOpacity onPress={this._onPressTrue}>
