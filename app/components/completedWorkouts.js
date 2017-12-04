@@ -21,7 +21,7 @@ export default class CompletedWorkouts extends Component {
   render(){
     return(
       <View style={styles.workoutCompleteWrap}>
-        
+
         <View style={styles.workoutwrapper}>
           <Text style={styles.weight}>100 </Text>
           <Text style={styles.workoutText}>Workouts</Text>
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     fontSize: 40,
     backgroundColor: 'rgba(0,0,0,0)',
-    //letterSpacing: 1
   },
   workoutText:{
     fontFamily: 'HelveticaNeue-Thin',
