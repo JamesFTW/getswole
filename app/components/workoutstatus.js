@@ -9,6 +9,7 @@ import {
   View
 } from 'react-native';
 
+import {NativeRouter, Link} from 'react-router-native'
 
 export default class WorkoutStatus extends Component{
   constructor(props){
@@ -20,7 +21,10 @@ export default class WorkoutStatus extends Component{
 
   render(){
     return(
-      <TouchableOpacity>
+      <Link
+        to='WorkoutDetails'
+        component={TouchableOpacity}
+        >
       <View style={styles.border}>
         <View style={styles.wrapper}>
           <Text style={styles.date}>{this.props.date}</Text>
@@ -28,7 +32,7 @@ export default class WorkoutStatus extends Component{
           <Image style={styles.icon}source={require('../../img/completed/Completed.png')}></Image>
         </View>
       </View>
-    </TouchableOpacity>
+    </Link>
     )
   }
 }

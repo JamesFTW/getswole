@@ -3,6 +3,7 @@ import {View, StyleSheet, ImageBackground, Text, ScrollView}  from 'react-native
 import {NativeRouter, Route, Switch,hashHistory}              from 'react-router-native'
 import WorkoutScreen                                          from '../screens/WorkoutScreen.js'
 import ProfileScreen                                          from '../screens/ProfileScreen.js'
+import WorkoutDetails                                         from '../screens/WorkoutDetails.js'
 import Navbar                                                 from '../components/navbar.js'
 import Header                                                 from '../components/header.js'
 
@@ -15,10 +16,10 @@ const routes = () => (
 
         <Route exact path="/" component={WorkoutScreen}/>
         <Route path="/ProfileScreen" component={ProfileScreen}/>
-
+        <Route path="/WorkoutDetails" component={WorkoutDetails}/>
         <Navbar />
       </View>
-  </View>
+    </View>
   </NativeRouter>
 )
 const styles = StyleSheet.create({
