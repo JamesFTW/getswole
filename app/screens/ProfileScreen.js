@@ -53,13 +53,11 @@ export default class ProfileScreen extends React.Component {
   }
 
   render(){
-    console.log(this.state.status)
     if (this.state.isLoading) {
      return (
        <View style={styles.loading}>
          <ActivityIndicator
            size = "large"
-           //color = '#40D4BB'
          />
        </View>
      );
@@ -102,10 +100,11 @@ export default class ProfileScreen extends React.Component {
 
           </View>
           <CompletedWorkouts/>
+          
           <ScrollView style={styles.workoutstats}>
             {this.state.status.map((exercise, i) => {
               return (
-                <View>
+                <View key={i}>
                   <WorkoutStatus key={i} date={exercise.date} workout={exercise.workout}/>
                 </View>
               )
