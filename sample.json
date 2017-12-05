@@ -3,56 +3,56 @@
   "workout_id": 1232432,
   "exercises": [
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32013923,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 320139142,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 3201332104,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32312304,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32312304,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32312304,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32312304,
       "sets": 4,
       "rep": 10,
       "weight": 200
     },
     {
-      "type": "Barbell Squat",
+      "exerciseName": "Barbell Squat",
       "id": 32312304,
       "sets": 4,
       "rep": 10,

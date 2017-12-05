@@ -6,30 +6,44 @@
   "weightLifted": 5000,
   "workouts_completed": [
     {
-      "timecompleted": "Leg Day",
+      "timecompleted": "Some Date",
+      "WorkoutName": "Leg Day",
       "workoutid": 34324234,
       "exercises":[
         {
           "exerciseid":4324324324,
           "weight": 200,
+          "exerciseName": "Squat",
+          "sets": 4,
+          "reps": 12
         },
         {
           "exerciseid": 4324320432,
-          "weight": 40
+          "weight": 40,
+          "exerciseName": "Lounges",
+          "sets": 4,
+          "reps": 12
         }
       ]
     },
     {
-      "timecompleted": "Chest Day",
+      "timecompleted": "Some Date",
+      "WorkoutName": "Chest Day",
       "workoutid": 34324324234,
       "exercises":[
         {
           "exerciseid":4324324324,
           "weight": 60,
+          "exerciseName": "Bench Press",
+          "sets": 4,
+          "reps": 12
         },
         {
           "exerciseid": 4324320432,
-          "weight": 80
+          "weight": 80,
+          "exerciseName": "Dumbell Press",
+          "sets": 4,
+          "reps": 12
         }
       ]
     }
