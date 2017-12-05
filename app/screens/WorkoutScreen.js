@@ -8,10 +8,7 @@ import {
   View
 } from 'react-native';
 
-import Navbar         from '../components/navbar.js'
-import Workout        from '../components/Workout.js'
-
-import { NativeRouter, Route, Link } from 'react-router-native'
+import Workout from '../components/Workout.js'
 
 let data = require('../../sample.json')
 
@@ -24,6 +21,7 @@ export default class WorkoutScreen extends Component {
       }
   }
   render() {
+  console.log(this.state)
     return (
     <View style={styles.container2}>
       <View style={styles.flexContainer}>
@@ -38,7 +36,7 @@ export default class WorkoutScreen extends Component {
           {this.state.workouts.map((exercise, i) => {
             return (
               <View key={i}>
-                <Workout keyId={i} id={exercise.id} type={exercise.type} weight={exercise.weight} sets={exercise.sets} rep={exercise.rep}/>
+                <Workout keyId={i} id={exercise.id} type={exercise.exerciseName} weight={exercise.weight} sets={exercise.sets} rep={exercise.rep}/>
               </View>
             )
           })}
