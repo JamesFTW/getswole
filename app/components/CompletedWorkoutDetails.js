@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 
-export default class WorkoutDetail_header extends Component {
+export default class CompletedWorkoutDetails extends Component {
   constructor(props){
     super(props)
   }
