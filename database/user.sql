@@ -50,6 +50,13 @@ Array[]::json[],
 NOW()
 )
 
+-- This isn't in the database.  Use as an example for inserting json into an array.
+INSERT INTO _user2 VALUES('James','Andrews','@jamesftw',uuid_generate_v4(),5000,
+(Array[' {"timecompleted": "2:30pm", "workoutid": 345343,
+  "exercises":[ { "exerciseid": 3424324, "weight": 200}, {
+  "exerciseid": 3424324, "weight": 200}] }'])::json[],Array[uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4()],Array[uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4()],'https://s3-us-west-1.amazonaws.com/swole-userphoto/me.jpg')
+-----------------------------------------------------------------------------------
+
 CREATE OR REPLACE FUNCTION updateUserConnections() RETURNS TRIGGER AS $example_table$
    BEGIN
       INSERT INTO UserConnections(userID) VALUES (new.userID);

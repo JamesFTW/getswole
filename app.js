@@ -12,6 +12,7 @@ const pg      = require('pg')
 const pgp     = require("pg-promise")()
 const db      = pgp("postgres://jmielasaempfsp:AZuvrWoc7raoWE2Lms8F55y8-U@ec2-54-243-249-176.compute-1.amazonaws.com:5432/d10iqa2fo5qdgp")
 const helmet  = require('helmet')
+
 // init server
 const app  = express()
 const port = process.env.PORT || 3000
@@ -58,7 +59,8 @@ app.get('/users/:user_id', (req, res) => {
 app.get('/tester', (req,res) => {
   db.any("SELECT * FROM _user2")
     .then(data => {
-      res.send(JSON.stringify(data))
+      for(let value of data)
+        res.send(JSON.stringify(value.workoutscompleted))
     })
     .catch(error => console.log("Error:", error))
 })

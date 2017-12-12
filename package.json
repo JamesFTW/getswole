@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "app.js",
+    "ios:setup": "node ./node_modules/react-native-fbsdk/bin/ios_setup.js",
     "test": "jest"
   },
   "dependencies": {
