@@ -8,14 +8,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "adm-zip": "^0.4.7",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "pg": "^7.4.0",
     "pg-promise": "^7.3.1",
+    "plist": "^2.1.0",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.3",
+    "react-native-fbsdk": "^0.6.3",
     "react-router-native": "^4.1.1",
-    "react-swipeable-views-native": "^0.12.2"
+    "react-swipeable-views-native": "^0.12.2",
+    "xcode": "^1.0.0"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
