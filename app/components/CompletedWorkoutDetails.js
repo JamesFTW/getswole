@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   border:{
-    borderWidth: .5,
+    borderTopWidth: 1,
     borderColor: '#D0CECE'
   },
   weight:{
