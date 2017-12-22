@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
   },
   border:{
     borderTopWidth: 1,
-    borderBottomWidth: 1,
     borderColor: '#E5E3E3'
   },
   workout:{
