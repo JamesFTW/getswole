@@ -22,6 +22,9 @@ let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
 
 let data = require('../../completedworkout.json')
 
+import FBSDK, {LoginManager, AccessToken, loginActions, fetchLoginWithAPI, GraphRequest,
+  GraphRequestManager} from 'react-native-fbsdk'
+
 export default class ProfileScreen extends React.Component {
   constructor(props){
     super(props)
@@ -51,6 +54,48 @@ export default class ProfileScreen extends React.Component {
       }))
       .catch(err => console.log(err))
   }
+  _login(dispatch){
+      LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+          console.log(result)
+          if (result.isCancelled) {
+            // Login was cancelled
+          } else {
+            console.log(result)
+            AccessToken.getCurrentAccessToken().then((data) => {
+              let accessToken = data.accessToken
+              alert(accessToken.toString())
+
+              const responseInfoCallback = (error, result) => {
+                if (error) {
+                  console.log(error)
+                  alert('Error fetching data: ' + error.toString());
+                } else {
+                  console.log(result)
+                  alert('Success fetching data: ' + result.toString());
+                }
+              }
+
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: accessToken,
+                  parameters: {
+                    fields: {
+                      string: 'email,first_name,middle_name,last_name,id'
+                    }
+                  }
+                },
+                responseInfoCallback
+              );
+
+              new GraphRequestManager().addRequest(infoRequest).start()
+              console.log(infoRequest)
+            }
+          )
+        }
+   }
+ )
+}
 
   render(){
     if (this.state.isLoading) {
@@ -100,7 +145,7 @@ export default class ProfileScreen extends React.Component {
 
           </View>
           <CompletedWorkouts/>
-          
+
           <ScrollView style={styles.workoutstats}>
             {this.state.status.map((exercise, i) => {
               return (

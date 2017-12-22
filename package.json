@@ -9,21 +9,35 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+    "fastfall": "^1.5.1",
+    "got": "^8.0.1",
     "helmet": "^3.9.0",
     "pg": "^7.4.0",
     "pg-promise": "^7.3.1",
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.46.3",
+    "progress": "^2.0.0",
+    "prop-types": "^15.6.0",
+    "pump": "^2.0.0",
+    "react": "16.0.0",
+    "react-native": "^0.51.0",
+    "react-native-fbsdk": "^0.6.3",
+    "react-native-keychain": "^1.2.1",
     "react-router-native": "^4.1.1",
     "react-swipeable-views-native": "^0.12.2"
   },
   "devDependencies": {
+    "adm-zip": "^0.4.7",
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "2.1.0",
     "jest": "20.0.4",
-    "react-test-renderer": "16.0.0-alpha.12"
+    "plist": "^2.1.0",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "xcode": "^1.0.0"
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/JamesFTW/getswole.git",
+  "author": "<bdaddyja@gmail.com>",
+  "license": "MIT"
 }

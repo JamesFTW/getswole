@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   image:{
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    height: 100
   },
   container2: {
     position: 'absolute',
