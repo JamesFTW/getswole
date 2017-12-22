@@ -1,7 +1,9 @@
 package com.getswole;
 
 import com.facebook.react.ReactActivity;
-import com.horcrux.svg.SvgPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 
 public class MainActivity extends ReactActivity {
 
