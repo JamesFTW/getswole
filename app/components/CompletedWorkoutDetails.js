@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
   weight:{
     textAlign: 'center',
     fontFamily: 'HelveticaNeue-Bold',
-    fontSize: 30
+    fontSize: 30,
+    color: '#1A1A1A'
   },
   sets_rep_wrapper:{
     display: 'flex',
