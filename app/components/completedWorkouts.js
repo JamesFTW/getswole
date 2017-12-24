@@ -24,7 +24,7 @@ export default class CompletedWorkouts extends Component {
 
         <View style={styles.workoutwrapper}>
           <Text style={styles.weight}>100 </Text>
-          <Text style={styles.workoutText}>Workouts</Text>
+          <Text style={styles.workoutText}>WORKOUTS</Text>
         </View>
 
         <View style={styles.completedWrap}>
@@ -34,7 +34,7 @@ export default class CompletedWorkouts extends Component {
         <View style={styles.workoutwrapper}>
           {/* Most likely will pass data ass props in ProfileScreen */}
           <Text style={styles.weight}>100k </Text>
-          <Text style={styles.workoutText}>lbs</Text>
+          <Text style={styles.workoutText}>LBS</Text>
         </View>
 
         <View style={styles.completedWrap}>

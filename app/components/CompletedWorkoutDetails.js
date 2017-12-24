@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     letterSpacing: 1,
     marginLeft: 5,
-    color: '#4F4F4F'
+    color: '#1F1C1C'
   },
   date:{
     fontFamily: 'Helvetica-Light',

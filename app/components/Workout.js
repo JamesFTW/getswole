@@ -74,14 +74,14 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Thin',
     letterSpacing: 2,
     textAlign: 'auto',
-    color: '#4F4F4F',
+    color: '#1F1C1C',
 },
   weight: {
     fontSize: 34,
     fontFamily: 'HelveticaNeue-Medium',
     textAlign: 'center',
     letterSpacing: -1,
-    color: '#4F4F4F'
+    color: '#1A1A1A'
 },
   set: {
     fontSize: 18,
