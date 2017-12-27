@@ -46,6 +46,9 @@ export default class CompletedWorkouts extends Component {
 }
 
 const styles = StyleSheet.create({
+  workoutCompleteWrap:{
+    bottom: 15
+  },
   workoutwrapper:{
     display: 'flex',
     flexDirection: 'row',
@@ -55,12 +58,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     fontSize: 40,
     backgroundColor: 'rgba(0,0,0,0)',
+    color: 'black'
   },
   workoutText:{
     fontFamily: 'HelveticaNeue-Thin',
     fontSize: 40,
     backgroundColor: 'rgba(0,0,0,0)',
-    letterSpacing: 1
+    color: '#4F4F4F',
+    letterSpacing: 0
   },
   completedWrap:{
     display: 'flex',
@@ -71,6 +76,7 @@ const styles = StyleSheet.create({
   completedText:{
     backgroundColor: 'rgba(0,0,0,0)',
     color: '#6C6B6B',
-    letterSpacing: 1
+    letterSpacing: 1,
+    right: 2,
   }
 })

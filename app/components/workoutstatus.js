@@ -45,15 +45,22 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     marginRight: 25,
   },
+  icon:{
+    top: 2
+    //alignSelf: 'center'
+  },
   border:{
     borderTopWidth: 1,
-    borderColor: '#E5E3E3'
+    borderColor: '#E5E3E3',
+    marginBottom: 5
   },
   workout:{
     fontFamily: 'Helvetica-Light',
     fontSize: 24,
     letterSpacing: 1,
+    color: '#1F1C1C',
     marginRight: 5,
+    alignSelf: 'center'
   },
   date:{
     color: '#989898',
