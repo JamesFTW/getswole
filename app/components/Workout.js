@@ -15,40 +15,40 @@ import SwipeableViews from 'react-swipeable-views-native';
 export default class Workout extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      weight: []
-      }
-      this._onPressButtonPlus       = this._onPressButtonPlus.bind(this)
-      this._onPressButtonMinus      = this._onPressButtonMinus.bind(this)
-  }
-  componentWillMount(){
-    this.setState({
-      weight: this.props.weight
-    })
-  }
-  _onPressButtonPlus(){
-    this.setState({
-      weight: this.state.weight + 1
-    })
-  }
-  _onPressButtonMinus(){
-    this.setState({
-      weight: this.state.weight - 1
-    })
+  //   this.state = {
+  //     weight: []
+  //     }
+  //     this._onPressButtonPlus       = this._onPressButtonPlus.bind(this)
+  //     this._onPressButtonMinus      = this._onPressButtonMinus.bind(this)
+  // }
+  // componentWillMount(){
+  //   this.setState({
+  //     weight: this.props.weight
+  //   })
+  // }
+  // _onPressButtonPlus(){
+  //   this.setState({
+  //     weight: this.state.weight + 1
+  //   })
+  // }
+  // _onPressButtonMinus(){
+  //   this.setState({
+  //     weight: this.state.weight - 1
+  //   })
   }
   render(){
     return(
       <SwipeableViews style={styles.slideContainer}>
         <View id={this.props.key} style={styles.container}>
           <Text style={styles.workout}>{this.props.type}</Text>
-          <Text style={styles.weight}>{this.state.weight} lb</Text>
+          <Text style={styles.weight}>{this.props.count} lb</Text>
           <Text style={styles.set}>{this.props.sets} sets x {this.props.rep} reps </Text>
 
-          <TouchableOpacity onPress={this._onPressButtonMinus}>
+          <TouchableOpacity onPress={this.props.decrement}>
             <Image style={styles.minus} source={require('../../img/minus_button/Vectorminus.png')} />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={this._onPressButtonPlus}>
+          <TouchableOpacity onPress={this.props.increment}>
             <Image style={styles.plus} source={require('../../img/plus_button/plusplus.png')} />
           </TouchableOpacity>
         </View>
