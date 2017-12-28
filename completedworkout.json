@@ -1,11 +1,11 @@
 [
   {
-    "workout": "Leg Day",
+    "workout": "LEG DAY",
     "completed": true,
     "date": "12/1/17"
   },
   {
-    "workout": "Back and Biceps",
+    "workout": "BACK AND BICEPS",
     "completed": true,
     "date": "12/1/17"
   },
@@ -15,7 +15,27 @@
     "date": "12/1/17"
   },
   {
-    "workout": "Abs",
+    "workout": "ABS",
+    "completed": true,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "REST DAY!",
+    "completed": true,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "CHEST DAY",
+    "completed": true,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "ABS",
+    "completed": true,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "ABS",
     "completed": true,
     "date": "12/1/17"
   },
@@ -25,27 +45,7 @@
     "date": "12/1/17"
   },
   {
-    "workout": "Chest Day",
-    "completed": true,
-    "date": "12/1/17"
-  },
-  {
-    "workout": "Abs",
-    "completed": true,
-    "date": "12/1/17"
-  },
-  {
-    "workout": "Abs",
-    "completed": true,
-    "date": "12/1/17"
-  },
-  {
-    "workout": "Rest Day!",
-    "completed": true,
-    "date": "12/1/17"
-  },
-  {
-    "workout": "Chest Day",
+    "workout": "CHEST DAY",
     "completed": true,
     "date": "12/1/17"
   },
