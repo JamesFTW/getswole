@@ -34,7 +34,7 @@ export default class WorkoutDetails extends Component {
         <CompletedWorkoutDetails/>
         <CompletedWorkoutDetails/>
         <CompletedWorkoutDetails/>
-        
+
 
       </View>
     </View>

@@ -6,8 +6,10 @@ import {
   Text,
   View,
   ImageBackground,
+  Button,
   Image,
   TouchableOpacity,
+  TouchableHighlight,
   ScrollView
 } from 'react-native';
 
@@ -22,7 +24,7 @@ let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
 
 let data = require('../../completedworkout.json')
 
-import FBSDK, {LoginManager, AccessToken, loginActions, fetchLoginWithAPI, GraphRequest,
+import FBSDK, {LoginButton,LoginManager, AccessToken, loginActions, fetchLoginWithAPI, GraphRequest,
   GraphRequestManager} from 'react-native-fbsdk'
 
 export default class ProfileScreen extends React.Component {
@@ -54,7 +56,7 @@ export default class ProfileScreen extends React.Component {
       }))
       .catch(err => console.log(err))
   }
-  _login(dispatch){
+  _login(){
       LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
           console.log(result)
           if (result.isCancelled) {
@@ -93,9 +95,9 @@ export default class ProfileScreen extends React.Component {
             }
           )
         }
-   }
- )
-}
+      }
+    )
+  }
 
   render(){
     if (this.state.isLoading) {
@@ -110,6 +112,10 @@ export default class ProfileScreen extends React.Component {
     return(
       <View style={styles.container2}>
         <View style={styles.flexContainer}>
+
+          {/* <Button
+            onPress={() => this._login()}
+            title='Login With Facebook'/> */}
 
           <View style={styles.flexHeader}>
             <ImageBackground style={styles.image}>
