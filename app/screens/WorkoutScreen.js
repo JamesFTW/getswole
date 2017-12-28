@@ -9,6 +9,11 @@ import {
 } from 'react-native';
 
 import Workout from '../components/Workout.js'
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import store from '../store/store.js';
+import CounterContainer from '../container/CounterContainer.js';
+
 
 let data = require('../../sample.json')
 
@@ -21,7 +26,7 @@ export default class WorkoutScreen extends Component {
       }
   }
   render() {
-  console.log(this.state)
+
     return (
     <View style={styles.container2}>
       <View style={styles.flexContainer}>
@@ -32,15 +37,19 @@ export default class WorkoutScreen extends Component {
           </ImageBackground>
         </View>
 
+
+        <Provider store={store}>
         <ScrollView style={styles.flexBody}>
           {this.state.workouts.map((exercise, i) => {
+            console.log(this.props)
             return (
               <View key={i}>
-                <Workout keyId={i} id={exercise.id} type={exercise.exerciseName} weight={exercise.weight} sets={exercise.sets} rep={exercise.rep}/>
+                <CounterContainer keyId={i} id={exercise.id} type={exercise.exerciseName} count={this.props.count} sets={exercise.sets} rep={exercise.rep}/>
               </View>
             )
           })}
         </ScrollView>
+        </Provider>
 
       </View>
     </View>
