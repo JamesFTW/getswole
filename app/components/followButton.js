@@ -62,13 +62,18 @@ export default class FollowButton extends Component {
 const styles = StyleSheet.create({
   plus_icon:{
     marginRight: 10,
+    shadowColor: '#84838A',
+    shadowOffset: { width: 2, height: 2},
+    shadowOpacity: 0.5,
+    shadowRadius: .5
   },
   ButtonContainer:{
     flexDirection: 'row',
     height: 40,
     width: 123,
     left: 5,
-    borderWidth: .5,
+    borderWidth: 1,
+    borderColor: '#AFAEAE',
     bottom: 25,
     backgroundColor: '#DADADA'
   },
@@ -78,6 +83,7 @@ const styles = StyleSheet.create({
     width: 123,
     left: 5,
     borderColor: '#AFAEAE',
+    borderRadius: 3,
     borderWidth: .5,
     bottom: 25,
     backgroundColor: '#2D9CDB'
@@ -100,6 +106,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginLeft: 2,
     color: '#FFFCFC',
+    elevation: 1,
+    textShadowColor: 'rgba(132,131,138,.5)',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 4,
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1
   },
