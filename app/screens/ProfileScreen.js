@@ -148,13 +148,17 @@ export default class ProfileScreen extends React.Component {
                 <Text style={styles.followerCount}>{this.state.followers}</Text>
                 <Text style={styles.followerText}> Followers </Text>
               </View>
-              <FollowButton/>
+              <View style={styles.followButton}>
+                <FollowButton/>
+              </View>
             </View>
 
           </View>
+          <View style={styles.completedWorkouts}>
           <CompletedWorkouts/>
+          </View>
 
-          <ScrollView style={styles.workoutstats}>
+          <View style={styles.workoutstats}>
             {this.state.status.map((exercise, i) => {
               return (
                 <View key={i}>
@@ -163,8 +167,8 @@ export default class ProfileScreen extends React.Component {
               )
             })
             }
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
     )
   }
