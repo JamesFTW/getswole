@@ -171,10 +171,18 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
   flexHeader:{
     height: 55,
+    alignContent: 'center',
+    justifyContent: 'center',
     backgroundColor: '#40D4BB'
   },
   workoutstats:{
-    marginBottom: 60
+    //bottom: 90,
+    height: '120%'
+  },
+  completedWorkouts:{
+    //marginTop: 50,
+    //marginBottom: 80
+    // bottom: 85
   },
   loading:{
     position: 'absolute',
@@ -188,32 +196,36 @@ const styles = StyleSheet.create({
   firstName:{
     zIndex: 2312,
     alignItems: 'center',
-    top: 10,
+    top: 20,
     marginLeft: 77,
     right: 25,
     backgroundColor: 'rgba(0,0,0,0)',
   },
   firstNameText:{
-    color: '#424040',
     fontFamily: 'HelveticaNeue',
-    letterSpacing: 1,
-    fontSize: 18,
+    letterSpacing: 1.5,
+    color: '#6C6B6B',
+    fontSize: 16,
     right: 12,
   },
+  followButton:{
+    marginLeft: 5,
+    top: 3
+  },
   followingContainer:{
+    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    alignContent: 'center',
-    bottom: 5,
-    left: 95
+    justifyContent: 'space-between',
+    marginRight: 10,
+    right: 5,
+    marginLeft: 10,
+    bottom: 25
   },
   followers:{
-    alignSelf: 'center',
-    bottom: 25
+    top: 65
   },
   following:{
-    alignSelf: 'center',
-    bottom: 25
+    top: 65
   },
   followingText:{
     backgroundColor: 'rgba(0,0,0,0)',
@@ -223,7 +235,6 @@ const styles = StyleSheet.create({
     fontSize: 12
   },
   followingCount:{
-    position: 'relative',
     alignSelf: 'center',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)',
@@ -233,14 +244,12 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   followerCount:{
-    position: 'relative',
     alignSelf: 'center',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'black',
     fontFamily: 'HelveticaNeue',
     letterSpacing: 1,
-    right: 1,
     fontSize: 20
   },
   followerText:{
@@ -252,9 +261,10 @@ const styles = StyleSheet.create({
   },
   userContainer:{
     position: 'relative',
-    left: 2,
-    bottom: 18,
-    width: '100%'
+    marginBottom: 40,
+    flex: 1,
+    flexDirection: 'row',
+    marginLeft: 10
   },
   container2: {
     position: 'absolute',
@@ -266,20 +276,17 @@ const styles = StyleSheet.create({
   profilePhotoStyle: {
     width: 80,
     height: 80,
-    borderRadius: 5,
-    left: 10,
-    top: 10
+    borderRadius: 5
   },
   flexContainer:{
     display: 'flex',
     flexDirection: 'column',
-    height: '100%'
+    height: '100%',
+    marginBottom:60
   },
   header:{
     zIndex: 3,
     textAlign: 'center',
-    top: 11,
-    left: 11,
     fontSize: 24,
     fontFamily: 'HelveticaNeue-Thin',
     letterSpacing: 3,
@@ -290,9 +297,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   settings:{
-    position: 'absolute',
-    left: 330,
-    bottom: 13,
-    //zIndex: 102
+    position: 'absolute'
   },
 });

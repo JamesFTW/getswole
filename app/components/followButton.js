@@ -68,25 +68,42 @@ const styles = StyleSheet.create({
     shadowRadius: .5
   },
   ButtonContainer:{
-    flexDirection: 'row',
-    height: 40,
-    width: 123,
-    left: 5,
+    top: 60,
+    // height: 40,
+    // width: 123,
+    //left: 5,
+    width: 125,
+    padding: 10,
+    paddingRight: 10,
+    marginLeft: 4,
+
     borderWidth: 1,
     borderColor: '#AFAEAE',
-    bottom: 25,
-    backgroundColor: '#DADADA'
+    backgroundColor: '#DADADA',
+
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    // alignItems: 'flex-end'
   },
   ButtonContainerFalse:{
+    top: 60,
+    // height: 40,
+    // width: 123,
+    //left: 5,
+
+    width: 125,
+    padding: 10,
+    paddingRight: 10,
+    marginLeft: 4,
+
+    borderWidth: 1,
+    borderColor: '#2D9CDB',
+    backgroundColor: '#2D9CDB',
+    display: 'flex',
     flexDirection: 'row',
-    height: 40,
-    width: 123,
-    left: 5,
-    borderColor: '#AFAEAE',
-    borderRadius: 3,
-    borderWidth: .5,
-    bottom: 25,
-    backgroundColor: '#2D9CDB'
+    justifyContent: 'space-between',
   },
   ButtonTextContainer:{
     flex: 1,
