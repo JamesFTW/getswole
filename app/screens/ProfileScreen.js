@@ -111,26 +111,28 @@ export default class ProfileScreen extends React.Component {
    }
     return(
       <View style={styles.container2}>
-        <View style={styles.flexContainer}>
+        <View style={styles.flexHeader}>
+          <ImageBackground style={styles.image}>
+            <Text style={styles.header}>{this.state.userName}</Text>
+          </ImageBackground>
+
+          <TouchableOpacity>
+            <ImageBackground style={styles.settings} source={require('../../img/settings/Settings.png')}/>
+          </TouchableOpacity>
+        </View>
+        <ScrollView style={styles.flexContainer}>
 
           {/* <Button
             onPress={() => this._login()}
             title='Login With Facebook'/> */}
 
-          <View style={styles.flexHeader}>
-            <ImageBackground style={styles.image}>
-              <Text style={styles.header}>{this.state.userName}</Text>
-            </ImageBackground>
 
-            <TouchableOpacity>
-              <ImageBackground style={styles.settings} source={require('../../img/settings/Settings.png')}/>
-            </TouchableOpacity>
-          </View>
           <View style={styles.firstName}>
             <Text style={styles.firstNameText}>{this.state.firstName}</Text>
           </View>
 
           <View style={styles.userContainer}>
+
             <Image
               style={styles.profilePhotoStyle}
               source={{uri: this.state.profilePhoto}}
