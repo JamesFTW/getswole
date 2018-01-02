@@ -69,15 +69,21 @@ const styles = StyleSheet.create({
   },
   ButtonContainer:{
     top: 60,
+    shadowColor: '#C7C7C7',
+    shadowOffset: { width: 2, height: 2},
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
     // height: 40,
     // width: 123,
     //left: 5,
     width: 125,
     padding: 10,
     paddingRight: 10,
+    right: 3,
     marginLeft: 4,
 
     borderWidth: 1,
+    borderRadius: 2,
     borderColor: '#AFAEAE',
     backgroundColor: '#DADADA',
 
@@ -99,6 +105,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
 
     borderWidth: 1,
+    borderRadius: 1,
     borderColor: '#2D9CDB',
     backgroundColor: '#2D9CDB',
     display: 'flex',
