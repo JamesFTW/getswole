@@ -34,8 +34,8 @@ export default class ProfileScreen extends React.Component {
       userName: '',
       firstName: '',
       profilePhoto: '',
-      following: 0,
-      followers: 0,
+      following: 50000,
+      followers: 50000,
       isLoading: true,
       status: data
       }
@@ -100,6 +100,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   render(){
+    console.log(this.state)
     if (this.state.isLoading) {
      return (
        <View style={styles.loading}>
@@ -222,22 +223,23 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 10,
+    paddingRight: 5,
     right: 5,
-    marginLeft: 10,
+    paddingLeft: 15,
     bottom: 25
   },
   followers:{
     top: 65
   },
   following:{
-    top: 65
+    top: 65,
+    left: 5
   },
   followingText:{
     backgroundColor: 'rgba(0,0,0,0)',
     color: '#6C6B6B',
     fontFamily: 'HelveticaNeue',
-    letterSpacing: 1,
+    //letterSpacing: 1,
     fontSize: 12
   },
   followingCount:{
@@ -246,7 +248,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'black',
     fontFamily: 'HelveticaNeue',
-    letterSpacing: 1,
+    //letterSpacing: 1,
     fontSize: 20
   },
   followerCount:{
@@ -255,22 +257,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
     color: 'black',
     fontFamily: 'HelveticaNeue',
-    letterSpacing: 1,
+    //letterSpacing: 1,
+    right: 2,
     fontSize: 20
   },
   followerText:{
     backgroundColor: 'rgba(0,0,0,0)',
     color: '#6C6B6B',
     fontFamily: 'HelveticaNeue',
-    letterSpacing: 1,
+    //letterSpacing: 1,
     fontSize: 12
   },
   userContainer:{
     position: 'relative',
     marginBottom: 40,
+    borderRadius: 1,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderColor: '#BFBFBF',
     flex: 1,
     flexDirection: 'row',
-    marginLeft: 10
+    paddingLeft: 15
   },
   container2: {
     position: 'absolute',
