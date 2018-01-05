@@ -180,7 +180,11 @@ const styles = StyleSheet.create({
     height: 55,
     alignContent: 'center',
     justifyContent: 'center',
-    backgroundColor: '#40D4BB'
+    backgroundColor: '#40D4BB',
+    shadowColor: '#C7C7C7',
+    shadowOffset: { width: 0, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 4,
   },
   workoutstats:{
     //bottom: 90,
@@ -216,7 +220,8 @@ const styles = StyleSheet.create({
     right: 12,
   },
   followButton:{
-    marginLeft: 5,
+    //marginLeft: 5,
+    right: 5,
     top: 3
   },
   followingContainer:{
@@ -284,7 +289,8 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
+    marginBottom: 15
   },
   profilePhotoStyle: {
     width: 80,

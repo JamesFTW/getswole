@@ -14,19 +14,19 @@ export default class Navbar extends Component{
     return(
       <View style={styles.navRectangle}>
         <TouchableOpacity>
-          <Image style={{ marginLeft: 20 }} source={require('../../img/home/Home.png')} />
+          <Image style={{ marginLeft: 20, marginBottom: 10, paddingTop: 20 }} source={require('../../img/home/Home.png')} />
         </TouchableOpacity>
         <Link
           to='/'
           component={TouchableOpacity}
           >
-          <Image source={require('../../img/workout/Vector.png')} style={{ marginRight: 5}} />
+          <Image source={require('../../img/workout/Vector.png')} style={{ marginRight: 10, marginBottom: 10}} />
         </Link>
         <Link
           to='ProfileScreen'
           component={TouchableOpacity}
           >
-          <Image style={{ marginRight: 20 }} source={require('../../img/user/noun.png')} />
+          <Image style={{ marginRight: 20, marginBottom: 10 }} source={require('../../img/user/noun.png')} />
         </Link>
       </View>
     )

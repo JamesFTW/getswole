@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     backgroundColor: '#EDEDED',
     top: 10,
-    marginBottom: 70
+    marginBottom: 80
   },
   flexFooter: {
     backgroundColor: 'red'
