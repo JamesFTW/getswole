@@ -9,7 +9,8 @@ import {
   View
 } from 'react-native';
 
-//let data = require('../../user.json')
+const followButton    = require('../../img/follow_plus/noun_119212_cc.png')
+const followingButton = require('../../img/checkmark/checkmark.png')
 
 export default class FollowButton extends Component {
   constructor(props){
@@ -38,7 +39,7 @@ export default class FollowButton extends Component {
         <TouchableOpacity onPress={this._onPressTrue}>
           <View style={styles.ButtonContainer}>
             <View style={styles.ButtonTextContainer}>
-              <Image source={require('../../img/follow_plus/noun_119212_cc.png')} style={styles.plus_icon}/>
+              <Image source={followButton} style={styles.plus_icon}/>
               <Text style={styles.ButtonText}>Follow</Text>
             </View>
           </View>
@@ -49,7 +50,7 @@ export default class FollowButton extends Component {
         <TouchableOpacity onPress={this._onPressFalse}>
           <View style={styles.ButtonContainerFalse}>
             <View style={styles.ButtonTextContainerFollow}>
-              <Image source={require('../../img/checkmark/checkmark.png')} style={styles.plus_icon}/>
+              <Image source={followingButton} style={styles.plus_icon}/>
               <Text style={styles.ButtonText}>Following</Text>
             </View>
           </View>
@@ -70,20 +71,15 @@ const styles = StyleSheet.create({
   ButtonContainer:{
     top: 60,
     shadowColor: '#C7C7C7',
-    shadowOffset: { width: 2, height: 1.5},
+    shadowOffset: { width: 1.5, height: 2.5},
     shadowOpacity: 1,
-    shadowRadius: .5,
-    // height: 40,
-    // width: 123,
-    //left: 5,
+    shadowRadius: 1,
+
     width: 125,
     padding: 10,
     paddingRight: 10,
-    // right: 3,
     marginLeft: 4,
 
-    borderWidth: 1,
-    borderRadius: 2,
     borderColor: '#AFAEAE',
     backgroundColor: '#DADADA',
 
@@ -91,13 +87,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // alignItems: 'flex-end'
   },
   ButtonContainerFalse:{
     top: 60,
-    // height: 40,
-    // width: 123,
-    //left: 5,
 
     width: 125,
     padding: 10,
