@@ -27,16 +27,8 @@ export default class Header extends Component{
 }
 
 const styles = StyleSheet.create({
-  flexFooter: {
-    backgroundColor: 'red'
-  },
   container2: {
     position: 'absolute',
-  },
-  flexBody:{
-    flex: 1,
-    display: 'flex',
-    backgroundColor: '#EDEDED'
   },
   flexHeader:{
     height: '5%'
