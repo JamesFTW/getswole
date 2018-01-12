@@ -6,27 +6,33 @@ import {
   Image,
   TouchableOpacity,
   TouchableHighlight,
-} from 'react-native';
+} from 'react-native'
+
 import {NativeRouter, Link}   from 'react-router-native'
 
+var homeIcon = require('../../img/home/Home.png')
+var barbellIcon = require('../../img/workout/Vector.png')
+var userIcon = require('../../img/user/noun.png')
+
 export default class Navbar extends Component{
+
   render(){
     return(
       <View style={styles.navRectangle}>
         <TouchableOpacity>
-          <Image style={{ marginLeft: 20, marginBottom: 10, paddingTop: 20 }} source={require('../../img/home/Home.png')} />
+          <Image style={{ marginLeft: 20 }} source={homeIcon} />
         </TouchableOpacity>
         <Link
           to='/'
           component={TouchableOpacity}
           >
-          <Image source={require('../../img/workout/Vector.png')} style={{ marginRight: 10, marginBottom: 10}} />
+          <Image source={barbellIcon} style={{ marginRight: 10}} />
         </Link>
         <Link
-          to='ProfileScreen'
+          to='/ProfileScreen'
           component={TouchableOpacity}
           >
-          <Image style={{ marginRight: 20, marginBottom: 10 }} source={require('../../img/user/noun.png')} />
+          <Image style={{ marginRight: 20}} source={userIcon} />
         </Link>
       </View>
     )

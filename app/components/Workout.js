@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 import SwipeableViews from 'react-swipeable-views-native';
+const minusButton = require('../../img/minus_button/Vectorminus.png')
+const plusButton  = require('../../img/plus_button/plusplus.png')
 
 export default class Workout extends React.Component {
   constructor(props){
@@ -45,11 +47,11 @@ export default class Workout extends React.Component {
           <Text style={styles.set}>{this.props.sets} sets x {this.props.rep} reps </Text>
 
           <TouchableOpacity onPress={this.props.decrement}>
-            <Image style={styles.minus} source={require('../../img/minus_button/Vectorminus.png')} />
+            <Image style={styles.minus} source={minusButton} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this.props.increment}>
-            <Image style={styles.plus} source={require('../../img/plus_button/plusplus.png')} />
+            <Image style={styles.plus} source={plusButton} />
           </TouchableOpacity>
         </View>
 
@@ -75,20 +77,23 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     textAlign: 'auto',
     color: '#1F1C1C',
+    backgroundColor: 'rgba(0,0,0,0)'
 },
   weight: {
     fontSize: 34,
     fontFamily: 'HelveticaNeue-Medium',
     textAlign: 'center',
     letterSpacing: -1,
-    color: '#1A1A1A'
+    color: '#1A1A1A',
+    backgroundColor: 'rgba(0,0,0,0)'
 },
   set: {
     fontSize: 18,
     fontFamily: 'HelveticaNeue-Thin',
     top:10,
     textAlign: 'center',
-    color: '#333333'
+    color: '#333333',
+    backgroundColor: 'rgba(0,0,0,0)'
     },
   minus:{
     right: 105,
