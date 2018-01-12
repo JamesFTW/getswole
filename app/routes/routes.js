@@ -16,7 +16,7 @@ const routes = () => (
 
         <Route exact path="/" component={WorkoutScreen}/>
         <Route path="/ProfileScreen" component={ProfileScreen}/>
-        <Route path="/WorkoutDetails" component={WorkoutDetails}/>
+        <Route path="/WorkoutDetails/:id" component={WorkoutDetails}/>
         <Navbar />
       </View>
     </View>
