@@ -1,15 +1,30 @@
 import { createStore } from 'redux'
 
 export const counter = (state = 0, action) => {
-  switch (action.type) {
-  case 'INCREMENT':
-    return state + 1;
-  case 'DECREMENT':
-    return state - 1;
-  case 'RESET':
-    return 0;
-  default:
-    return state;
+  switch(action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+const workoutCount = (state = [], action) => {
+  switch(action.type) {
+    case 'INCREMENT':
+      return [
+        ...state,
+        counter(undefined, action)
+      ]
+    case 'DECREMENT':
+      return [
+        ...state,
+        counter(undefined, action)
+      ]
+    default:
+      return state
   }
 }
 
