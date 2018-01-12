@@ -14,23 +14,22 @@ export default class CompletedWorkoutDetails extends Component {
     super(props)
   }
   render() {
-  console.log(this.state)
     return (
       <View style={styles.border}>
         <View style={styles.temp_details}>
           <View style={styles.date_time_wrapper}>
-            <Text style={styles.date}>12/4/16</Text>
-            <Text style={styles.time}>9:30am</Text>
+            <Text style={styles.date}>{this.props.date_completed}</Text>
+            <Text style={styles.time}>{this.props.time_completed}</Text>
           </View>
 
           <View style={styles.workout_weight_wrapper}>
-            <Text style={styles.workout}>Leg Extension</Text>
-            <Text style={styles.weight}>145</Text>
+            <Text style={styles.workout}>{this.props.exercise}</Text>
+            <Text style={styles.weight}>{this.props.weight}</Text>
           </View>
 
           <View style={styles.sets_rep_wrapper}>
-            <Text style={styles.sets}>4 sets</Text>
-            <Text style={styles.reps}>12 reps</Text>
+            <Text style={styles.sets}>{this.props.sets} reps</Text>
+            <Text style={styles.reps}>{this.props.reps} sets</Text>
           </View>
         </View>
       </View>
@@ -46,7 +45,8 @@ const styles = StyleSheet.create({
   },
   border:{
     borderTopWidth: 1,
-    borderColor: '#D0CECE'
+    borderColor: '#D0CECE',
+    padding: 3,
   },
   weight:{
     textAlign: 'center',
