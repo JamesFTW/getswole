@@ -1,0 +1,189 @@
+{
+  "workouts":
+  [
+    {
+  "workout": "Leg Day",
+  "workoutID": 3423423,
+  "status": "Completed",
+  "statusID": 1,
+  "exercises": [
+    {
+      "exercise": "Leg Press",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Front Squat",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Back Squat",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Leg Extension",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Front Squat",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Back Squat",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Leg Extension",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12,
+        },
+      ],
+    },
+    {
+  "workout": "Back And Biceps",
+  "workoutID": 3423423,
+  "status": "Completed",
+  "statusID": 2,
+  "exercises": [
+    {
+      "exercise": "Bentover Row",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Bicep Curl",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Lat Pulldown",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Seated Row",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+  ],
+    },
+    {
+  "workout": "Chest Day",
+  "workoutID": 3423423,
+  "status": "Completed",
+  "statusID": 3,
+  "exercises": [
+    {
+      "exercise": "Chest Row",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Chest Curl",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Chest Pulldown",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Chest Up",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+  ],
+},
+{
+"workout": "Abs",
+"workoutID": 3423423,
+"status": "Completed",
+"statusID": 4,
+"exercises": [
+  {
+    "exercise": "Ab Row",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Ab Curl",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Ab Pulldown",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Ab Row",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+],
+},
+],
+}
