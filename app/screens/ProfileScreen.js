@@ -13,6 +13,7 @@ import {
   ScrollView
 } from 'react-native';
 
+import API                from '../store/api'
 import Navbar             from '../components/navbar.js'
 import CompletedWorkouts  from '../components/completedWorkouts.js'
 import FollowButton       from '../components/followButton'
@@ -22,7 +23,8 @@ import WorkoutStatus      from '../components/workoutstatus.js'
 //Eventually have to figure out how to save this UUID for each user.
 let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
 
-let data = require('../../completedworkout.json')
+let data  = require('../../completedworkout.json')
+
 
 import FBSDK, {LoginButton,LoginManager, AccessToken, loginActions, fetchLoginWithAPI, GraphRequest,
   GraphRequestManager} from 'react-native-fbsdk'
@@ -34,28 +36,26 @@ export default class ProfileScreen extends React.Component {
       userName: '',
       firstName: '',
       profilePhoto: '',
-      following: 50000,
-      followers: 50000,
+      following: 0,
+      followers: 0,
       isLoading: true,
       status: data
-      }
+    }
   }
 
-  componentDidMount(){
-    //possibly add some type of isLoading state
-    fetch(`https://swole.herokuapp.com/users/${userID}`)
-      .then(res => res.json())
-      //.then(data => console.log(data))
-      .then(data => this.setState({
+  componentDidMount() {
+    API.getUserByID(userID, (data) => {
+      this.setState({
         userName: data.username,
         firstName: data.firstname,
         profilePhoto: data.profilephoto,
         following: data.following,
         followers: data.followercount,
         isLoading: false,
-      }))
-      .catch(err => console.log(err))
+      })
+    })
   }
+
   _login(){
       LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
           console.log(result)
@@ -100,7 +100,6 @@ export default class ProfileScreen extends React.Component {
   }
 
   render(){
-    console.log(this.state)
     if (this.state.isLoading) {
      return (
        <View style={styles.loading}>
@@ -155,15 +154,16 @@ export default class ProfileScreen extends React.Component {
             </View>
 
           </View>
+
           <View style={styles.completedWorkouts}>
-          <CompletedWorkouts/>
+            <CompletedWorkouts/>
           </View>
 
           <View style={styles.workoutstats}>
             {this.state.status.map((exercise, i) => {
               return (
                 <View key={i}>
-                  <WorkoutStatus key={i} date={exercise.date} workout={exercise.workout}/>
+                  <WorkoutStatus key={i} completed={exercise.completed} id={exercise.statusID} date={exercise.date} workout={exercise.workout}/>
                 </View>
               )
             })
@@ -189,11 +189,6 @@ const styles = StyleSheet.create({
   workoutstats:{
     //bottom: 90,
     height: '120%'
-  },
-  completedWorkouts:{
-    //marginTop: 50,
-    //marginBottom: 80
-    // bottom: 85
   },
   loading:{
     position: 'absolute',
@@ -301,7 +296,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    marginBottom:60
+    marginBottom: 45
   },
   header:{
     zIndex: 3,

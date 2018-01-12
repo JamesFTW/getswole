@@ -12,35 +12,55 @@ import {
 import CompletedWorkoutDetails from '../components/CompletedWorkoutDetails.js'
 import Workout                 from '../components/Workout.js'
 
+let data = require('../../json/completedWorkouts.json')
 
 export default class WorkoutDetails extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      data: data,
+      currentWorkout: '',
+      currentStatus: ''
+    }
+  }
+  componentDidMount(){
+    this.state.data.workouts.map((workout,i) => {
+      if(workout.statusID.toString() === this.props.match.params.id){
+          this.setState({
+            currentWorkout: workout.workout,
+            currentStatus: workout.status
+          })
+        }
+      })
   }
   render() {
-  console.log(this.state)
+    console.log(this.state)
+    this.state.data.workouts.map((workout,i) => {
+      if(workout.statusID.toString() === this.props.match.params.id){
+        Details = workout.exercises.map((exercise, i) => {
+          return (
+            <View key={i}>
+              <CompletedWorkoutDetails sets={exercise.sets} reps={exercise.reps} time_completed={exercise.time_completed} exercise={exercise.exercise} weight={exercise.weight} date_completed={exercise.date_completed} key={i}/>
+            </View>
+            )
+          })
+        }
+      })
+
     return (
-    <View style={styles.container2}>
-      <View style={styles.flexContainer}>
-
-        <View style={styles.flexheader}>
-          <Text style={styles.completed}>Completed</Text>
-          <Text style={styles.header}>Leg Day</Text>
-        </View>
-
-        <CompletedWorkoutDetails/>
-        <CompletedWorkoutDetails/>
-        <CompletedWorkoutDetails/>
-        <CompletedWorkoutDetails/>
-        <CompletedWorkoutDetails/>
-        <CompletedWorkoutDetails/>
-
-
+    <ScrollView style={styles.container2}>
+      <View style={styles.flexheader}>
+        <Text style={styles.completed}>{this.state.currentStatus}</Text>
+        <Text style={styles.header}>{this.state.currentWorkout}</Text>
       </View>
-    </View>
-    );
+      <View style={styles.flexContainer}>
+        {Details}
+      </View>
+    </ScrollView>
+      );
+    }
   }
-}
+
 
 const styles = StyleSheet.create({
   flexheader:{
@@ -133,7 +153,8 @@ const styles = StyleSheet.create({
   flexContainer:{
     display: 'flex',
     flexDirection: 'column',
-    height: '90%'
+    height: '90%',
+    marginBottom: 70
   },
   header:{
     textAlign: 'center',
