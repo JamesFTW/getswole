@@ -11,6 +11,8 @@ import {
 
 import {NativeRouter, Link} from 'react-router-native'
 
+const completedIcon = require('../../img/completed/Completed.png')
+
 export default class WorkoutStatus extends Component{
   constructor(props){
     super(props)
@@ -20,16 +22,18 @@ export default class WorkoutStatus extends Component{
   }
 
   render(){
+    const id = this.props.id
+
     return(
       <Link
-        to='WorkoutDetails'
+        to={`/WorkoutDetails/${id}`}
         component={TouchableOpacity}
         >
       <View style={styles.border}>
         <View style={styles.wrapper}>
           <Text style={styles.date}>{this.props.date}</Text>
           <Text style={styles.workout}>{this.props.workout}</Text>
-          <Image style={styles.icon}source={require('../../img/completed/Completed.png')}></Image>
+          <Image style={styles.icon} source={completedIcon}></Image>
         </View>
       </View>
     </Link>
