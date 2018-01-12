@@ -16,23 +16,25 @@ import CounterContainer from '../container/CounterContainer.js';
 
 
 let data = require('../../sample.json')
+let headerPhoto = require('../../img/header/header.png')
 
 export default class WorkoutScreen extends Component {
   constructor(props){
     super(props)
     this.state = {
       workouts: data.exercises,
-      workoutName: data.workout
+      workoutName: data.workout,
+      headerPhoto: headerPhoto
       }
   }
   render() {
-
+  
     return (
     <View style={styles.container2}>
       <View style={styles.flexContainer}>
 
         <View style={styles.flexHeader}>
-          <ImageBackground style={styles.image} source={require('../../img/header/header.png')}>
+          <ImageBackground style={styles.image} source={headerPhoto}>
             <Text style={styles.header}>{this.state.workoutName}</Text>
           </ImageBackground>
         </View>
@@ -41,10 +43,9 @@ export default class WorkoutScreen extends Component {
         <Provider store={store}>
         <ScrollView style={styles.flexBody}>
           {this.state.workouts.map((exercise, i) => {
-            console.log(this.props)
             return (
               <View key={i}>
-                <CounterContainer keyId={i} id={exercise.id} type={exercise.exerciseName} count={this.props.count} sets={exercise.sets} rep={exercise.rep}/>
+                <CounterContainer keyId={i} id={exercise.id} type={exercise.exerciseName} count={this.props.workoutCount} sets={exercise.sets} rep={exercise.rep}/>
               </View>
             )
           })}
@@ -60,18 +61,14 @@ export default class WorkoutScreen extends Component {
 
 const styles = StyleSheet.create({
   flexBody:{
-    flex: 1,
     display: 'flex',
-    backgroundColor: '#EDEDED',
-    top: 10,
-    marginBottom: 80
-  },
-  flexFooter: {
-    backgroundColor: 'red'
+    flexDirection: 'column',
+    height: '100%',
+    marginBottom: 60
   },
   image:{
     backgroundColor: 'transparent',
-    height: 100
+    height: 55
   },
   container2: {
     position: 'absolute',
@@ -83,13 +80,15 @@ const styles = StyleSheet.create({
   flexContainer:{
     display: 'flex',
     flexDirection: 'column',
-    height: '100%'
+    height: '100%',
   },
   flexHeader:{
-    height: 45,
+    shadowColor: '#C7C7C7',
+    shadowOffset: { width: 0, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 4,
   },
   header:{
-    zIndex: 2,
     textAlign: 'center',
     top: 11,
     fontSize: 24,
