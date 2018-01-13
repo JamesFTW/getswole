@@ -103,6 +103,14 @@
       "sets": 4,
       "reps": 12
     },
+    {
+      "exercise": "Dumbell Curl",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
   ],
     },
     {
@@ -112,7 +120,7 @@
   "statusID": 3,
   "exercises": [
     {
-      "exercise": "Chest Row",
+      "exercise": "Dumbell Press",
       "weight": 145,
       "date_completed": "1/8/18",
       "time_completed": "4:30pm",
@@ -120,7 +128,7 @@
       "reps": 12
     },
     {
-      "exercise": "Chest Curl",
+      "exercise": "Bench Press",
       "weight": 145,
       "date_completed": "1/8/18",
       "time_completed": "4:30pm",
@@ -128,7 +136,7 @@
       "reps": 12
     },
     {
-      "exercise": "Chest Pulldown",
+      "exercise": "Dumbell Fly",
       "weight": 145,
       "date_completed": "1/8/18",
       "time_completed": "4:30pm",
@@ -136,7 +144,23 @@
       "reps": 12
     },
     {
-      "exercise": "Chest Up",
+      "exercise": "Standing Chest Fly",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Bench Press",
+      "weight": 145,
+      "date_completed": "1/8/18",
+      "time_completed": "4:30pm",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "exercise": "Dumbell Fly",
       "weight": 145,
       "date_completed": "1/8/18",
       "time_completed": "4:30pm",
@@ -152,7 +176,7 @@
 "statusID": 4,
 "exercises": [
   {
-    "exercise": "Ab Row",
+    "exercise": "Leg Lifts",
     "weight": 145,
     "date_completed": "1/8/18",
     "time_completed": "4:30pm",
@@ -160,7 +184,7 @@
     "reps": 12
   },
   {
-    "exercise": "Ab Curl",
+    "exercise": "Ab Crunches",
     "weight": 145,
     "date_completed": "1/8/18",
     "time_completed": "4:30pm",
@@ -168,7 +192,7 @@
     "reps": 12
   },
   {
-    "exercise": "Ab Pulldown",
+    "exercise": "Bicycles",
     "weight": 145,
     "date_completed": "1/8/18",
     "time_completed": "4:30pm",
@@ -176,7 +200,31 @@
     "reps": 12
   },
   {
-    "exercise": "Ab Row",
+    "exercise": "Scissor Kicks",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Ab Crunches",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Bicycles",
+    "weight": 145,
+    "date_completed": "1/8/18",
+    "time_completed": "4:30pm",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "exercise": "Scissor Kicks",
     "weight": 145,
     "date_completed": "1/8/18",
     "time_completed": "4:30pm",
