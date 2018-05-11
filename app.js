@@ -43,6 +43,14 @@ app.get('/users', (req, res) => {
     .catch(error => console.log("ERROR:", error))
   })
 
+  app.get('/exercises', (req, res) => {
+    db.any("SELECT * FROM exercise")
+    .then(data => {
+      res.send(JSON.stringify(data))
+    })
+    .catch(error => console.log("ERROR:", error))
+  })
+
 app.get('/users/:user_id', (req, res) => {
   db.any("SELECT * FROM _user")
     .then(data => {
