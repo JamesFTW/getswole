@@ -1,7 +1,9 @@
+
 import React                                                  from 'react'
 import {View, StyleSheet, ImageBackground, Text, ScrollView}  from 'react-native'
 import {NativeRouter, Route, Switch,hashHistory}              from 'react-router-native'
 import WorkoutScreen                                          from '../screens/WorkoutScreen.js'
+import LoginScreen                                            from '../screens/LoginScreen.js'
 import ProfileScreen                                          from '../screens/ProfileScreen.js'
 import WorkoutDetails                                         from '../screens/WorkoutDetails.js'
 import Navbar                                                 from '../components/navbar.js'
