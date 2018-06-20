@@ -45,7 +45,7 @@ james following: Select following_id from user_following where user_id="james"
 james followers: Select user_id from user_following where following_id="james"
 
 
-var result = {
+const result = {
   id: 'james'
 }
 
