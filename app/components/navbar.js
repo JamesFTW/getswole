@@ -8,16 +8,16 @@ import {
   TouchableHighlight,
 } from 'react-native'
 
-import {NativeRouter, Link}   from 'react-router-native'
+import {NativeRouter, Link} from 'react-router-native'
 
-var homeIcon = require('../../img/home/Home.png')
-var barbellIcon = require('../../img/workout/Vector.png')
-var userIcon = require('../../img/user/noun.png')
+let homeIcon    = require('../../img/home/Home.png')
+let barbellIcon = require('../../img/workout/Vector.png')
+let userIcon    = require('../../img/user/noun.png')
 
-export default class Navbar extends Component{
-
-  render(){
-    return(
+export default class Navbar extends Component {
+  
+  render() {
+    return (
       <View style={styles.navRectangle}>
         <TouchableOpacity>
           <Image style={{ marginLeft: 20 }} source={homeIcon} />
