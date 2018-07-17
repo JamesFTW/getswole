@@ -56,50 +56,56 @@ export default class ProfileScreen extends React.Component {
     })
   }
 
-  _login(){
-      LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
-          console.log(result)
-          if (result.isCancelled) {
-            // Login was cancelled
-          } else {
-            console.log(result)
-            AccessToken.getCurrentAccessToken().then((data) => {
-              let accessToken = data.accessToken
-              alert(accessToken.toString())
+  _login() {
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+      console.log(result)
+      if (result.isCancelled) {
+        // Login was cancelled
+      } else {
+        console.log(result)
 
-              const responseInfoCallback = (error, result) => {
-                if (error) {
-                  console.log(error)
-                  alert('Error fetching data: ' + error.toString());
-                } else {
-                  console.log(result)
-                  alert('Success fetching data: ' + result.toString());
+        AccessToken.getCurrentAccessToken().then((data) => {
+          let accessToken = data.accessToken
+          alert(accessToken.toString())
+
+          const responseInfoCallback = (error, result) => {
+            if (error) {
+              console.log(error)
+              alert('Error fetching data: ' + error.toString());
+            } else {
+              console.log(result)
+              alert('Success fetching data: ' + result.toString());
+            }
+          }
+
+          const infoRequest = new GraphRequest(
+            '/me',
+            {
+              accessToken: accessToken,
+              parameters: {
+                fields: {
+                  string: 'email,first_name,middle_name,last_name,id'
                 }
               }
+            },
+            responseInfoCallback
+          );
 
-              const infoRequest = new GraphRequest(
-                '/me',
-                {
-                  accessToken: accessToken,
-                  parameters: {
-                    fields: {
-                      string: 'email,first_name,middle_name,last_name,id'
-                    }
-                  }
-                },
-                responseInfoCallback
-              );
-
-              new GraphRequestManager().addRequest(infoRequest).start()
-              console.log(infoRequest)
-            }
-          )
+          new GraphRequestManager().addRequest(infoRequest).start()
+          console.log(infoRequest)
+              }
+            )
+          }
         }
-      }
-    )
-  }
+      )
+    }
 
   render(){
+    const test = {
+      notes: {}
+    }
+    window.caches = test
+    
     if (this.state.isLoading) {
      return (
        <View style={styles.loading}>
