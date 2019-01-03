@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   StyleSheet,
@@ -7,12 +7,12 @@ import {
   ImageBackground,
   Image,
   View
-} from 'react-native';
+} from 'react-native'
+
+let data = require('../../json/completedWorkouts.json')
 
 import CompletedWorkoutDetails from '../components/CompletedWorkoutDetails.js'
 import Workout                 from '../components/Workout.js'
-
-let data = require('../../json/completedWorkouts.json')
 
 export default class WorkoutDetails extends Component {
   constructor(props){
@@ -23,9 +23,10 @@ export default class WorkoutDetails extends Component {
       currentStatus: ''
     }
   }
-  componentDidMount(){
-    this.state.data.workouts.map((workout,i) => {
-      if(workout.statusID.toString() === this.props.match.params.id){
+  componentDidMount() {
+    const { workouts } = this.state.data
+      workouts.map((workout, i) => {
+        if(workout.statusID.toString() === this.props.match.params.id) {
           this.setState({
             currentWorkout: workout.workout,
             currentStatus: workout.status
@@ -33,34 +34,42 @@ export default class WorkoutDetails extends Component {
         }
       })
   }
+
   render() {
-    console.log(this.state)
-    this.state.data.workouts.map((workout,i) => {
-      if(workout.statusID.toString() === this.props.match.params.id){
+    const { workouts } = this.state.data
+    const { id } = this.props.match.params
+
+    workouts.map((workout , i) => {
+      if(workout.statusID.toString() ===  id) {
         Details = workout.exercises.map((exercise, i) => {
           return (
-            <View key={i}>
-              <CompletedWorkoutDetails sets={exercise.sets} reps={exercise.reps} time_completed={exercise.time_completed} exercise={exercise.exercise} weight={exercise.weight} date_completed={exercise.date_completed} key={i}/>
-            </View>
+            <CompletedWorkoutDetails
+              sets={exercise.sets}
+              reps={exercise.reps}
+              time_completed={exercise.time_completed}
+              exercise={exercise.exercise}
+              weight={exercise.weight}
+              date_completed={exercise.date_completed}
+              key={i.toString()}/>
             )
           })
         }
       })
 
     return (
-    <ScrollView style={styles.container2}>
-      <View style={styles.flexheader}>
-        <Text style={styles.completed}>{this.state.currentStatus}</Text>
-        <Text style={styles.header}>{this.state.currentWorkout}</Text>
-      </View>
-      <View style={styles.flexContainer}>
-        {Details}
-      </View>
-    </ScrollView>
-      );
+      <ScrollView style={styles.container2}>
+        {/* All of this can be in the CompletedWorkoutDetails */}
+        <View style={styles.flexheader}>
+          <Text style={styles.completed}>{this.state.currentStatus}</Text>
+          <Text style={styles.header}>{this.state.currentWorkout}</Text>
+        </View>
+        <View style={styles.flexContainer}>
+          {Details}
+        </View>
+      </ScrollView>
+      )
     }
   }
-
 
 const styles = StyleSheet.create({
   flexheader:{
@@ -73,31 +82,10 @@ const styles = StyleSheet.create({
     color: '#989898',
     textAlign: 'center'
   },
-  border:{
-    borderWidth: .5,
-    borderColor: '#D0CECE'
-  },
   weight:{
     textAlign: 'center',
     fontFamily: 'HelveticaNeue-Bold',
     fontSize: 30
-  },
-  sets_rep_wrapper:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-    marginTop: 20,
-  },
-  workout_weight_wrapper:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-  },
-  date_time_wrapper:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-    marginTop: 10
   },
   time:{
     fontFamily: 'Helvetica-Light',
@@ -123,17 +111,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: 10,
     color: '#989898'
-  },
-  temp_details:{
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'rgba(0,0,0,0)',
-    marginLeft: 15,
-    marginRight: 15,
-  },
-  flexFooter: {
-    backgroundColor: 'red'
   },
   completed:{
     textAlign: 'center',
@@ -166,4 +143,4 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     color: '#4F4F4F',
   }
-});
+})
