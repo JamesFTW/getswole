@@ -25,14 +25,17 @@ export default class WorkoutDetails extends Component {
   }
   componentDidMount() {
     const { workouts } = this.state.data
+    const { id } = this.props.match.params
+
       workouts.map((workout, i) => {
-        if(workout.statusID.toString() === this.props.match.params.id) {
+        if(workout.statusID.toString() === id) {
           this.setState({
             currentWorkout: workout.workout,
             currentStatus: workout.status
           })
         }
-      })
+      }
+    )
   }
 
   render() {
