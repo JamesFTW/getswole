@@ -46,8 +46,7 @@ CREATE TABLE EXERCISE(
   exerciseNAME VARCHAR,
   type VARCHAR,
   repNUMBER INTEGER,
-  setNumber INTEGER,
-  exerciseID PRIMARY KEY UUID
+  setNumber INTEGER
 );
 CREATE TABLE Workout(
   type VARCHAR,
@@ -69,11 +68,11 @@ INSERT INTO workout VALUES('Shoulders',Array(SELECT exerciseid FROM exercise WHE
 INSERT INTO workout VALUES('Back',Array(SELECT exerciseid FROM exercise WHERE type='Back'), uuid_generate_v4());
 
 --Exercises
-INSERT INTO exercise VALUES('Barebell Squat','Leg',10, 4,uuid_generate_v4());
-INSERT INTO exercise VALUES('Hack Squat','Leg',200, 4,uuid_generate_v4());
-INSERT INTO exercise VALUES('Standing Leg Curl','Leg',15, 3,uuid_generate_v4());
+INSERT INTO exercise VALUES('Barebell Squat','Leg',10, 4);
+INSERT INTO exercise VALUES('Hack Squat','Leg',200, 4);
+INSERT INTO exercise VALUES('Standing Leg Curl','Leg',15, 3);
 
-INSERT INTO _user2 VALUES('James','Andrews','@jamesftw',uuid_generate_v4(),5000,
+INSERT INTO _user2 VALUES('James','Andrews','@jamesftw',5000,
 (Array[' {"timecompleted": "2:30pm", "workoutid": 345343,
   "exercises":[ { "exerciseid": 3424324, "weight": 200}, {
   "exerciseid": 3424324, "weight": 200}] }'])::json[],Array[uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4()],Array[uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4(),uuid_generate_v4()],'https://s3-us-west-1.amazonaws.com/swole-userphoto/me.jpg')

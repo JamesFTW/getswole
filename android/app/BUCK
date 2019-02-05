@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.getswole",
+    package = "com.swolerefactor",
 )
 
 android_resource(
     name = "res",
-    package = "com.getswole",
+    package = "com.swolerefactor",
     res = "src/main/res",
 )
 

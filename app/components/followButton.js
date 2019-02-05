@@ -1,74 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   StyleSheet,
   Text,
-  ScrollView,
+  View,
   Image,
-  TouchableOpacity,
-  View
-} from 'react-native';
+  ImageBackground,
+  TouchableHighlight
+} from 'react-native'
 
-const followButton    = require('../../img/follow_plus/noun_119212_cc.png')
-const followingButton = require('../../img/checkmark/checkmark.png')
+const PLUS = 'plus'
+const CHECKMARK = 'checkmark'
 
 export default class FollowButton extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      followers: null,
-      user: null,
-      following: false
-    }
-    this._onPressTrue = this._onPressTrue.bind(this)
-    this._onPressFalse = this._onPressFalse.bind(this)
-  }
-  _onPressTrue(){
-    this.setState({
-      following: true
-    })
-  }
-  _onPressFalse(){
-    this.setState({
-      following: false
-    })
-  }
-  render(){
-    if(this.state.following == false){
-      return(
-        <TouchableOpacity onPress={this._onPressTrue}>
-          <View style={styles.ButtonContainer}>
-            <View style={styles.ButtonTextContainer}>
-              <Image source={followButton} style={styles.plus_icon}/>
-              <Text style={styles.ButtonText}>Follow</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-      )
-    }else{
-      return(
-        <TouchableOpacity onPress={this._onPressFalse}>
-          <View style={styles.ButtonContainerFalse}>
-            <View style={styles.ButtonTextContainerFollow}>
-              <Image source={followingButton} style={styles.plus_icon}/>
+
+  render() {
+    const { following } = this.props
+
+    if(following) {
+      return (
+        <TouchableHighlight onPress={this.onPressFalse}>
+          <View style={styles.containerFalse}>
+            <View style={styles.ButtonTextContainerFalse}>
+              <Image source={{uri: CHECKMARK}} style={styles.plus_icon}/>
               <Text style={styles.ButtonText}>Following</Text>
             </View>
           </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
+      )
+    } else {
+      return (
+        <TouchableHighlight onPress={this.onPressTrue}>
+          <View style={styles.containerTrue}>
+            <View style={styles.ButtonTextContainerTrue}>
+              <Image source={{uri: PLUS}} style={styles.plus_icon}/>
+              <Text style={styles.ButtonText}>Follow</Text>
+            </View>
+          </View>
+        </TouchableHighlight>
       )
     }
-
   }
 }
+
 const styles = StyleSheet.create({
-  plus_icon:{
-    marginRight: 10,
-    shadowColor: '#84838A',
-    shadowOffset: { width: 2, height: 2},
-    shadowOpacity: 0.5,
-    shadowRadius: .5
-  },
-  ButtonContainer:{
+  containerTrue: {
     top: 60,
     shadowColor: '#C7C7C7',
     shadowOffset: { width: 1.5, height: 2.5},
@@ -88,7 +64,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  ButtonContainerFalse:{
+  ButtonTextContainerTrue: {
+    flex: 1,
+    right: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  plus_icon: {
+    marginRight: 10,
+    shadowColor: '#84838A',
+    shadowOffset: { width: 2, height: 2},
+    shadowOpacity: 0.5,
+    shadowRadius: .5,
+    height: 17,
+    width: 16
+  },
+  ButtonText: {
+    alignSelf: 'center',
+    marginLeft: 2,
+    color: '#FFFCFC',
+    elevation: 1,
+    textShadowColor: 'rgba(132,131,138,.5)',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 4,
+    fontFamily: 'HelveticaNeue',
+    letterSpacing: 1
+  },
+  containerFalse: {
     top: 60,
 
     width: 125,
@@ -104,29 +107,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  ButtonTextContainer:{
-    flex: 1,
-    right: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  ButtonTextContainerFollow:{
+  ButtonTextContainerFalse: {
     flex: 1,
     right: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  ButtonText:{
-    alignSelf: 'center',
-    marginLeft: 2,
-    color: '#FFFCFC',
-    elevation: 1,
-    textShadowColor: 'rgba(132,131,138,.5)',
-    textShadowOffset: {width: 2, height: 2},
-    textShadowRadius: 4,
-    fontFamily: 'HelveticaNeue',
-    letterSpacing: 1
   },
 })

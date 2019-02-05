@@ -1,44 +1,43 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react'
+
 import {
   StyleSheet,
   Text,
   View,
-  Image,
-  TouchableOpacity,
-  ImageBackground,
-  TouchableHighlight,
-} from 'react-native';
-import {NativeRouter, Link}   from 'react-router-native'
+  ImageBackground
+} from 'react-native'
 
-export default class Header extends Component{
+const HEADERPHOTO = 'header'
+
+export default class Header extends PureComponent {
   render(){
-    return(
-      <View style={styles.container2}>
-        <View style={styles.flexContainer}>
+    const { workoutName } = this.props
 
-          <View style={styles.flexHeader}>
-            <ImageBackground style={styles.image} source={require('../../img/header/header.png')}/>
-          </View>
-
-        </View>
+    return (
+      <View style={styles.flexHeader}>
+        <ImageBackground style={styles.image} source={{uri: HEADERPHOTO}}>
+          <Text style={styles.header}>{workoutName}</Text>
+        </ImageBackground>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container2: {
-    position: 'absolute',
+  flexHeader: {
+    shadowColor: '#C7C7C7',
   },
-  flexHeader:{
-    height: '5%'
-  },
-  flexContainer:{
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%'
+  header: {
+    textAlign: 'center',
+    top: 11,
+    fontSize: 24,
+    fontFamily: 'HelveticaNeue-Thin',
+    letterSpacing: 3,
+    color: '#FFFFFF',
+    fontWeight: "300"
   },
   image:{
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    height: 55
   },
 })

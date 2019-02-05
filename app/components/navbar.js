@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react'
+import { NativeRouter, Link }   from 'react-router-native'
+
 import {
   StyleSheet,
   Text,
@@ -8,14 +10,11 @@ import {
   TouchableHighlight,
 } from 'react-native'
 
-import {NativeRouter, Link} from 'react-router-native'
+import homeIcon    from '../assets/img/home/Home.png'
+import barbellIcon from '../assets/img/workout/Vector.png'
+import userIcon    from '../assets/img/user/noun.png'
 
-let homeIcon    = require('../../img/home/Home.png')
-let barbellIcon = require('../../img/workout/Vector.png')
-let userIcon    = require('../../img/user/noun.png')
-
-export default class Navbar extends Component {
-  
+export default class Navbar extends PureComponent {
   render() {
     return (
       <View style={styles.navRectangle}>

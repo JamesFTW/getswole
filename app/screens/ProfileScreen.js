@@ -1,275 +1,81 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react'
+
 import {
-  AsyncStorage,
-  ActivityIndicator,
-  StyleSheet,
-  Text,
   View,
-  ImageBackground,
-  Button,
-  Image,
-  TouchableOpacity,
-  TouchableHighlight,
-  ScrollView
-} from 'react-native';
+  ScrollView,
+  ActivityIndicator,
+  Text
+} from 'react-native'
 
-import API                from '../store/api'
-import Navbar             from '../components/navbar.js'
-import CompletedWorkouts  from '../components/completedWorkouts.js'
-import FollowButton       from '../components/followButton'
-import WorkoutStatus      from '../components/workoutstatus.js'
-//let data = require('../../json/user.json')
+import BackGroundWrapper  from '../components/backGroundWrapper.js'
+import ProfileHeader      from '../components/profileHeader.js'
+import FollowButton       from '../components/followButton.js'
+import UserFirstName      from '../components/userFirstName.js'
+import UserContainer      from '../components/userContainer.js'
+import FollowingContainer from '../components/followingContainer.js'
+import ProfilePhoto       from '../components/profilePhoto.js'
+import Following          from '../components/following.js'
+import Followers          from '../components/followers.js'
+import CompletedWorkouts  from '../components/completedWorkout.js'
+import ScrollContent      from '../components/scrollContent.js'
+import WorkoutStatus      from '../components/workoutStatus.js'
 
-//Eventually have to figure out how to save this UUID for each user.
-let userID = '3f266f5c-a55f-44ba-9839-11247689eb34'
+let data  = require('../completedworkout.json')
+const me = require('../assets/img/me.jpg')
 
-let data  = require('../../completedworkout.json')
-
-
-import FBSDK, {
-  LoginButton,
-  LoginManager,
-  AccessToken,
-  loginActions,
-  fetchLoginWithAPI,
-  GraphRequest,
-  GraphRequestManager
-} from 'react-native-fbsdk'
-
-export default class ProfileScreen extends React.Component {
-  constructor(props){
+export default class ProfileScreen extends Component {
+  constructor(props) {
     super(props)
     this.state = {
-      userName: '',
-      firstName: '',
-      profilePhoto: '',
-      following: 0,
-      followers: 0,
       isLoading: true,
+      isFollowing: false,
       status: data
     }
   }
 
   componentDidMount() {
-    API.getUserByID(userID, (data) => {
-      this.setState({
-        userName: data.username,
-        firstName: data.firstname,
-        profilePhoto: data.profilephoto,
-        following: data.following,
-        followers: data.followercount,
-        isLoading: false,
-      })
+    this.setState({
+      isLoading: false
     })
   }
 
-  render(){
-    if (this.state.isLoading) {
-     return (
-       <View style={styles.loading}>
-         <ActivityIndicator
-           size = "large"
-         />
-       </View>
-     );
-   }
-    return(
-      <View style={styles.container2}>
-        <View style={styles.flexHeader}>
-          <ImageBackground style={styles.image}>
-            <Text style={styles.header}>{this.state.userName}</Text>
-          </ImageBackground>
+  //loop through following users list.
+  //if id is in there following is set to true
+  //if your own profile following has to change
 
-          <TouchableOpacity>
-            <ImageBackground style={styles.settings} source={require('../../img/settings/Settings.png')}/>
-          </TouchableOpacity>
-        </View>
-        <ScrollView style={styles.flexContainer}>
+  render() {
+    const { isLoading } = this.state
+    console.log(this.state)
 
-          <View style={styles.firstName}>
-            <Text style={styles.firstNameText}>{this.state.firstName}</Text>
-          </View>
-
-          <View style={styles.userContainer}>
-
-            <Image
-              style={styles.profilePhotoStyle}
-              source={{uri: this.state.profilePhoto}}
-            />
-
-            <View style={styles.followingContainer}>
-              <View style={styles.following}>
-                <Text style={styles.followingCount}>{this.state.following}</Text>
-                <Text style={styles.followingText}> Following </Text>
+    if(isLoading) {
+      return <ActivityIndicator size="large"/>
+    }
+    return (
+      <BackGroundWrapper>
+        <ProfileHeader userName={"Jamesftw"}/>
+        <ScrollContent>
+          <UserFirstName firstName={"James"}/>
+          <UserContainer>
+            <ProfilePhoto photo={me}/>
+            <FollowingContainer>
+              <Following following={0} />
+              <Followers followers={0} />
+              <View style={{right: 5, top: 3}}>
+                <FollowButton following={true} />
               </View>
-
-              <View style={styles.followers}>
-                <Text style={styles.followerCount}>{this.state.followers}</Text>
-                <Text style={styles.followerText}> Followers </Text>
-              </View>
-              <View style={styles.followButton}>
-                <FollowButton/>
-              </View>
-            </View>
-
-          </View>
-
-          <View style={styles.completedWorkouts}>
-            <CompletedWorkouts/>
-          </View>
-
-          <View style={styles.workoutstats}>
-            {this.state.status.map((exercise, i) => {
+            </FollowingContainer>
+          </UserContainer>
+          <CompletedWorkouts workouts={100} totalWeight={`100k`}/>
+          {this.state.status.map((exercise, i) => {
               return (
                 <View key={i}>
                   <WorkoutStatus key={i} completed={exercise.completed} id={exercise.statusID} date={exercise.date} workout={exercise.workout}/>
                 </View>
               )
             })
-            }
-          </View>
-        </ScrollView>
-      </View>
+          }
+        </ScrollContent>
+      </BackGroundWrapper>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  flexHeader:{
-    height: 55,
-    alignContent: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#40D4BB',
-    shadowColor: '#C7C7C7',
-    shadowOffset: { width: 0, height: 3},
-    shadowOpacity: 1,
-    shadowRadius: 4,
-  },
-  workoutstats:{
-    //bottom: 90,
-    height: '120%'
-  },
-  loading:{
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  firstName:{
-    zIndex: 2312,
-    alignItems: 'center',
-    top: 20,
-    marginLeft: 77,
-    right: 25,
-    backgroundColor: 'rgba(0,0,0,0)',
-  },
-  firstNameText:{
-    fontFamily: 'HelveticaNeue',
-    letterSpacing: 1.5,
-    color: '#6C6B6B',
-    fontSize: 16,
-    right: 12,
-  },
-  followButton:{
-    //marginLeft: 5,
-    right: 5,
-    top: 3
-  },
-  followingContainer:{
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingRight: 5,
-    right: 5,
-    paddingLeft: 15,
-    bottom: 25
-  },
-  followers:{
-    top: 65
-  },
-  following:{
-    top: 65,
-    left: 5
-  },
-  followingText:{
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: '#6C6B6B',
-    fontFamily: 'HelveticaNeue',
-    //letterSpacing: 1,
-    fontSize: 12
-  },
-  followingCount:{
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'black',
-    fontFamily: 'HelveticaNeue',
-    //letterSpacing: 1,
-    fontSize: 20
-  },
-  followerCount:{
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: 'black',
-    fontFamily: 'HelveticaNeue',
-    //letterSpacing: 1,
-    right: 2,
-    fontSize: 20
-  },
-  followerText:{
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: '#6C6B6B',
-    fontFamily: 'HelveticaNeue',
-    //letterSpacing: 1,
-    fontSize: 12
-  },
-  userContainer:{
-    position: 'relative',
-    marginBottom: 40,
-    borderRadius: 1,
-    paddingBottom: 15,
-    borderBottomWidth: 1,
-    borderColor: '#BFBFBF',
-    flex: 1,
-    flexDirection: 'row',
-    paddingLeft: 15
-  },
-  container2: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    marginBottom: 15
-  },
-  profilePhotoStyle: {
-    width: 80,
-    height: 80,
-    borderRadius: 5
-  },
-  flexContainer:{
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    marginBottom: 45
-  },
-  header:{
-    zIndex: 3,
-    textAlign: 'center',
-    fontSize: 24,
-    fontFamily: 'HelveticaNeue-Thin',
-    letterSpacing: 3,
-    color: '#FFFFFF',
-    fontWeight: "300"
-  },
-  image:{
-    backgroundColor: 'transparent',
-  },
-  settings:{
-    position: 'absolute'
-  },
-});

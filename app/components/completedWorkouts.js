@@ -3,44 +3,36 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
   View
 } from 'react-native';
 
-let data = require('../../completedworkout.json')
-
 export default class CompletedWorkouts extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      test: null
-    }
-  }
-  render(){
-    return(
+  render() {
+
+    const { numWorkouts, weightLifted } = this.props
+
+    return (
       <View style={styles.workoutCompleteWrap}>
 
         <View style={styles.workoutwrapper}>
-          <Text style={styles.weight}>100 </Text>
-          <Text style={styles.workoutText}>WORKOUTS</Text>
+          <Text style={styles.weight}>{numWorkouts}</Text>
+          <Text style={styles.workoutText}> WORKOUTS</Text>
         </View>
 
         <View style={styles.completedWrap}>
-          <Text style={styles.completedText}>Completed</Text>
+          <Text style={styles.completedText}> Completed</Text>
         </View>
 
         <View style={styles.workoutwrapper}>
           {/* Most likely will pass data ass props in ProfileScreen */}
-          <Text style={styles.weight}>100k </Text>
-          <Text style={styles.workoutText}>LBS</Text>
+          <Text style={styles.weight}>{weightLifted}</Text>
+          <Text style={styles.workoutText}> LBS</Text>
         </View>
 
         <View style={styles.completedWrap}>
           <Text style={styles.completedText}>Lifted</Text>
         </View>
-    </View>
+      </View>
     )
   }
 }

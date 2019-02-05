@@ -11,17 +11,10 @@ import {
 
 import {NativeRouter, Link} from 'react-router-native'
 
-const completedIcon = require('../../img/completed/Completed.png')
+const Completed = 'Completed'
 
-export default class WorkoutStatus extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      test: null
-    }
-  }
-
-  render(){
+export default class WorkoutStatus extends Component {
+  render() {
     const id = this.props.id
 
     return(
@@ -33,7 +26,7 @@ export default class WorkoutStatus extends Component{
         <View style={styles.wrapper}>
           <Text style={styles.date}>{this.props.date}</Text>
           <Text style={styles.workout}>{this.props.workout}</Text>
-          <Image style={styles.icon} source={completedIcon}></Image>
+          <Image style={styles.icon} source={{uri: Completed}}></Image>
         </View>
       </View>
     </Link>
@@ -50,7 +43,9 @@ const styles = StyleSheet.create({
     marginRight: 25,
   },
   icon:{
-    top: 2
+    top: 2,
+    height: 30,
+    width: 30
     //alignSelf: 'center'
   },
   border:{

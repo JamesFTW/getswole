@@ -35,7 +35,7 @@ uuid_generate_v4(),
 0,
 Array[]::json[],
 NOW()
-)
+);
 INSERT INTO _USER VALUES(
 uuid_generate_v4(),
 'Jacob',
@@ -48,7 +48,7 @@ uuid_generate_v4(),
 0,
 Array[]::json[],
 NOW()
-)
+);
 
 -- This isn't in the database.  Use as an example for inserting json into an array.
 INSERT INTO _user2 VALUES('James','Andrews','@jamesftw',uuid_generate_v4(),5000,
