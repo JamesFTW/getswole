@@ -20,7 +20,8 @@
     "react-router-native": "^4.1.1",
     "react-swipeable-views-native": "^0.13.2",
     "redux": "^3.7.2",
-    "sequelize": "^4.37.6"
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
