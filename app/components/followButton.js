@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2},
     shadowOpacity: 0.5,
     shadowRadius: .5,
-    height: 17,
-    width: 16
+    height: 10,
+    width: 15
   },
   ButtonText: {
     alignSelf: 'center',
