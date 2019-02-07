@@ -47,7 +47,7 @@ export default class WorkoutScreen extends Component {
     return (
       <BackGroundWrapper>
         <Header workoutName="Leg Day"/>
-        <ScrollView style={{marginBottom: 70}}>
+        <ScrollView style={{marginBottom: 60}}>
           {WOD}
         </ScrollView>
       </BackGroundWrapper>
