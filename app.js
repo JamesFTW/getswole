@@ -1,49 +1,88 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+//Goals for tomorrow
+  /*
+  Figure out swole architecture
+   - How will I handle state (most likely Redux)
+   - How will the server/routes work
+   - Implement either Redux or router stuff
+  */
+// require dependencies
+const express = require('express')
+const pg      = require('pg')
+const pgp     = require("pg-promise")()
+const db      = pgp(process.env.DATABASE_URL)
+const helmet  = require('helmet')
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+// init server
+const app  = express()
+const port = process.env.PORT || 3000
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-//   android:
-//     'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
+app.use(helmet())
+pg.defaults.ssl = true
 
-// type Props = {};
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{'"instructions"'}</Text>
-      </View>
-    );
-  }
-}
+app.get('/', function (req, res) {
+  res.send('Hello World! \n' + process.env.DATABASE_URL)
+})
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+app.get('/db', function(req, res){
+  db.any("SELECT * FROM exercise")
+    .then(function (data) {
+        console.log(data)
+        res.send(JSON.stringify(data))
+    })
+    .catch(function (error) {
+        console.log("ERROR:", error)
+    })
+})
+app.get('/users', (req, res) => {
+  db.any("SELECT * FROM _user")
+    .then(data => {
+      console.log(JSON.stringify(data))
+      res.send(JSON.stringify(data))
+    })
+    .catch(error => console.log("ERROR:", error))
+  })
+
+  app.get('/exercises', (req, res) => {
+    db.any("SELECT * FROM exercise")
+    .then(data => {
+      res.send(JSON.stringify(data))
+    })
+    .catch(error => console.log("ERROR:", error))
+  })
+
+app.get('/users/:user_id', (req, res) => {
+  db.any("SELECT * FROM _user")
+    .then(data => {
+      for(let value of data){
+        if(value.userid == req.params.user_id){
+          res.send(JSON.stringify(value))
+        }
+        //figure out how to throw 404 if no id's match
+      }
+    })
+    .catch(error => console.log("ERROR:", error))
+  })
+
+app.get('/tester', (req,res) => {
+  db.any("SELECT * FROM _user2")
+    .then(data => {
+      for(let value of data)
+        res.send(JSON.stringify(value.workoutscompleted))
+    })
+    .catch(error => console.log("Error:", error))
+})
+app.get('/plan/id', function(req, res){
+  db.any("select * from plan where planid='0cd96b6a-f4b8-4780-8d63-8803082361f9'")
+    .then(function(data){
+      console.log(JSON.stringify(data))
+      res.send(JSON.stringify(data))
+      //res.json(data)
+    })
+    .catch(function(error){
+      console.log("Error: ", error)
+    })
+  })
+
+app.listen(port, function () {
+  console.log("Express server listening on port: " + port)
+})
