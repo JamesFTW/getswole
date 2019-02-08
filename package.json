@@ -5,7 +5,11 @@
   "scripts": {
     "start": "node app.js",
     "test": "jest",
-    "iPhone": "react-native run-ios --simulator='iPhone 6 Plus'"
+    "iPhone": "react-native run-ios --simulator='iPhone 6 Plus'",
+    "start:dev": "NODE_ENV=development DEBUG=APP_NAME:* nodemon app.js",
+    "db:create:migration": "sequelize migration:generate --name ",
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
