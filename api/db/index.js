@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
 
 const pg  = require('pg')
 const pgp = require('pg-promise')()
