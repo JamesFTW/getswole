@@ -9,4 +9,4 @@ const db = pgp(connection)
 
 pg.defaults.ssl = true
 
-module.exports = { db, s3, connection }
+module.exports = { db }
