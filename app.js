@@ -5,6 +5,12 @@
    - How will the server/routes work
    - Implement either Redux or router stuff
   */
+
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
+
+
 // require dependencies
 const express = require('express')
 const pg      = require('pg')
