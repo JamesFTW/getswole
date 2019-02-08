@@ -6,7 +6,7 @@
     "start": "node app.js",
     "test": "jest",
     "iPhone": "react-native run-ios --simulator='iPhone 6 Plus'",
-    "start:dev": "NODE_ENV=development DEBUG=APP_NAME:* nodemon app.js",
+    "start:dev": "NODE_ENV=development DEBUG=APP_NAME:* nodemon api/index.js",
     "db:create:migration": "sequelize migration:generate --name ",
     "db:migrate": "sequelize db:migrate",
     "db:rollback": "sequelize db:migrate:undo"
@@ -15,6 +15,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
+    "passport-twitter": "^1.0.4",
     "pg": "^7.4.0",
     "pg-promise": "^7.3.1",
     "prop-types": "^15.6.2",
