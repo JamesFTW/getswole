@@ -3,9 +3,6 @@ import React, { PureComponent } from 'react'
 import {
   StyleSheet,
   Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
   View
 } from 'react-native'
 

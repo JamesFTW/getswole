@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react'
-import { NativeRouter, Link }   from 'react-router-native'
+import { Link }   from 'react-router-native'
 
 import {
   StyleSheet,
-  Text,
   View,
   Image,
-  TouchableOpacity,
-  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native'
 
 import homeIcon    from '../assets/img/home/Home.png'

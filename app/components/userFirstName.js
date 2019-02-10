@@ -3,8 +3,7 @@ import React, { PureComponent } from 'react'
 import {
   StyleSheet,
   Text,
-  View,
-  ImageBackground
+  View
 } from 'react-native'
 
 export default class UserFirstName extends PureComponent {

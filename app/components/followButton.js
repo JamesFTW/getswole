@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Image,
-  ImageBackground,
   TouchableHighlight
 } from 'react-native'
 

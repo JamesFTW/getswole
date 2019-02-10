@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import {
   StyleSheet,
-  Text,
-  View,
-  ScrollView
+  View
 } from 'react-native';
 
 export default class BackGroundWrapper extends Component {

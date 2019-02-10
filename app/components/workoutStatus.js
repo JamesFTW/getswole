@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  ScrollView,
   Image,
   TouchableOpacity,
   View
 } from 'react-native';
 
-import {NativeRouter, Link} from 'react-router-native'
+import { Link } from 'react-router-native'
 
 const Completed = 'Completed'
 

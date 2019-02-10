@@ -3,11 +3,7 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  ScrollView,
-  ImageBackground,
-  Image,
-  View,
-  Platform
+  View
 } from 'react-native'
 
 export default class CompletedWorkoutDetailsHeader extends Component {

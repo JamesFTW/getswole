@@ -14,8 +14,6 @@ export default class CompletedWorkoutDetails extends PureComponent {
       exercise,
       weight,
       set,
-      currentStatus,
-      currentWorkout,
       reps
     } = this.props
 
