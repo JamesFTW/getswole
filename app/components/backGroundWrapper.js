@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   StyleSheet,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  flexContainer:{
+  flexContainer: {
     display: 'flex',
     flexDirection: 'column',
     height: '100%',

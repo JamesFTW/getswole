@@ -1,20 +1,17 @@
 
-import React                                     from 'react'
-import {NativeRouter, Route, Switch,hashHistory} from 'react-router-native'
-import WorkoutScreen                             from '../screens/workoutScreen.js'
-import ProfileScreen                             from '../screens/profileScreen.js'
-import WorkoutDetails                            from '../screens/workoutDetails.js'
-import Navbar                                    from '../components/navBar.js'
-import store                                     from '../store/store.js'
-import { Provider }                              from 'react-redux'
+import React                                from 'react'
+import { NativeRouter, Route, hashHistory } from 'react-router-native'
+import WorkoutScreen                        from '../screens/workoutScreen.js'
+import ProfileScreen                        from '../screens/profileScreen.js'
+import WorkoutDetails                       from '../screens/workoutDetails.js'
+import Navbar                               from '../components/navBar.js'
+import store                                from '../store/store.js'
+import { Provider }                         from 'react-redux'
 
 import {
   View,
-  StyleSheet,
-  ImageBackground,
-  Text,
-  ScrollView
-}  from 'react-native'
+  StyleSheet
+} from 'react-native'
 
 const routes = () => (
   <Provider store={store}>

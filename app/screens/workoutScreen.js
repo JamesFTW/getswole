@@ -1,23 +1,14 @@
 
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
 
 import {
-  StyleSheet,
-  Text,
-  ScrollView,
-  ImageBackground,
-  Image,
-  View,
-  Platform
+  ScrollView
 } from 'react-native'
 
 import BackGroundWrapper from '../components/backGroundWrapper.js'
 import Header            from '../components/header.js'
-import Navbar            from '../components/navBar.js'
 import ConnectedNode     from '../containers/workout.js'
 import data              from '../sample.json'
-import store             from '../store/store.js'
 
 export default class WorkoutScreen extends Component {
   constructor(props) {

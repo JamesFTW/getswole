@@ -1,15 +1,14 @@
 
 import React, { PureComponent } from 'react'
-import { connect }          from 'react-redux'
-import SwipeableViews       from 'react-swipeable-views-native'
-import * as actions         from '../actions'
+import { connect }              from 'react-redux'
+import SwipeableViews           from 'react-swipeable-views-native'
+import * as actions             from '../actions'
 
 const minusButton = 'Vectorminus'
 const plusButton  = 'plusplus'
 import {
   StyleSheet,
   Text,
-  ScrollView,
   Image,
   TouchableHighlight ,
   View
@@ -30,12 +29,9 @@ export class Workout extends PureComponent {
     const {
       type,
       rep,
-      decrement,
-      increment,
       id,
       sets,
-      weight,
-      counter
+      weight
     } = this.props
 
     return (

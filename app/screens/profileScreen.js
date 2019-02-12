@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 
 import {
   View,
-  ScrollView,
-  ActivityIndicator,
-  Text
+  ActivityIndicator
 } from 'react-native'
 
 import BackGroundWrapper  from '../components/backGroundWrapper.js'
@@ -20,7 +18,7 @@ import CompletedWorkouts  from '../components/completedWorkout.js'
 import ScrollContent      from '../components/scrollContent.js'
 import WorkoutStatus      from '../components/workoutStatus.js'
 
-let data  = require('../completedworkout.json')
+let data = require('../completedworkout.json')
 const me = require('../assets/img/me.jpg')
 
 export default class ProfileScreen extends Component {
