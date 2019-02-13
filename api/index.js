@@ -4,6 +4,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const express           = require('express')
+const cookieParser      = require('cookie-parser')()
+const bodyParser        = require('body-parser')
 const sessionMiddleware = require('../config/session.js')
 const helmet            = require('helmet')
 const endpoints         = require('./endpoints')
@@ -15,9 +17,9 @@ app.use(helmet())
 app.use(sessionMiddleware)
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(require('cookie-parser')())
-app.use(require('body-parser').urlencoded({ extended: true }))
+app.use(cookieParser)
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use('/api', endpoints)
-
 
 app.listen(port, '127.0.0.1', () => console.log(`listening on ${port}`))
