@@ -33,8 +33,7 @@ const routes = () => (
 const styles = StyleSheet.create({
   flexBody:{
     flex: 1,
-    display: 'flex',
-    backgroundColor: '#EDEDED'
+    display: 'flex'
   },
   flexContainer:{
     display: 'flex',
