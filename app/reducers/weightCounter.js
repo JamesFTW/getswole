@@ -32,7 +32,7 @@ const node = (state = {}, action) => {
 
 export default (state = obj, action) => {
   const { nodeId } = action
-
+  
   if (typeof nodeId === 'undefined') {
     return state
   }
