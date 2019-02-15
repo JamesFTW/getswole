@@ -1,8 +1,7 @@
 
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
-export const FOLLOW    = 'FOLLOW'
-export const UNFOLLOW  = 'UNFOLLOW'
+export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
 
 export const increment = nodeId => ({
   type: INCREMENT,
@@ -13,3 +12,8 @@ export const decrement = nodeId => ({
   type: DECREMENT,
   nodeId
 })
+
+export const toggleFollow = () => ({
+  type: TOGGLE_FOLLOW
+})
+
