@@ -2,7 +2,7 @@
 import { TOGGLE_FOLLOW } from '../actions'
 
 const node = (state = {isFollowing: false}, action) => {
-  switch (action.type) {
+  switch(action.type) {
     case TOGGLE_FOLLOW:
       return {
         ...state,

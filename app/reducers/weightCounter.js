@@ -14,7 +14,7 @@ workout.map((exercises) => {
 })
 
 const node = (state = {}, action) => {
-  switch (action.type) {
+  switch(action.type) {
     case INCREMENT:
       return {
         ...state,
