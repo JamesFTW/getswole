@@ -62,7 +62,7 @@ export class Workout extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => (
-  state[ownProps.id]
+  state.weightCounter[ownProps.id]
 )
 
 const ConnectedNode = connect(mapStateToProps, actions)(Workout)
