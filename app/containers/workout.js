@@ -3,16 +3,16 @@ import React, { PureComponent } from 'react'
 import { connect }              from 'react-redux'
 import SwipeableViews           from 'react-swipeable-views-native'
 import * as actions             from '../actions'
-
-const minusButton = 'Vectorminus'
-const plusButton  = 'plusplus'
 import {
   StyleSheet,
   Text,
   Image,
-  TouchableHighlight ,
+  TouchableHighlight,
   View
 } from 'react-native'
+
+const minusButton = 'Vectorminus'
+const plusButton = 'plusplus'
 
 export class Workout extends PureComponent {
   onDecrement = () => {
