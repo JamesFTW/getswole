@@ -7,6 +7,7 @@
     "test": "jest",
     "iPhone": "react-native run-ios --simulator='iPhone 6 Plus'",
     "start:dev": "NODE_ENV=development DEBUG=APP_NAME:* nodemon api/index.js",
+    "db:start": "heroku pg:psql",
     "db:create:migration": "sequelize migration:generate --name ",
     "db:migrate": "sequelize db:migrate",
     "db:rollback": "sequelize db:migrate:undo"
