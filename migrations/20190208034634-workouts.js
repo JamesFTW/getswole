@@ -14,11 +14,15 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      workouttype: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     })
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('workouts')
   }
 };
