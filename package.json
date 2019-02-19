@@ -28,6 +28,7 @@
     "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.57.8",
+    "react-native-calendars": "^1.22.0",
     "react-native-svg": "^8.0.10",
     "react-redux": "^5.0.6",
     "react-router-native": "^4.1.1",
