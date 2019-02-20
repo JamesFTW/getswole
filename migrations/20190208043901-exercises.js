@@ -12,13 +12,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       suggestedweight: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
       image: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
     })
   },
