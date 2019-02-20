@@ -1,9 +1,6 @@
 
-const pg  = require('pg')
 const pgp = require('pg-promise')()
-const connection = process.env.DATABASE_URL
+const connection = `${process.env.DATABASE_URL}?ssl=true`
 const db = pgp(connection)
-
-pg.defaults.ssl = true
 
 module.exports = { db, connection }
