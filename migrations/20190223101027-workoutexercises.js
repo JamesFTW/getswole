@@ -4,14 +4,20 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('workoutexercises', {
       workoutid: {
-        type: Sequelize.STRING,
-        foreignKey: true,
-        allowNull: false
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "workouts",
+          key: "workoutid"
+        }
       },
       exerciseid: {
         type: Sequelize.UUID,
-        foreignKey: true,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: "exercises",
+          key: "exerciseid"
+        }
       }
     })
   },
