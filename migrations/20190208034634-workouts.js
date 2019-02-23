@@ -4,7 +4,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('workouts', {
       workoutid: {
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        primaryKey: true,
         allowNull: false
       },
       workoutname: {

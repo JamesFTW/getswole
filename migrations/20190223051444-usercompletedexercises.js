@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('usercompletedworkouts', {
+    return queryInterface.createTable('usercompletedexercises', {
       userid: {
         type: Sequelize.UUID,
         allowNull: false,
@@ -11,22 +11,23 @@ module.exports = {
           key: "userid"
         }
       },
-      workoutid: {
+      exerciseid: {
         type: Sequelize.UUID,
         allowNull: false,
         references: {
-          model: "workouts",
-          key: "workoutid"
+          model: "exercises",
+          key: "exerciseid"
         }
       },
       weightused: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
-      createdat: Sequelize.DATE,
+      createdAt: Sequelize.DATE
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('usercompletedworkouts')
+    return queryInterface.dropTable('usercompletedexercises')
   }
 };
