@@ -10,7 +10,8 @@
     "db:start": "heroku pg:psql",
     "db:create:migration": "sequelize migration:generate --name ",
     "db:migrate": "sequelize db:migrate",
-    "db:rollback": "sequelize db:migrate:undo"
+    "db:rollback": "sequelize db:migrate:undo",
+    "db:undo": "sequelize db:migrate:undo --name"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
