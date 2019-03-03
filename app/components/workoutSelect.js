@@ -9,16 +9,20 @@ import {
   ImageBackground
 } from 'react-native'
 
+import { Link } from 'react-router-native'
+
 export default class WorkoutSelect extends PureComponent {
   render() {
     const { workoutPhoto, workoutTitle } = this.props
 
     return (
-      <TouchableOpacity>
-        <ImageBackground style={styles.container} source={{ uri: workoutPhoto }}>
-            <Text style={styles.title}>{workoutTitle}</Text>
-        </ImageBackground>
-      </TouchableOpacity>              
+      <Link>
+        <TouchableOpacity>
+          <ImageBackground style={styles.container} source={{ uri: workoutPhoto }}>
+              <Text style={styles.title}>{workoutTitle}</Text>
+          </ImageBackground>
+        </TouchableOpacity>
+      </Link>              
     )
   }
 }
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'HelveticaNeue-Bold',
-    fontSize: 24,
+    fontSize: 20,
     color: '#FFFFFF',
     paddingLeft: 10,
     paddingRight: 10,
