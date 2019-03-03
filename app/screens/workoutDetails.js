@@ -47,7 +47,6 @@ export default class WorkoutScreen extends Component {
   render() {
     const {
       isLoading,
-      workout,
       currentStatus,
       currentWorkout
     } = this.state
