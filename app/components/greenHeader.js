@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     height: 55,
     alignContent: 'center',
     justifyContent: 'center',
-    backgroundColor: '#40D4BB',
+    backgroundColor: '#40D4BB'
   },
   header: {
     textAlign: 'center',
