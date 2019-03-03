@@ -20,7 +20,7 @@ export default class CompletedWorkoutDetailsHeader extends Component {
 
 const styles = StyleSheet.create({
   flexheader: {
-    backgroundColor: '#EDEDED',
+    backgroundColor: '#F2F2F2',
     marginBottom: 30
   },
   completed: {
