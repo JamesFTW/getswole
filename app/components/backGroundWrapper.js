@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    backgroundColor: '#EDEDED'
+    backgroundColor: '#F2F2F2'
   },
 })
