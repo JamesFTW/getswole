@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 5 },
     shadowColor: '#000000',
-    shadowOpacity: .15
+    shadowOpacity: .20
   },
   title: {
     fontFamily: 'HelveticaNeue-Bold',
