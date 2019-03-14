@@ -9,14 +9,18 @@ const getWorkoutSelections = workoutID => {
     AsyncStorage.getItem(workoutID)
       .then(item => {
         if(item) {
-          return resolve(JSON.parse(item))
+          const data = JSON.parse(item)
+
+          return resolve(data)
         }
       })
       //change api endpoint to something more descriptive
     fetch(`https://swole.herokuapp.com/api/workout`)
       .then(res => res.json())
       .then(data => {
-        AsyncStorage.setItem(data.planid, JSON.stringify(data))
+        const workoutData = JSON.stringify(data)
+        
+        AsyncStorage.setItem(data.planid, workoutData)
         
         resolve(data)
       })
