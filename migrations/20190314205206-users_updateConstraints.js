@@ -3,8 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.changeColumn('users', 'email', {  
-      type: Sequelize.STRING,
-      unique: true 
+      type: Sequelize.STRING 
     })
     .then(() => {
       return queryInterface.changeColumn('users', 'password', {
@@ -16,8 +15,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.changeColumn('users', 'email', {
       type: Sequelize.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     })
     .then(() => {
       return queryInterface.changeColumn('users', 'password', {
