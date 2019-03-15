@@ -1,47 +1,49 @@
 
 import React, { PureComponent } from 'react'
-import GreenHeader               from '../components/greenHeader'
+import GreenHeader              from '../components/greenHeader'
 import WorkoutSelect            from '../components/workoutSelect'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
+import getWorkoutSelections     from '../api'
 
 import {
   ScrollView,
-  View,
   StyleSheet
 } from 'react-native'
 
 export default class WorkoutSelectScreen extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      workouts: []
+    }
+  }
+
+  componentDidMount() {
+    //this is going to be an array of ids eventually
+    getWorkoutSelections('57bb4378-c268-468e-a6dd-9989fdee0601')
+      .then(data => {
+        this.setState({
+          workouts: [data]
+        })
+      }
+    )
+  }
   render() {
+    const { workouts } = this.state
+  
+    const workoutButtons = workouts.map((info, i) => (
+      <WorkoutSelect
+        key={i}
+        workoutPhoto={info.image}
+        workoutTitle={info.planname}
+      />  
+    ))
+    
     return (
       <BackGroundWrapper>
         <GreenHeader title={"Pick Workout Plan"} />
         <ScrollView style={styles.container}>
-          <View style={styles.row}>
-            <WorkoutSelect 
-              workoutTitle={"12-week Go Dumb Plan"}
-              workoutPhoto={'workout1'} 
-              />
-            <WorkoutSelect
-              workoutTitle={"10-week Full Body"}
-              workoutPhoto={'workout'}
-            />
-            <WorkoutSelect
-              workoutTitle={"10-week Fat Burner"}
-              workoutPhoto={'workout3'}
-            />
-            <WorkoutSelect
-              workoutTitle={"5-week That Get Right"}
-              workoutPhoto={'workout4'}
-            />
-            <WorkoutSelect
-              workoutTitle={"10-week Get Right"}
-              workoutPhoto={'workout5'}
-            />
-            <WorkoutSelect
-              workoutTitle={"10-week Get Right"}
-              workoutPhoto={'workout6'}
-            />
-          </View>
+          {workoutButtons}
         </ScrollView>
       </BackGroundWrapper>
     )
