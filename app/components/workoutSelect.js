@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react'
 
 import {
   StyleSheet,
-  View,
   TouchableOpacity,
   Text,
   ImageBackground
@@ -39,10 +38,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'transparent',
 
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 5 },
-    shadowColor: '#000000',
-    shadowOpacity: .20
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    shadowColor: '#4F4F4F',
+    shadowOpacity: .50
   },
   title: {
     fontFamily: 'HelveticaNeue-Bold',
