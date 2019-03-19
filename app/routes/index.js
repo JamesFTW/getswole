@@ -4,7 +4,9 @@ import { NativeRouter, Route, hashHistory } from 'react-router-native'
 import WorkoutScreen                        from '../screens/workoutScreen.js'
 import ProfileScreen                        from '../screens/profileScreen.js'
 import WorkoutDetails                       from '../screens/workoutDetails.js'
+import WorkoutSelectScreen                  from '../screens/workoutSelectScreen.js'
 import Navbar                               from '../components/navBar.js'
+import SelectDateScreen                     from '../screens/selectDateScreen.js'
 import store                                from '../store/store.js'
 import { Provider }                         from 'react-redux'
 
@@ -21,7 +23,7 @@ const routes = () => (
 
           <View style={styles.flexBody}/>
 
-          <Route exact path="/" component={WorkoutScreen}/>
+          <Route exact path="/" component={WorkoutSelectScreen}/>
           <Route path="/ProfileScreen" component={ProfileScreen}/>
           <Route path="/WorkoutDetails/:id" component={WorkoutDetails}/>
           <Navbar />
