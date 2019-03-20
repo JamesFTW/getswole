@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Thin',
     letterSpacing: 3,
     color: '#FFFFFF',
-    fontWeight: "300"
+    fontWeight: '300'
   },
   image:{
     backgroundColor: 'transparent',

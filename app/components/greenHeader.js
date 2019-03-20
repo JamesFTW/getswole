@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     fontFamily: 'HelveticaNeue-Thin',
-    letterSpacing: .05,
     color: '#FFFFFF',
-    fontWeight: "300"
+    fontWeight: '300',
+    letterSpacing: 3
   },
   image: {
     backgroundColor: 'transparent',
