@@ -4,7 +4,7 @@ import {
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 
 export default class CompletedWorkouts extends Component {
   render() {

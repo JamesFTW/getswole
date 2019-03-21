@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   ScrollView
-} from 'react-native';
+} from 'react-native'
 
 export default class ScrollContent extends Component {
 

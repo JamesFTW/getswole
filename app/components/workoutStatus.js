@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
   View
-} from 'react-native';
+} from 'react-native'
 
 import { Link } from 'react-router-native'
 
