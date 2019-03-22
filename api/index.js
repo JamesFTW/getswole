@@ -22,5 +22,4 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use('/api', endpoints)
 
-
 app.listen(port, () => console.log(`listening on ${port}`))
