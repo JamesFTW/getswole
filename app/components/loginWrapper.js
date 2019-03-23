@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   flexContainer: {
-    marginTop: 20,
     display: 'flex',
     flexDirection: 'column',
   },
