@@ -51,13 +51,6 @@ export default class WorkoutSelectScreen extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-  row: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: '100%',
-    justifyContent: 'space-between'
-  },
   container: {
     alignContent: 'center',
     paddingLeft: 35,
