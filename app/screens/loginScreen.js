@@ -12,8 +12,6 @@ import {
   View
 } from 'react-native'
 
-const DUMBBELL = 'loginIcon'
-
 export default class LoginScreen extends PureComponent {
   render() {
     return (
@@ -26,19 +24,3 @@ export default class LoginScreen extends PureComponent {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    fontFamily: 'HelveticaNeue-Bold',
-    letterSpacing: 6,
-    color: '#FFFFFF',
-    fontWeight: '700'
-  },
-  checkIcon: {
-    height: 96/1.5,
-    width: 111/1.5,
-    marginBottom: 20,
-    position: 'relative'
-  }
-})
