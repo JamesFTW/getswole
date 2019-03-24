@@ -34,10 +34,6 @@ const routes = () => (
   </Provider>
 )
 const styles = StyleSheet.create({
-  flexBody:{
-    flex: 1,
-    display: 'flex'
-  },
   flexContainer:{
     display: 'flex',
     flexDirection: 'column',
