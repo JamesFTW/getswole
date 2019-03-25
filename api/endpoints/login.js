@@ -7,6 +7,12 @@ const router  = express.Router()
 router.get('/', (req, res) => {
   res.send('Hello World! \n')
 })
+router.get('/failed', (req, res) => {
+  res.send('Failed! \n')
+})
+router.get('/success', (req, res) => {
+  res.send('Logged in! \n')
+})
 
 router.get('/twitter', authenticate)
 
