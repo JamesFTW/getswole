@@ -8,11 +8,11 @@ passport.use(new Strategy(twitterConfig,
     //make a select statement to see if person is valid, it not
     //create an account
     console.log(profile)
-    cb()
+    cb(null, profile.id)
 }))
 
 passport.serializeUser((user, cb) => {
-  cb(null, user)
+  cb(null, user.id)
 })
 
 passport.deserializeUser((obj, cb) => {
