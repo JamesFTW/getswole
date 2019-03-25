@@ -20,8 +20,8 @@ passport.deserializeUser((obj, cb) => {
 })
 
 const authSettings = {
-  successRedirect: './login/success',
-  failureRedirect: './login/failed'
+  successRedirect: '/login/success',
+  failureRedirect: '/login/failed'
 }
 
 module.exports = {
