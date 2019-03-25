@@ -7,9 +7,7 @@ passport.use(new Strategy(twitterConfig,
   (token, tokenSecret, profile, cb) => {
     //make a select statement to see if person is valid, it not
     //create an account
-    // console.log(profile)
-    console.log(token)
-    console.log(tokenSecret)
+    console.log(profile)
 }))
 
 passport.serializeUser((user, cb) => {
@@ -21,8 +19,8 @@ passport.deserializeUser((obj, cb) => {
 })
 
 const authSettings = {
-  successRedirect: '/',
-  failureRedirect: '/login'
+  successRedirect: '/api',
+  failureRedirect: '/api/login'
 }
 
 module.exports = {
