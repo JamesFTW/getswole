@@ -21,7 +21,7 @@ router.get('/oauth/callback', authenticate, (req, res) => {
 })
 
 router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile', { user: req.user })
+  res.send({ user: req.user })
 })
 
 module.exports = router
