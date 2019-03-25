@@ -5,7 +5,11 @@ const twitterConfig = require('../../config/twitterConfig.js')
 
 passport.use(new Strategy(twitterConfig,
   (token, tokenSecret, profile, cb) => {
-    console.log(profile)
+    //make a select statement to see if person is valid, it not
+    //create an account
+    // console.log(profile)
+    console.log(token)
+    console.log(tokenSecret)
 }))
 
 passport.serializeUser((user, cb) => {
