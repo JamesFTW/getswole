@@ -33,6 +33,7 @@
     "react-native-calendars": "^1.22.0",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-svg": "^8.0.10",
+    "react-native-webview": "^5.4.2",
     "react-redux": "^5.0.6",
     "react-router-native": "^4.1.1",
     "react-swipeable-views-native": "^0.13.2",
