@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'transparent',
 
-    shadowRadius: 8,
+    shadowRadius: 5,
     shadowOffset: { width: 0, height: 4 },
     shadowColor: '#4F4F4F',
-    shadowOpacity: .50
+    shadowOpacity: .6
   },
   title: {
     fontFamily: 'HelveticaNeue-Bold',

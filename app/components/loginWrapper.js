@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
     flexDirection: 'column',
+    zIndex: 100
   },
   blackLayer: {
     position: 'absolute',

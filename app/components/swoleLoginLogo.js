@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     position: 'relative',
     alignItems: 'center',
-    marginLeft: 18
+    // marginBottom: 18
   }
 })
