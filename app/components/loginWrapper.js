@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 
 import {
   StyleSheet,
-  View
+  View,
+  Image
 } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class LoginWrapper extends Component {
   render() {
-    const { children } = this.props
+    const { children, photo } = this.props
 
     return (
       <View style={styles.flexContainer}>
@@ -19,8 +20,14 @@ export default class LoginWrapper extends Component {
           colors={['#40D4BB', '#BB6BD9']} 
           style={styles.gradient}>
           <View style={styles.blackLayer}/>
-            {children}     
+          <Image 
+            style={styles.photo} 
+            source={{ uri: photo }}>
+          </Image>              
         </LinearGradient>
+        <View style={styles.children}>
+          {children}
+        </View>
       </View>
     )
   }
@@ -29,6 +36,14 @@ export default class LoginWrapper extends Component {
 const styles = StyleSheet.create({
   gradient: {
     height: '100%'
+  },
+  children: {
+    position: 'absolute',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    left: 0,
+    right: 0,
+    height: '100%',
   },
   flexContainer: {
     display: 'flex',
@@ -41,5 +56,10 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'black',
     opacity: .2
+  },
+  photo: {
+    position: 'relative',
+    height: '100%',
+    opacity: .02
   }
 })
