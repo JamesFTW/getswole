@@ -62,7 +62,7 @@ export default class ProfileScreen extends Component {
       <BackGroundWrapper>
         <ProfileHeader userName={"Jamesftw"}/>
         <ScrollContent>
-          <UserFirstName firstName={"James"}/>
+          <UserFirstName />
           <UserContainer>
             <ProfilePhoto photo={me}/>
             <FollowingContainer>
