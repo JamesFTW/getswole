@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import LoginWrapper             from '../components/loginWrapper.js'
 import CenterOfScreen           from '../components/centerOfScreen.js'
-import TwitterFollowButton      from '../components/twitterFollowButton.js'
+import TwitterLoginButton       from '../components/twitterLoginButton.js'
 import SwoleLoginLogo           from '../components/swoleLoginLogo.js'
 
 export default class LoginScreen extends PureComponent {
@@ -21,7 +21,7 @@ export default class LoginScreen extends PureComponent {
         <CenterOfScreen>
           <SwoleLoginLogo/>
         </CenterOfScreen>
-        <TwitterFollowButton login={this.twitterLogin()} />  
+        <TwitterLoginButton login={this.twitterLogin()} />  
       </LoginWrapper>
     )
   }
