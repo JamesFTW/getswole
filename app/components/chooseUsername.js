@@ -23,7 +23,7 @@ export default class ChooseUsername extends PureComponent {
         <View style={styles.inputContainer}>
           <View style={styles.header}>
             <CenterOfScreen>
-              <Text style={styles.text}> Choose Username</Text>
+              <Text style={styles.text}>Choose Username</Text>
             </CenterOfScreen>
           </View>
           <View style={styles.inputContainer2}>
