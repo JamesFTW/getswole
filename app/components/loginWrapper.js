@@ -6,7 +6,7 @@ import {
   Image
 } from 'react-native'
 
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class LoginWrapper extends Component {
   render() {
