@@ -26,16 +26,20 @@ export default class ChooseUsername extends PureComponent {
               <Text style={styles.text}>Choose Username</Text>
             </CenterOfScreen>
           </View>
-          <View style={styles.inputContainer2}>
-            <Image
-              style={styles.photo}
-              source={{ uri: NOTEPAD }}/>
-          <TextInput
-            placeholder="What's your handle?"
-            placeholderTextColor='#C2BEBE'
-            style={styles.input}
-            onChangeText={(text) => this.setState({ text })}/>
-          </View>
+          <CenterOfScreen>
+            <View style={styles.inputContainer2}>
+              <Image
+                style={styles.photo}
+                source={{ uri: NOTEPAD }}
+              />
+              <TextInput
+                placeholder="What's your handle?"
+                placeholderTextColor='#C2BEBE'
+                style={styles.input}
+                onChangeText={(text) => this.setState({ text })}
+                />
+              </View>
+            </CenterOfScreen>
         </View>
       </View>
     )
@@ -80,7 +84,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 50,
     paddingRight: 50,
-    marginTop: 20,
     marginLeft: 10
   },
   input: {
@@ -93,7 +96,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     color: '#424242',
-    marginLeft: 5
+    marginLeft: 10,
+    marginBottom: 10
   },
   photo: {
     height: 20,
