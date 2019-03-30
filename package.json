@@ -31,6 +31,7 @@
     "react": "16.6.3",
     "react-native": "^0.58.6",
     "react-native-calendars": "^1.22.0",
+    "react-native-image-picker": "^0.28.1",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-svg": "^8.0.10",
     "react-native-webview": "^5.4.2",
