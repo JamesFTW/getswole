@@ -17,8 +17,11 @@ export default class ChooseUsername extends PureComponent {
     super(props)
     this.state = { text: '' }
   }
+
   render() {
-    return(
+    const { children } = this.props
+
+    return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <View style={styles.header}>
@@ -32,12 +35,7 @@ export default class ChooseUsername extends PureComponent {
                 style={styles.photo}
                 source={{ uri: NOTEPAD }}
               />
-              <TextInput
-                placeholder="What's your handle?"
-                placeholderTextColor='#C2BEBE'
-                style={styles.input}
-                onChangeText={(text) => this.setState({ text })}
-                />
+              { children }
               </View>
             </CenterOfScreen>
         </View>
@@ -60,7 +58,8 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 5 },
     shadowColor: '#000000',
-    shadowOpacity: .15
+    shadowOpacity: .15,
+    marginBottom: 50
   },
   header: {
     width: '100%',
