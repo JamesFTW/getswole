@@ -5,7 +5,6 @@ import {
   View,
   StyleSheet,
   Text,
-  TextInput,
   Image
 } from 'react-native'
 
@@ -13,10 +12,6 @@ import {
 const NOTEPAD = 'chooseusername'
 
 export default class ChooseUsername extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = { text: '' }
-  }
 
   render() {
     const { children } = this.props
@@ -84,19 +79,6 @@ const styles = StyleSheet.create({
     paddingLeft: 50,
     paddingRight: 50,
     marginLeft: 10
-  },
-  input: {
-    backgroundColor: '#E5E3E3',
-    width: '100%',
-    height: 28,
-    borderRadius: 5,
-    paddingLeft: 10,
-    fontFamily: 'HelveticaNeue-Italic',
-    fontWeight: '500',
-    fontSize: 16,
-    color: '#424242',
-    marginLeft: 10,
-    marginBottom: 10
   },
   photo: {
     height: 20,
