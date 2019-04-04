@@ -19,6 +19,8 @@ const options = {
   },
 };
 
+const ADD_PHOTO = 'Addphotocamera'
+
 export default class ChooseProfilePhoto extends PureComponent {
   constructor(props) {
     super(props)
@@ -61,7 +63,7 @@ export default class ChooseProfilePhoto extends PureComponent {
             <CenterOfScreen>
               <Image style={styles.profilePhoto} source={require('../assets/img/me.jpg')}/>
               <TouchableOpacity>
-                <Image style={styles.addIcon} source={{uri: 'Group'}}/>
+                <Image style={styles.addIcon} source={{uri: ADD_PHOTO}}/>
               </TouchableOpacity>
             </CenterOfScreen> 
         </View>
