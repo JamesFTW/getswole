@@ -32,7 +32,7 @@ export default class OnBoardingNav extends PureComponent {
       <View style={styles.container}>
         <View style={styles.nav}>
           <TouchableOpacity onPress={() => skip()}>
-            <Text style={styles.text}>Skip</Text>
+            <Text style={styles.text}>Back</Text>
           </TouchableOpacity>
           <View style={styles.indicatorContainer}>
             <Indicator indicators={components} />
