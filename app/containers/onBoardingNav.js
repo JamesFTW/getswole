@@ -40,15 +40,19 @@ export default class OnBoardingNav extends PureComponent {
     })
 
     nextProps.components.map((vals) => {
-      if(vals.component === 'profilePhoto' 
-        && vals.isComplete === true) {
+      if (
+        vals.component === 'profilePhoto' 
+        && vals.isComplete === true
+        ) {
           this.setState({
             userPhotoComplete: true
         })
       }
 
-      if (vals.component === 'userName'
-        && vals.isComplete === false) {
+      if (
+        vals.component === 'userName'
+        && vals.isComplete === false
+        ) {
         this.setState({
           userPhotoComplete: false
         })
@@ -72,7 +76,7 @@ export default class OnBoardingNav extends PureComponent {
 
     const { indicators, userPhotoComplete } = this.state
     const indicator = indicators.length > 0 ? indicators : components
-    let backButton = this.state.userPhotoComplete === false? '' : 'Back'
+    let backButton = userPhotoComplete === false? '' : 'Back'
     let nextButton = this.state.text === '' ? '' : 'Next'
 
     if (userPhotoComplete) {
