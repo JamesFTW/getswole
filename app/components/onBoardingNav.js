@@ -13,9 +13,13 @@ import {
 //hide skip button during chooseusername component.
 
 const Indicator = ({ indicators }) => {
-  const allIndicators = indicators.map((indicator, i) => (
-    <View key={i} style={styles.indicator} />
-  ))
+  const allIndicators = indicators.map((indicator, i) => {
+    if (indicator.isComplete) {
+      return <View key={i} style={styles.indicatorActive} />
+    } else {
+      return <View key={i} style={styles.indicatorUnactive} />
+    }
+  })
 
   return (
     <View style={styles.indicatorContainer}>
@@ -25,17 +29,32 @@ const Indicator = ({ indicators }) => {
 }
 
 export default class OnBoardingNav extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      indicators: ''
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      indicators: nextProps.components
+    })
+  }
+
   render() {
-    const { components, isSkipable, skip, next } = this.props
+    const { components, back, next } = this.props
+    const { indicators } = this.state
+    const indicator = indicators.length > 0 ? indicators : components
     
     return (
       <View style={styles.container}>
         <View style={styles.nav}>
-          <TouchableOpacity onPress={() => skip()}>
+          <TouchableOpacity onPress={() => back()}>
             <Text style={styles.text}>Back</Text>
           </TouchableOpacity>
           <View style={styles.indicatorContainer}>
-            <Indicator indicators={components} />
+            <Indicator indicators={indicator} />
           </View>
           <TouchableOpacity onPress={() => next()}>
             <Text style={styles.text}>Next</Text>
@@ -68,11 +87,18 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 14
   },
-  indicator: {
+  indicatorActive: {
     height: 12,
     width: 12,
     borderRadius: 6,
     backgroundColor: '#40D4BB',
+    marginRight: 10
+  },
+  indicatorUnactive: {
+    height: 12,
+    width: 12,
+    borderRadius: 6,
+    backgroundColor: '#E5E3E3',
     marginRight: 10
   },
   indicatorContainer: {
