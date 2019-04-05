@@ -3,20 +3,20 @@ import LoginWrapper             from '../components/loginWrapper'
 import CenterOfScreen           from '../components/centerOfScreen'
 import ChooseProfilePhoto       from '../components/chooseProfilePhoto'
 import ChooseUsername           from '../components/chooseUsername'
-import OnBoardingNav            from '../components/onBoardingNav'
+import OnBoardingNav            from '../containers/onBoardingNav'
 
 import {
   StyleSheet,
   TextInput
 } from 'react-native'
 
-const tester = [
+const components = [
   {
-    component: <ChooseUsername />,
+    component: 'userName',
     isComplete: false
   },
   {
-    component: <ChooseProfilePhoto />,
+    component: 'profilePhoto',
     isComplete: false
   }
 ]
@@ -27,31 +27,62 @@ export default class OnBoardingScreen extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      data: tester,
+      data: components,
       username: '',
-      isUser: true
+      isProfilePhoto: false,
+      counter: 0
     }
   }
 
-  test = () => {
+  back = () => {
+    const { data } = this.state
+
     this.setState({
-      isUser: !this.state.isUser
+      counter: this.state.counter++
+    })
+    
+    data.map((data) => {
+      if (data.component !== 'userName') {
+
+        data.isComplete = false
+      }
+    })
+
+    this.setState({
+      counter: this.state.counter++,
+      isProfilePhoto: false
     })
   }
 
   nextFunc = () => {
+    const { data, username } = this.state
+
+    //force re-rerender of onBoardingNav
     this.setState({
-      isUser: !this.state.isUser
+      counter: this.state.counter++
     })
+  
+    if(username.length > 0) {
+      data.map((data) => {
+        if (data.component === 'profilePhoto') {
+          //call api to see if name is taken
+          data.isComplete = true
+        }
+      })
+
+      this.setState({
+        counter: this.state.counter++,
+        isProfilePhoto: true
+      })
+    }
   }
 
   render() {
-    const { data, isUser, username } = this.state
+    const { data, isProfilePhoto, username } = this.state
     const defaultValue = username.length > 0 ? username : ""
-    
     let middleElement
     
-    if(isUser) {
+    if(!isProfilePhoto) {
       middleElement = (
         <ChooseUsername>
           <TextInput
@@ -72,9 +103,11 @@ export default class OnBoardingScreen extends PureComponent {
         <CenterOfScreen>
           { middleElement } 
           <OnBoardingNav 
-          next={this.nextFunc} 
-          skip={this.test} 
-          components={data}
+            next={this.nextFunc} 
+            back={this.back} 
+            components={data}
+            counter={this.state.counter}
+            text={this.state.username}
           />
         </CenterOfScreen>
       </LoginWrapper>
