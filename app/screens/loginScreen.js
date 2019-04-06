@@ -21,7 +21,7 @@ export default class LoginScreen extends PureComponent {
         <CenterOfScreen>
           <SwoleLoginLogo/>
         </CenterOfScreen>
-        <TwitterLoginButton login={this.twitterLogin()} />
+        <TwitterLoginButton/>
       </LoginWrapper>
     )
   }
