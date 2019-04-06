@@ -22,7 +22,7 @@ router.get('/oauth/callback', authenticate, (req, res) => {
   res.redirect('/')
 })
 
-router.get('/profile', isLoggedIn, (req, res) => {
+router.get('/profile/:user', isLoggedIn, (req, res) => {
   res.send({ user: req.user })
 })
 
