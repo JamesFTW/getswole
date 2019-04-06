@@ -18,9 +18,7 @@ router.get('/success', (req, res) => {
 
 router.get('/twitter', authenticate)
 
-router.get('/oauth/callback', authenticate, (req, res) => {
-  res.redirect('/')
-})
+router.get('/oauth/callback', authenticate)
 
 router.get('/profile', isLoggedIn, (req, res) => {
   const user = req.user
