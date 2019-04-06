@@ -5,7 +5,11 @@ const isLoggedIn = require('connect-ensure-login').ensureLoggedIn()
 router.get('/:user', isLoggedIn, (req, res) => {
   const { user } = req.params
 
-  res.send({ user: user })
+  try {
+    res.status(200).json({user: user})
+  } catch (err) {
+    res.status(403).end()
+  }
 })
 
 module.exports = router
