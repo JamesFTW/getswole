@@ -14,7 +14,6 @@ const TWITTER_LOGO = 'twitterlogo'
 
 export default class TwitterLoginButton extends PureComponent {
   render() {
-      
     return (
       <Link
         to='/TwitterCreds'
