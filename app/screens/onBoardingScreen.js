@@ -104,7 +104,7 @@ export default class OnBoardingScreen extends PureComponent {
           { middleElement } 
           <OnBoardingNav 
             next={this.nextFunc} 
-            back={this.backFunc} 
+            back={this.backFunc}
             components={data}
             counter={this.state.counter}
             text={this.state.username}
