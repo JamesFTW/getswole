@@ -8,21 +8,24 @@ import {
   TouchableOpacity
 } from 'react-native'
 
+import { Link } from 'react-router-native'
+
 const TWITTER_LOGO = 'twitterlogo'
 
 export default class TwitterLoginButton extends PureComponent {
   render() {
-    const { login } = this.props
-
+      
     return (
-      <TouchableOpacity 
-        login={() => login()} 
-        style={styles.buttonContainer}>
+      <Link
+        to='/TwitterCreds'
+        component={TouchableOpacity}
+        style={styles.buttonContainer}
+      >
         <View style={styles.button}>
           <Image source={{ uri: TWITTER_LOGO }} style={styles.checkIcon} />
           <Text style={styles.title}>Log in with Twitter</Text>
         </View>
-      </TouchableOpacity>
+      </Link>
     )
   }
 }
