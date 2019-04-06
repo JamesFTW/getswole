@@ -8,6 +8,8 @@ import WorkoutSelectScreen                  from '../screens/workoutSelectScreen
 import LoginScreen                          from '../screens/loginScreen.js'
 import Navbar                               from '../components/navBar.js'
 import SelectDateScreen                     from '../screens/selectDateScreen.js'
+import TwitterCredScreen                    from '../screens/twitterCredScreen.js'
+import OnBoardingScreen                     from '../screens/onBoardingScreen.js'
 import store                                from '../store/store.js'
 import { Provider }                         from 'react-redux'
 
@@ -24,6 +26,8 @@ const routes = () => (
 
           <View style={styles.flexBody}/>
           <Route exact path="/" component={LoginScreen} />
+          <Route exact path="/TwitterCreds" component={TwitterCredScreen} />
+          <Route exact path="/Onboarding" component={OnBoardingScreen} />
           <Route exact path="/WorkoutSelect" component={WorkoutSelectScreen} />
           <Route path="/ProfileScreen" component={ProfileScreen}/>
           <Route path="/WorkoutDetails/:id" component={WorkoutDetails}/>
