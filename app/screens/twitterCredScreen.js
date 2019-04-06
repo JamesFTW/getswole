@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
-
-import { WebView } from "react-native-webview"
+import { WebView } from 'react-native-webview'
+import { Redirect } from "react-router-native"
 
 export default class TwitterCredScreen extends PureComponent {
   //Might have to open in browser instead of webview
   webview = null
+  constructor(props) {
+    super(props)
+    this.state = {
+      redirectToReferrer: false
+    }
+  }
+
   handleWebViewNavigationStateChange = newNavState => {
 
     const { url } = newNavState;
@@ -19,12 +26,21 @@ export default class TwitterCredScreen extends PureComponent {
 
     // one way to handle a successful form submit is via query strings
     if (url.includes('/user')) {
-      console.log(url)
+      this.setState({
+        redirectToReferrer: true
+      })
       // maybe close this view?
     }
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: "/Workout" } }
+    const { redirectToReferrer } = this.state
+
+    if (redirectToReferrer) {
+      return <Redirect to={from}/>
+    }
+
     return (
       <View style={styles.container}>
       {/* <View style={styles.square}/> */}
