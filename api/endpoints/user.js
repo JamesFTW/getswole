@@ -6,7 +6,7 @@ router.get('/:user', isLoggedIn, (req, res) => {
   const { user } = req.params
 
   try {
-    res.status(200).json({user: user})
+    res.status(200)
   } catch (err) {
     res.status(403).end()
   }
