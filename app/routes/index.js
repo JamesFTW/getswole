@@ -28,6 +28,7 @@ const routes = () => (
           <Route exact path="/" component={LoginScreen} />
           <Route exact path="/TwitterCreds" component={TwitterCredScreen} />
           <Route exact path="/Onboarding" component={OnBoardingScreen} />
+          <Route exact path="/Workout" component={WorkoutScreen} />
           <Route exact path="/WorkoutSelect" component={WorkoutSelectScreen} />
           <Route path="/ProfileScreen" component={ProfileScreen}/>
           <Route path="/WorkoutDetails/:id" component={WorkoutDetails}/>

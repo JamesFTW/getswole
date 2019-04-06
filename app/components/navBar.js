@@ -20,7 +20,7 @@ export default class Navbar extends PureComponent {
           <Image style={{ marginLeft: 20 }} source={homeIcon} />
         </TouchableOpacity>
         <Link
-          to='/'
+          to='/Workout'
           component={TouchableOpacity}
           >
           <Image source={barbellIcon} style={{ marginRight: 10}} />
