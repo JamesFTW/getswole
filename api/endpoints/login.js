@@ -22,8 +22,16 @@ router.get('/oauth/callback', authenticate, (req, res) => {
   res.redirect('/')
 })
 
+router.get('/profile/', isLoggedIn, (req, res) => {
+  const user = req.user
+  
+  res.redirect(`/profile/${user}`)
+})
+
 router.get('/profile/:user', isLoggedIn, (req, res) => {
-  res.send({ user: req.user })
+  const { user } = req.params
+
+  res.send({ user: user })
 })
 
 module.exports = router

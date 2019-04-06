@@ -20,7 +20,7 @@ passport.deserializeUser((obj, cb) => {
 })
 
 const authSettings = {
-  successRedirect: '/api/login/profile/:user',
+  successRedirect: '/api/login/profile',
   failureRedirect: '/api/login/failed'
 }
 
