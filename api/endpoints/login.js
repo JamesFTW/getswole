@@ -25,10 +25,10 @@ router.get('/oauth/callback', authenticate, (req, res) => {
 router.get('/profile', isLoggedIn, (req, res) => {
   const user = req.user
 
-  res.redirect(`/api/login/profile/${user}`)
+  res.redirect(`/api/login/user/${user}`)
 })
 
-router.get('/profile/:user', isLoggedIn, (req, res) => {
+router.get('/user/:user', isLoggedIn, (req, res) => {
   const { user } = req.params
 
   res.send({ user: user })

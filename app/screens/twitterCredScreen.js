@@ -18,7 +18,7 @@ export default class TwitterCredScreen extends PureComponent {
     }
 
     // one way to handle a successful form submit is via query strings
-    if (url.includes('/login/profile')) {
+    if (url.includes('/login/user')) {
       console.log(url)
       // maybe close this view?
     }
