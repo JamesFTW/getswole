@@ -10,6 +10,11 @@ import {
 } from 'react-native'
 
 export default class WorkoutScreen extends Component {
+  componentDidMount() {
+    fetch('https://swole.herokuapp.com/api/user/test')
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
   constructor(props) {
     super(props)
     this.state = {

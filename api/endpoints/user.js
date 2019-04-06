@@ -15,4 +15,8 @@ router.get('/:user', isLoggedIn, (req, res) => {
   }
 })
 
+router.get('/test', isLoggedIn, (req, res) => {
+  res.json(req)
+})
+
 module.exports = router
