@@ -22,9 +22,9 @@ router.get('/oauth/callback', authenticate, (req, res) => {
   res.redirect('/')
 })
 
-router.get('/profile/', isLoggedIn, (req, res) => {
+router.get('/profile', isLoggedIn, (req, res) => {
   const user = req.user
-  
+
   res.redirect(`/profile/${user}`)
 })
 
