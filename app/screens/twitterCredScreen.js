@@ -19,8 +19,7 @@ export default class TwitterCredScreen extends PureComponent {
 
     // one way to handle a successful form submit is via query strings
     if (url.includes('/login/profile')) {
-      this.webview.stopLoading();
-      console.log(this.webview)
+      console.log('profile')
       // maybe close this view?
     }
   }
@@ -28,7 +27,7 @@ export default class TwitterCredScreen extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
-      <View style={styles.square}></View>
+      <View style={styles.square}/>
         <WebView
           ref={ref => (this.webview = ref)}
           javaScriptEnabled={true}
