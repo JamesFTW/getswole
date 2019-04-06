@@ -3,10 +3,13 @@ const router = express.Router()
 const isLoggedIn = require('connect-ensure-login').ensureLoggedIn()
 
 router.get('/:user', isLoggedIn, (req, res) => {
-  const { user } = req.params
-
+  /****************************************
+  Doesn't seem like I am doing auth correctly 
+  Anyone can gain access to my network if they have the persons
+  twitter id
+  ******************************************/
   try {
-    res.status(200)
+    res.status(200).end()
   } catch (err) {
     res.status(403).end()
   }
