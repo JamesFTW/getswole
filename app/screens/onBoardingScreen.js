@@ -34,7 +34,7 @@ export default class OnBoardingScreen extends PureComponent {
     }
   }
 
-  back = () => {
+  backFunc = () => {
     const { data } = this.state
 
     this.setState({
@@ -104,7 +104,7 @@ export default class OnBoardingScreen extends PureComponent {
           { middleElement } 
           <OnBoardingNav 
             next={this.nextFunc} 
-            back={this.back} 
+            back={this.backFunc} 
             components={data}
             counter={this.state.counter}
             text={this.state.username}
