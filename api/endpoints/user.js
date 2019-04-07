@@ -15,7 +15,7 @@ router.get('/:user', isLoggedIn, (req, res) => {
   }
 })
 
-router.get('/test', isLoggedIn, (req, res) => {
+router.get('/test', (req, res) => {
   console.log(res)
   console.log(req)
   console.log('bruh')
