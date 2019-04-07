@@ -19,7 +19,7 @@ router.get('/test', isLoggedIn, (req, res) => {
   console.log(res)
   console.log(req)
   console.log('bruh')
-  res.send(req)
+  // res.send(req)
 })
 
 module.exports = router
