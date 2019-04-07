@@ -11,7 +11,10 @@ import {
 
 export default class WorkoutScreen extends Component {
   componentDidMount() {
-    fetch('https://swole.herokuapp.com/api/user/test')
+    fetch('https://swole.herokuapp.com/api/user/test', {
+      credentials: "same-origin"
+    })
+      // .then(res => res.json())
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
