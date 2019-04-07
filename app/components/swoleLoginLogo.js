@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Bold',
     letterSpacing: 5,
     color: '#FFFFFF',
-    fontWeight: '700'
+    fontWeight: '700',
+    marginLeft: 5
   },
   checkIcon: {
     height: 96 / 1.5,
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'relative',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginLeft: 5
   }
 })
