@@ -43,7 +43,10 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Bold',
     color: '#FFFFFF',
     fontWeight: '700',
-    marginLeft: 18
+    marginLeft: 18,
+    textShadowColor: 'rgba(0, 0, 0, 0.15)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10
   },
   buttonContainer: {
     position: 'relative',
