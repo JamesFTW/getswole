@@ -1,6 +1,6 @@
 const express = require('express')
+const isAuthenticated = require('../auth/passport.js')
 const router = express.Router()
-const isLoggedIn = require('connect-ensure-login').ensureLoggedIn()
 
 router.get('/:user', isLoggedIn, (req, res) => {
   /****************************************
@@ -15,7 +15,8 @@ router.get('/:user', isLoggedIn, (req, res) => {
   }
 })
 
-router.get('/test', isLoggedIn, (req, res) => {
+router.get('/test', isAuthenticated, (req, res) => {
+  console.log('route ran')
   res.send(req)
 })
 
