@@ -1,5 +1,5 @@
 
-const isLoggedIn = require('connect-ensure-login').ensureLoggedIn()
+const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 const { authenticate } = require('../auth/passport.js')
 const express = require('express')
 const router  = express.Router()
