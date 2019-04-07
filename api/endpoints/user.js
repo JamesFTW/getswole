@@ -16,7 +16,7 @@ router.get('/:user', isLoggedIn, (req, res) => {
 })
 
 router.get('/test', isLoggedIn, (req, res) => {
-  console.log(req)
+  console.log(res)
   res.send(req)
 })
 
