@@ -20,7 +20,7 @@ router.get('/twitter', authenticate)
 
 router.get('/oauth/callback', authenticate)
 
-router.get('/profile', (req, res) => {
+router.get('/profile', isLoggedIn, (req, res) => {
   const user = req.user
 
   res.redirect(`/api/user/${user}`)
