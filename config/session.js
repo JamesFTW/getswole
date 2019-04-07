@@ -14,7 +14,8 @@ const sessionMiddleware = session({
   cookie: {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     secure: false
-  }
+  },
+  pruneSessionInterval: true
 })
 
 module.exports = sessionMiddleware
