@@ -15,12 +15,4 @@ router.get('/:user', isLoggedIn, (req, res) => {
   }
 })
 
-router.get('/test', isLoggedIn, (req, res) => {
-  console.log('res', res)
-  console.log('req', req)
-  console.log('bruh')
-  res.send('bruhhhhh')
-})
-
-
 module.exports = router
