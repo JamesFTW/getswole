@@ -1,7 +1,6 @@
 
 const express = require('express')
 const router  = express.Router()
-const isLoggedIn = require('connect-ensure-login')
 
 const { db } = require('../db')
 
@@ -11,7 +10,7 @@ router.get('/', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/test', isLoggedIn.ensureLoggedIn('/api/login'), (req, res) => {
+router.get('/test', (req, res) => {
   const { session, cookies } = req
   const result = { session, cookies }
 
