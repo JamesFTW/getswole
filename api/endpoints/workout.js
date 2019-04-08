@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-  res.send(req.passport)
+  res.send(req.session.passport)
 })
 
 
