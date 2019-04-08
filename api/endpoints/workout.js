@@ -11,10 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-  console.log('res', res)
-  console.log('req', req)
-  console.log('bruh')
-  res.send('bruhhhhh \n')
+  res.send(req)
 })
 
 
