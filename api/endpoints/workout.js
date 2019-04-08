@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-  res.send(req.cookies)
+  res.send(req.session)
 })
 
 
