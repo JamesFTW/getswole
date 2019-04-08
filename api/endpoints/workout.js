@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-  res.send(req.session.passport)
+  const { session } = req
+  
+  res.send(session)
 })
 
 
