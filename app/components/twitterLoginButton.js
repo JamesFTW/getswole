@@ -22,7 +22,7 @@ export default class TwitterLoginButton extends PureComponent {
       >
         <View style={styles.button}>
           <Image source={{ uri: TWITTER_LOGO }} style={styles.checkIcon} />
-          <Text style={styles.title}>Log in with Twitter</Text>
+          <Text style={styles.title}>Login with Twitter</Text>
         </View>
       </Link>
     )
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue-Bold',
     color: '#FFFFFF',
     fontWeight: '700',
-    marginLeft: 18,
+    marginLeft: 15,
     textShadowColor: 'rgba(0, 0, 0, 0.15)',
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10
