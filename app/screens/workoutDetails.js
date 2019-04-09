@@ -1,16 +1,14 @@
 
-import React, { Component } from 'react'
-
+import React, { Component }          from 'react'
+import CompletedWorkoutDetails       from '../components/completedWorkoutDetails.js'
+import BackGroundWrapper             from '../components/backGroundWrapper.js'
+import CompletedWorkoutDetailsHeader from '../components/completedWorkoutDetailsHeader.js'
 import {
   StyleSheet,
   ScrollView,
   View,
   ActivityIndicator
 } from 'react-native'
-
-import CompletedWorkoutDetails       from '../components/completedWorkoutDetails.js'
-import BackGroundWrapper             from '../components/backGroundWrapper.js'
-import CompletedWorkoutDetailsHeader from '../components/completedWorkoutDetailsHeader.js'
 
 let data = require('../test.json')
 

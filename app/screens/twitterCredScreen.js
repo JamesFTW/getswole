@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
-import { View, StyleSheet } from 'react-native'
-import { WebView } from 'react-native-webview'
-import { Redirect } from "react-router-native"
+import { View, StyleSheet }     from 'react-native'
+import { WebView }              from 'react-native-webview'
+import { Redirect }             from "react-router-native"
 
 export default class TwitterCredScreen extends PureComponent {
   //Might have to open in browser instead of webview
