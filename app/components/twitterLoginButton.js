@@ -53,7 +53,11 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingLeft: 20,
     paddingRight: 20,
-    marginBottom: 90
+    marginBottom: 90,
+    shadowColor: '#006792',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 1,
+    shadowOpacity: .7
   },
   checkIcon: {
     position: 'absolute',
