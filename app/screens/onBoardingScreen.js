@@ -128,6 +128,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#424242',
     marginLeft: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    borderColor: '#C9C9C9',
+    borderWidth: 1
   }
 })
