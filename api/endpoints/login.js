@@ -1,29 +1,18 @@
 
-const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
+const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login/failed')
 const { authenticate } = require('../auth/passport.js')
 const express = require('express')
 const router  = express.Router()
 
-router.get('/', (req, res) => {
-  res.send('Hello World! \n')
+router.get('/twitter', authenticate)
+router.get('/oauth/callback', authenticate)
+
+router.get('/success', isLoggedIn, (req, res) => {
+  res.send(200).end()
 })
 
 router.get('/failed', (req, res) => {
-  res.send('Failed! \n')
-})
-
-router.get('/success', (req, res) => {
-  res.send('Logged in! \n')
-})
-
-router.get('/twitter', authenticate)
-
-router.get('/oauth/callback', authenticate)
-
-router.get('/profile', isLoggedIn, (req, res) => {
-  const user = req.user
-
-  res.redirect(`/api/user/${user}`)
+  res.send(401).end()
 })
 
 module.exports = router

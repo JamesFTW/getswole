@@ -1,7 +1,7 @@
 
 const express = require('express')
 const router  = express.Router()
-const isLoggedIn = require('connect-ensure-login')
+const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login/failed')
 
 const { db } = require('../db')
 
