@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/test', isLoggedIn.ensureLoggedIn('/api/login'), (req, res) => {
+router.get('/test', isLoggedIn, (req, res) => {
   const { session, cookies } = req
   const result = { session, cookies }
 
