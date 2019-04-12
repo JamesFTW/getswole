@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import BackGroundWrapper    from '../components/backGroundWrapper.js'
 import Header               from '../components/header.js'
-import ConnectedNode        from '../containers/workout.js'
+import Workout              from '../containers/workout.js'
 import data                 from '../sample.json'
 
 import {
@@ -11,11 +11,14 @@ import {
 
 export default class WorkoutScreen extends Component {
   componentDidMount() {
-    fetch('https://swole.herokuapp.com/api/user/test', {
-      credentials: "same-origin"
+    fetch('https://swole.herokuapp.com/api/workout/test', {
+      credentials: "include"
     })
-      // .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => {
+        const result = res._bodyText
+        const jsonVersion = JSON.parse(result)
+        console.log(jsonVersion)
+      })
       .catch(err => console.log(err))
   }
   constructor(props) {
@@ -31,7 +34,7 @@ export default class WorkoutScreen extends Component {
 
     const WOD = workouts.map((exercise, i) => {
       return (
-        <ConnectedNode
+        <Workout
           type={exercise.exerciseName}
           id={exercise.id}
           sets={exercise.sets}
