@@ -19,6 +19,7 @@ export default class TwitterCredScreen extends PureComponent {
 
     // one way to handle a successful form submit is via query strings
     if (url.includes('/success')) {
+      this.webview.stopLoading()
       this.setState({
         redirectToReferrer: true
       })
