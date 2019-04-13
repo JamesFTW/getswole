@@ -8,11 +8,11 @@ router.get('/twitter', authenticate)
 router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
-  res.sendStatus(200).end()
+  res.send(200).end()
 })
 
 router.get('/failed', (req, res) => {
-  res.sendStatus(401).end()
+  res.send(401).end()
 })
 
 module.exports = router
