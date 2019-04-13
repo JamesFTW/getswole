@@ -37,6 +37,7 @@ export default class WorkoutScreen extends Component {
         <Workout
           type={exercise.exerciseName}
           id={exercise.id}
+          styleid={i}
           sets={exercise.sets}
           rep={exercise.rep}
           key={i+1}

@@ -14,6 +14,22 @@ import {
 const minusButton = 'Vectorminus'
 const plusButton = 'plusplus'
 
+const Container = ({ styleid, children }) => {
+  if (styleid % 2 === 0) {
+    return (
+    <View style={styles.container2}>
+      {children}
+    </View>
+    )
+  } else {
+    return (
+    <View style={styles.container}>
+      {children}
+    </View>
+    )
+  }
+}
+
 export class Workout extends PureComponent {
   onDecrement = () => {
     const { decrement, id } = this.props
@@ -30,13 +46,15 @@ export class Workout extends PureComponent {
       type,
       rep,
       id,
+      styleid,
       sets,
-      weight
+      weight,
+      key
     } = this.props
 
     return (
       <SwipeableViews style={styles.slideContainer}>
-        <View id={id} style={styles.container}>
+        <Container id={id} styleid={styleid} key={key}>
           <Text style={styles.workout}>{type}</Text>
           <Text style={styles.weight}>{weight} lb</Text>
           <Text style={styles.set}> {sets} sets x {rep} reps </Text>
@@ -51,7 +69,7 @@ export class Workout extends PureComponent {
           <TouchableHighlight activeOpacity ={.5} onPress={this.onIncrement}>
             <Image style={styles.plus} source={{uri: plusButton}} />
           </TouchableHighlight>
-        </View>
+        </Container>
 
         <View style={styles.slide1}>
           <Text style={styles.completed}>{type} completed!</Text>
@@ -74,7 +92,13 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 125,
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#EDEDED'
+  },
+  container2: {
+    height: 125,
+    alignItems: 'center',
+    backgroundColor: '#E0E0E0'
   },
   workout: {
     fontSize: 36,
