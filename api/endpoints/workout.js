@@ -15,7 +15,7 @@ router.get('/test', isLoggedIn, (req, res) => {
   const { session, cookies } = req
   const result = { session, cookies }
 
-  console.log(session.user)
+  console.log(session)
 
   res.send(result)
 })
