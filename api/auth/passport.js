@@ -12,11 +12,16 @@ passport.use(new Strategy(twitterConfig,
 }))
 
 passport.serializeUser((user, cb) => {
-  cb(null, user.id)
+  const twitterUserCreds = {
+    userid: user.id,
+    profilePhoto: user.profile_image_url
+  }
+
+  cb(null, twitterUserCreds)
 })
 
-passport.deserializeUser((obj, cb) => {
-  cb(null, obj)
+passport.deserializeUser((userid, cb) => {
+  cb(null, userid)
 })
 
 const authSettings = {
