@@ -10,17 +10,17 @@ import {
 } from 'react-native'
 
 export default class WorkoutScreen extends Component {
-  componentDidMount() {
-    fetch('https://swole.herokuapp.com/api/workout/test', {
-      credentials: "include"
-    })
-      .then(res => {
-        const result = res._bodyText
-        const jsonVersion = JSON.parse(result)
-        console.log(jsonVersion)
-      })
-      .catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   fetch('https://swole.herokuapp.com/api/workout/test', {
+  //     credentials: "include"
+  //   })
+  //     .then(res => {
+  //       const result = res._bodyText
+  //       const jsonVersion = JSON.parse(result)
+  //       console.log(jsonVersion)
+  //     })
+  //     .catch(err => console.log(err))
+  // }
   constructor(props) {
     super(props)
     this.state = {

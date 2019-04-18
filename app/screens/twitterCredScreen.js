@@ -27,7 +27,10 @@ export default class TwitterCredScreen extends PureComponent {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: "/Workout" } }
+    const { from } = this.props.location.state 
+      || { from: { pathname: "/Onboarding" } } 
+      || { from: { pathname: "/Workout" } }
+
     const { redirectToReferrer } = this.state
 
     if (redirectToReferrer) {
