@@ -66,7 +66,7 @@ export class Workout extends PureComponent {
               <Image style={styles.minus} source={{uri: minusButton}} />
           </TouchableHighlight>
 
-          <TouchableHighlight activeOpacity ={.5} onPress={this.onIncrement}>
+          <TouchableHighlight activeOpacity={.5} onPress={this.onIncrement}>
             <Image style={styles.plus} source={{uri: plusButton}} />
           </TouchableHighlight>
         </Container>
