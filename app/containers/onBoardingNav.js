@@ -67,11 +67,11 @@ export default class OnBoardingNav extends PureComponent {
       text
     } = this.state
 
-    const { 
-      components, 
-      back, 
+    const {
+      components,
+      back,
       next, 
-      submitUser 
+      submitUser
     } = this.props
 
     let indicator = indicators.length > 0 ? indicators : components
