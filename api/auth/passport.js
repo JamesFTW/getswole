@@ -17,7 +17,12 @@ passport.serializeUser((user, cb) => {
 
 //Need to create user here
 passport.deserializeUser((obj, cb) => {
-  cb(null, obj)
+  const userObject = {
+    id: obj.id,
+    profilePhoto: obj.profile_image_url_https
+  }
+  
+  cb(null, userObject)
 })
 
 const authSettings = {
