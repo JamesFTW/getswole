@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   navButtons: {
-    height: '100%', 
-    alignContent: 'center', 
+    height: '100%',
+    alignContent: 'center',
     justifyContent: 'center'
   },
   nav: {
