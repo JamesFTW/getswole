@@ -19,9 +19,9 @@ passport.serializeUser((user, cb) => {
 passport.deserializeUser((obj, cb) => {
   const userObject = {
     id: obj.id,
-    profilePhoto: obj.profile_image_url_https
+    profilePhoto: obj._json.profile_image_url_https
   }
-  
+
   cb(null, userObject)
 })
 
