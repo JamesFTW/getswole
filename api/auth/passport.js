@@ -12,7 +12,7 @@ passport.use(new Strategy(twitterConfig,
 }))
 
 passport.serializeUser((user, cb) => {
-  cb(null, user.id)
+  cb(null, user)
 })
 
 //Need to create user here

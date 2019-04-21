@@ -7,7 +7,7 @@ const { Workout: { getAllWorkouts } } = require('../db')
 
 router.get('/', (req, res) => {
   getAllWorkouts
-    .then(data => res.send(data))
+    .then(data => res.json(data))
     .catch(err => console.log(err))
 })
 
