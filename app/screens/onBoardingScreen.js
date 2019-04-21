@@ -45,32 +45,21 @@ export default class OnBoardingScreen extends PureComponent {
   backFunc = () => {
     const { data } = this.state
 
-    this.setState({
-      counter: this.state.counter++
-    })
-    
     data.map((data) => {
       if (data.component !== 'userName') {
-
         data.isComplete = false
       }
     })
 
     this.setState({
-      counter: this.state.counter++,
       isProfilePhoto: false
     })
   }
 
   nextFunc = () => {
     const { data, username } = this.state
-
-    //force re-rerender of onBoardingNav
-    this.setState({
-      counter: this.state.counter++
-    })
   
-    if(username.length > 0) {
+    if (username.length > 0) {
       data.map((data) => {
         if (data.component === 'profilePhoto') {
           //call api to see if name is taken
@@ -111,10 +100,10 @@ export default class OnBoardingScreen extends PureComponent {
         <CenterOfScreen>
           { middleElement } 
           <OnBoardingNav 
-            next={this.nextFunc} 
+            next={this.nextFunc}
+            submitUser={this.submit} 
             back={this.backFunc}
             components={data}
-            counter={this.state.counter}
             text={this.state.username}
           />
         </CenterOfScreen>

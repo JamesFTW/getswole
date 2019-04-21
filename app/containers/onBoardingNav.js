@@ -58,26 +58,26 @@ export default class OnBoardingNav extends PureComponent {
         })
       }
     })
-    
-    this.setState({
-      indicators: nextProps.components,
-      counter: nextProps.counter
-    })
   }
 
   render() {
+    const {
+      indicators,
+      userPhotoComplete,
+      text
+    } = this.state
+    
     const { 
       components, 
       back, 
       next, 
-      counter,
-      text 
+      submitUser 
     } = this.props
 
-    const { indicators, userPhotoComplete } = this.state
-    const indicator = indicators.length > 0 ? indicators : components
-    let backButton = userPhotoComplete === false? '' : 'Back'
-    let nextButton = this.state.text === '' ? '' : 'Next'
+    let indicator = indicators.length > 0 ? indicators : components
+    let backButton = userPhotoComplete === false ? '' : 'Back'
+    let nextButton = text === '' ? '' : 'Next'
+    let nextProp = userPhotoComplete === false ? next : submitUser
 
     if (userPhotoComplete) {
       nextButton = 'Finish'
@@ -90,9 +90,9 @@ export default class OnBoardingNav extends PureComponent {
             <Text style={styles.text}>{backButton}</Text>
           </TouchableOpacity>
           <View style={styles.indicatorContainer}>
-            <Indicator counter={counter} indicators={indicator} />
+            <Indicator indicators={indicator} />
           </View>
-          <TouchableOpacity text={text} onPress={() => next()}>
+          <TouchableOpacity onPress={() => nextProp()}>
             <Text style={styles.text}>{nextButton}</Text>
           </TouchableOpacity>
         </View>
