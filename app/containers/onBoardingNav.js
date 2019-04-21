@@ -86,13 +86,13 @@ export default class OnBoardingNav extends PureComponent {
     return (
       <View style={styles.container}>
         <View style={styles.nav}>
-          <TouchableOpacity onPress={() => back()}>
+          <TouchableOpacity style={styles.navButtons} onPress={() => back()}>
             <Text style={styles.text}>{backButton}</Text>
           </TouchableOpacity>
           <View style={styles.indicatorContainer}>
             <Indicator indicators={indicator} />
           </View>
-          <TouchableOpacity onPress={() => nextProp()}>
+          <TouchableOpacity style={styles.navButtons} onPress={() => nextProp()}>
             <Text style={styles.text}>{nextButton}</Text>
           </TouchableOpacity>
         </View>
@@ -106,6 +106,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     bottom: 0
+  },
+  navButtons: {
+    height: '100%', 
+    alignContent: 'center', 
+    justifyContent: 'center'
   },
   nav: {
     backgroundColor: 'rgba(0,0,0,0.3)',
