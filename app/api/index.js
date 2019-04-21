@@ -1,5 +1,6 @@
 
 import { AsyncStorage } from 'react-native'
+import { API_ENDPOINT } from './endpoint'
 
 //This works for a single workout, but going to have to eventually
 //fix for an array of workouts
@@ -15,7 +16,7 @@ const getWorkoutSelections = workoutID => {
         }
       })
       //change api endpoint to something more descriptive
-    fetch(`https://swole.herokuapp.com/api/workout`)
+    fetch(`${API_ENDPOINT}/workout`)
       .then(res => res.json())
       .then(data => {
         const workoutData = JSON.stringify(data)
@@ -28,4 +29,18 @@ const getWorkoutSelections = workoutID => {
   })
 }
 
-export default getWorkoutSelections
+const isUser = () => {
+  return new Promise((resolve, reject) => {
+    fetch(`${API_ENDPOINT}/user/isuser`)
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          // sign in
+        } else {
+          // redirect to onBoardingScreen
+        }
+      })
+  })
+}
+
+export default { getWorkoutSelections, isUser }

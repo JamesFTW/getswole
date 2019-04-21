@@ -4,6 +4,7 @@ import CenterOfScreen           from '../components/centerOfScreen'
 import ChooseProfilePhoto       from '../components/chooseProfilePhoto'
 import ChooseUsername           from '../components/chooseUsername'
 import OnBoardingNav            from '../containers/onBoardingNav'
+import { API_ENDPOINT }         from '../api/endpoint'
 
 import {
   StyleSheet,
@@ -34,15 +35,10 @@ export default class OnBoardingScreen extends PureComponent {
     }
   }
 
-    componentDidMount() {
-      fetch('https://swole.herokuapp.com/api/workout/test', {
-        credentials: "include"
-      })
-      .then(res => {
-        const result = res._bodyText
-        const jsonVersion = JSON.parse(result)
-        console.log(jsonVersion)
-      })
+  componentDidMount() {
+    fetch(`${API_ENDPOINT}/workout`)
+      .then(res => res.json())
+      .then(res => console.log(res))
       .catch(err => console.log(err))
   }
 
