@@ -92,7 +92,7 @@ export default class OnBoardingNav extends PureComponent {
           <View style={styles.indicatorContainer}>
             <Indicator indicators={indicator} />
           </View>
-          <TouchableOpacity style={styles.navButtons} onPress={() => nextProp()}>
+          <TouchableOpacity style={styles.navButtons2} onPress={() => nextProp()}>
             <Text style={styles.text}>{nextButton}</Text>
           </TouchableOpacity>
         </View>
@@ -110,7 +110,14 @@ const styles = StyleSheet.create({
   navButtons: {
     height: '100%',
     alignContent: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingRight: 40
+  },
+  navButtons2: {
+    height: '100%',
+    alignContent: 'center',
+    justifyContent: 'center',
+    paddingLeft: 40
   },
   nav: {
     backgroundColor: 'rgba(0,0,0,0.3)',
