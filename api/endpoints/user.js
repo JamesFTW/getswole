@@ -15,4 +15,9 @@ router.get('/:user', isLoggedIn, (req, res) => {
   }
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/api/signup')
+})
+
 module.exports = router
