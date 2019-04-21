@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react'
-import LoginWrapper             from '../components/loginWrapper'
-import CenterOfScreen           from '../components/centerOfScreen'
-import ChooseProfilePhoto       from '../components/chooseProfilePhoto'
-import ChooseUsername           from '../components/chooseUsername'
-import OnBoardingNav            from '../containers/onBoardingNav'
-import { API_ENDPOINT }         from '../api/endpoint'
+import React, { Component } from 'react'
+import LoginWrapper         from '../components/loginWrapper'
+import CenterOfScreen       from '../components/centerOfScreen'
+import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
+import ChooseUsername       from '../components/chooseUsername'
+import OnBoardingNav        from '../containers/onBoardingNav'
+import { API_ENDPOINT }     from '../api/endpoint'
 
 import {
   StyleSheet,
@@ -24,14 +24,13 @@ const components = [
 
 const SQUATPHOTO = 'squatphoto'
 
-export default class OnBoardingScreen extends PureComponent {
+export default class OnBoardingScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
       data: components,
       username: '',
-      isProfilePhoto: false,
-      counter: 0
+      isProfilePhoto: false
     }
   }
 
@@ -68,18 +67,27 @@ export default class OnBoardingScreen extends PureComponent {
       })
 
       this.setState({
-        counter: this.state.counter++,
         isProfilePhoto: true
       })
     }
   }
 
+  submit = () => {
+    //api call to create user goes here.
+    console.log('submit works')
+  }
+
   render() {
-    const { data, isProfilePhoto, username } = this.state
-    const defaultValue = username.length > 0 ? username : ""
+    const { 
+      data, 
+      isProfilePhoto, 
+      username 
+    } = this.state
+
+    let defaultValue = username.length > 0 ? username : ""
     let middleElement
-    
-    if(!isProfilePhoto) {
+  
+    if (!isProfilePhoto) {
       middleElement = (
         <ChooseUsername>
           <TextInput
@@ -101,7 +109,7 @@ export default class OnBoardingScreen extends PureComponent {
           { middleElement } 
           <OnBoardingNav 
             next={this.nextFunc}
-            submitUser={this.submit} 
+            submitUser={this.submit}
             back={this.backFunc}
             components={data}
             text={this.state.username}

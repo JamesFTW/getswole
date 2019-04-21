@@ -7,8 +7,8 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-const Indicator = ({ indicators }) => {
-  const allIndicators = indicators.map((indicator, i) => {
+const Indicator = ({ indicators }) => { 
+  allIndicators = indicators.map((indicator, i) => {
     if (indicator.isComplete || indicator.component === 'userName') {
       return <View key={i} style={styles.indicatorActive} />
     } else {
@@ -39,7 +39,7 @@ export default class OnBoardingNav extends PureComponent {
       text: nextProps.text
     })
 
-    nextProps.components.map((vals) => {
+    nextProps.components.map(vals => {
       if (
         vals.component === 'profilePhoto' 
         && vals.isComplete === true
@@ -66,7 +66,7 @@ export default class OnBoardingNav extends PureComponent {
       userPhotoComplete,
       text
     } = this.state
-    
+
     const { 
       components, 
       back, 
