@@ -40,29 +40,34 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
     marginLeft: 25,
     marginRight: 25,
+    marginBottom: 5,
+    paddingBottom: 1,
+    paddingTop: 1,
+    textAlign: 'center',
+    height: 35
   },
-  icon:{
-    top: 2,
+  icon: {
     height: 30,
-    width: 30
-    //alignSelf: 'center'
+    width: 30,
+    top: 3,
+    alignItems: 'center'
   },
-  border:{
+  border: {
     borderTopWidth: 1,
     borderColor: '#E5E3E3',
-    marginBottom: 5
+    // paddingBottom: 5
   },
-  workout:{
+  workout: {
     fontFamily: 'Helvetica-Light',
     fontSize: 24,
+    lineHeight: 35,
     letterSpacing: 1,
     color: '#1F1C1C',
     marginRight: 5,
-    alignSelf: 'center'
   },
-  date:{
+  date: {
     color: '#989898',
     fontSize: 10,
-    marginTop: 10
+    lineHeight: 35
   },
 })
