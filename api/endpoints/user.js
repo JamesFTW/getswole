@@ -4,9 +4,11 @@ const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 
 router.get('/', isLoggedIn, (req, res) => {
   const { passport } = req.session
-  const photo = passport.profilePhoto
+  const userPhoto = { 
+    photo: passport.profilePhoto
+  }
 
-  res.json(photo)
+  res.json(userPhoto)
 })
 
 router.get('/:user', isLoggedIn, (req, res) => {
