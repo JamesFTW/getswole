@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import GreenHeader              from '../components/greenHeader'
 import WorkoutSelect            from '../components/workoutSelect'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
-import getWorkoutSelections     from '../api'
+import { getWorkoutSelections } from '../api'
 
 import {
   ScrollView,
