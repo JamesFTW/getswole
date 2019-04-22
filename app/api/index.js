@@ -1,6 +1,7 @@
 
 import { AsyncStorage } from 'react-native'
 import { API_ENDPOINT } from './endpoint'
+import { request }      from './request'
 
 //This works for a single workout, but going to have to eventually
 //fix for an array of workouts
@@ -16,14 +17,18 @@ const getWorkoutSelections = workoutID => {
         }
       })
       //change api endpoint to something more descriptive
-    fetch(`${API_ENDPOINT}/workout`)
+
+    request({ 
+      endpoint: `${API_ENDPOINT}/workout`,
+      method: 'GET'
+    })
       .then(res => res.json())
       .then(data => {
         const workoutData = JSON.stringify(data)
         
         AsyncStorage.setItem(data.planid, workoutData)
         
-        resolve(data)
+        return resolve(data)
       })
       .catch(err => reject(err))
   })
@@ -43,4 +48,24 @@ const isUser = () => {
   })
 }
 
-export default { getWorkoutSelections, isUser }
+const registerUser = (username, profilePhoto) => {
+  const body = {
+    username,
+    profilePhoto
+  }
+
+  return new Promise((resolve, reject) => {
+    request({ 
+      endpoint: `${API_ENDPOINT}/user/create`, 
+      body: JSON.stringify(body), 
+      headers: 'application/ json'
+    })
+    .then(res => res.json())
+    .then(res => {
+      resolve(res)
+    })
+    .catch(err => resolve(err))
+  })
+}
+
+module.exports = { getWorkoutSelections, isUser }
