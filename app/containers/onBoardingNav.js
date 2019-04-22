@@ -44,8 +44,8 @@ export default class OnBoardingNav extends PureComponent {
         vals.component === 'profilePhoto' 
         && vals.isComplete === true
         ) {
-          this.setState({
-            userPhotoComplete: true
+        this.setState({
+          userPhotoComplete: true
         })
       }
 
