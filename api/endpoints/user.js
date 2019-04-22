@@ -2,6 +2,12 @@ const express = require('express')
 const router = express.Router()
 const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 
+router.get('/', isLoggedIn, (req, res) => {
+  const { session } = req
+
+  res.json(session)
+})
+
 router.get('/:user', isLoggedIn, (req, res) => {
   /****************************************
   Doesn't seem like I am doing auth correctly 

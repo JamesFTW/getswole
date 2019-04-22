@@ -1,12 +1,12 @@
 [
   {
-    "workout": "LEG DAY",
+    "workout": "Leg Day",
     "completed": true,
     "statusID": 1,
     "date": "12/1/17"
   },
   {
-    "workout": "BACK AND BICEPS",
+    "workout": "Back And Biceps",
     "completed": true,
     "statusID": 2,
     "date": "12/1/17"
@@ -18,10 +18,56 @@
     "date": "12/1/17"
   },
   {
-    "workout": "ABS",
+    "workout": "Abs",
     "completed": true,
     "statusID": 4,
     "date": "12/1/17"
   },
-  
+  {
+    "workout": "Leg Day",
+    "completed": true,
+    "statusID": 1,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Back And Biceps",
+    "completed": true,
+    "statusID": 2,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Chest Day",
+    "completed": true,
+    "statusID": 3,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Abs",
+    "completed": true,
+    "statusID": 4,
+    "date": "12/1/17"
+  },{
+    "workout": "Leg Day",
+    "completed": true,
+    "statusID": 1,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Back And Biceps",
+    "completed": true,
+    "statusID": 2,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Chest Day",
+    "completed": true,
+    "statusID": 3,
+    "date": "12/1/17"
+  },
+  {
+    "workout": "Abs",
+    "completed": true,
+    "statusID": 4,
+    "date": "12/1/17"
+  }
 ]
