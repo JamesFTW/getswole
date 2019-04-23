@@ -8,6 +8,8 @@ router.get('/', isLoggedIn, (req, res) => {
   //   photo: passport.profilePhoto
   // }
 
+  console.log(req)
+
   res.json(passport)
 })
 
