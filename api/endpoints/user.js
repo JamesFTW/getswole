@@ -11,6 +11,7 @@ router.get('/', isLoggedIn, (req, res) => {
 })
 
 router.post('/create', isLoggedIn, (req, res) => {
+  console.log(req)
   const { username, profilePhoto } = req.body
 
   User.create(username, profilePhoto)
