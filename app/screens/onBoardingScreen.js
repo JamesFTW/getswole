@@ -30,14 +30,20 @@ export default class OnBoardingScreen extends Component {
     this.state = {
       data: components,
       username: '',
-      isProfilePhoto: false
+      isProfilePhoto: false,
+      profilePhoto: ''
     }
   }
 
   componentDidMount() {
-    fetch(`${API_ENDPOINT}/workout`)
-      .then(res => res.json())
-      .then(res => console.log(res))
+    getUser()
+      .then(res => {
+        const userPhoto = res.user.profilePhoto
+
+        this.setState({
+          profilePhoto: userPhoto
+        })
+      })
       .catch(err => console.log(err))
   }
 
@@ -81,7 +87,8 @@ export default class OnBoardingScreen extends Component {
     const { 
       data, 
       isProfilePhoto, 
-      username 
+      username ,
+      profilePhoto
     } = this.state
 
     let defaultValue = username.length > 0 ? username : ""
@@ -100,7 +107,7 @@ export default class OnBoardingScreen extends Component {
         </ChooseUsername>
       )
     } else {
-      middleElement = <ChooseProfilePhoto/>
+      middleElement = <ChooseProfilePhoto profilePhoto={profilePhoto}/>
     }
     
     return (

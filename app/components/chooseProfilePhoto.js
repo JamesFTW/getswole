@@ -52,6 +52,8 @@ export default class ChooseProfilePhoto extends PureComponent {
   //   });
   // }
   render() {
+    const { profilePhoto } = this.props
+
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -61,7 +63,7 @@ export default class ChooseProfilePhoto extends PureComponent {
             </CenterOfScreen>
           </View>
             <CenterOfScreen>
-              <Image style={styles.profilePhoto} source={require('../assets/img/me.jpg')}/>
+            <Image style={styles.profilePhoto} source={{uri: profilePhoto}}/>
               <TouchableOpacity>
                 <Image style={styles.addIcon} source={{uri: ADD_PHOTO}}/>
               </TouchableOpacity>
