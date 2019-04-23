@@ -8,7 +8,7 @@ router.get('/', isLoggedIn, (req, res) => {
     photo: passport.profilePhoto
   }
 
-  res.json(userPhoto)
+  res.json(passport)
 })
 
 router.get('/:user', isLoggedIn, (req, res) => {
