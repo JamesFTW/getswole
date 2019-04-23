@@ -16,8 +16,7 @@ const getWorkoutSelections = workoutID => {
           return resolve(data)
         }
       })
-      //change api endpoint to something more descriptive
-
+    //change api endpoint to something more descriptive
     request({ 
       endpoint: `${API_ENDPOINT}/workout`,
       method: 'GET'
@@ -71,12 +70,17 @@ const registerUser = (username, profilePhoto) => {
       body: JSON.stringify(body), 
       headers: 'application/ json'
     })
-    .then(res => res.json())
-    .then(res => {
-      resolve(res)
-    })
-    .catch(err => resolve(err))
+      .then(res => res.json())
+      .then(res => {
+        resolve(res)
+      })
+      .catch(err => reject(err))
   })
 }
 
-module.exports = { getWorkoutSelections, isUser }
+module.exports = { 
+  getWorkoutSelections, 
+  isUser, 
+  getUser, 
+  registerUser 
+}
