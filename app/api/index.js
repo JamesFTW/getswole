@@ -48,6 +48,17 @@ const isUser = () => {
   })
 }
 
+const getUser = () => {
+  return new Promise((resolve, reject) => {
+    request({
+      endpoint: `${API_ENDPOINT}/user`,
+      method: 'GET'
+    })
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+  })
+}
+
 const registerUser = (username, profilePhoto) => {
   const body = {
     username,
