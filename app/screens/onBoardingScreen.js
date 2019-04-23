@@ -4,7 +4,7 @@ import CenterOfScreen       from '../components/centerOfScreen'
 import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
 import ChooseUsername       from '../components/chooseUsername'
 import OnBoardingNav        from '../containers/onBoardingNav'
-import { API_ENDPOINT }     from '../api/endpoint'
+import { getUser }          from '../api'
 
 import {
   StyleSheet,
