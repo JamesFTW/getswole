@@ -4,26 +4,8 @@ const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 
 router.get('/', isLoggedIn, (req, res) => {
   const { passport } = req.session
-  // const userPhoto = { 
-  //   photo: passport.profilePhoto
-  // }
-
-  console.log(req)
 
   res.json(passport)
-})
-
-router.get('/:user', isLoggedIn, (req, res) => {
-  /****************************************
-  Doesn't seem like I am doing auth correctly 
-  Anyone can gain access to my network if they have the persons
-  twitter id
-  ******************************************/
-  try {
-    res.status(200).end()
-  } catch (err) {
-    res.status(403).end()
-  }
 })
 
 router.get('/logout', (req, res) => {
