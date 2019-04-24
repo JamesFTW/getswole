@@ -11,10 +11,10 @@ router.get('/', isLoggedIn, (req, res) => {
 })
 
 router.post('/create', isLoggedIn, (req, res) => {
-  console.log(req)
   const { username, profilePhoto } = req.body
+  const { id } = req.user
 
-  User.create(username, profilePhoto)
+  User.create(username, profilePhoto, id)
     .then(data => res.json(data))
     .catch(err => console.log(err))
 })

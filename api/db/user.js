@@ -4,8 +4,8 @@ const { GET_USER, CREATE_USER } = require('./queries')
 const findById = db => twitterid =>
   db.one(GET_USER, twitterid)
 
-const createUser = db => (username, profilePhoto) =>
-  db.one(CREATE_USER, [username, profilePhoto])
+const createUser = db => (username, profilePhoto, twitterid) =>
+  db.one(CREATE_USER, [username, profilePhoto, twitterid])
 
 const getUserWorkouts = db => id =>
   'too be added'
