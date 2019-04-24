@@ -14,7 +14,7 @@ router.post('/create', isLoggedIn, (req, res) => {
   const { username, profilePhoto } = req.body
   const { id } = req.user
 
-  User.create(username, profilePhoto, id)
+  User.create(username.toLowerCase(), profilePhoto, id)
     .then(data => res.json(data))
     .catch(err => console.log(err))
 })
