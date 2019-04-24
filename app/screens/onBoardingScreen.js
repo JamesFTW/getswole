@@ -4,6 +4,8 @@ import CenterOfScreen       from '../components/centerOfScreen'
 import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
 import ChooseUsername       from '../components/chooseUsername'
 import OnBoardingNav        from '../containers/onBoardingNav'
+import { Redirect }         from "react-router-native"
+
 import {
   getUser,
   registerUser
@@ -34,7 +36,8 @@ export default class OnBoardingScreen extends Component {
       data: components,
       username: '',
       isProfilePhoto: false,
-      profilePhoto: ''
+      profilePhoto: '',
+      shouldRedirect: false
     }
   }
 
@@ -85,7 +88,12 @@ export default class OnBoardingScreen extends Component {
     const { username, profilePhoto } = this.state
 
     registerUser(username, profilePhoto)
-      .then(res => console.log(res))
+      .then(res => {
+        //set userid in async storage
+        this.setState({
+          shouldRedirect: true
+        })
+      })
       .catch(err => console.log(err))
   }
 
@@ -94,8 +102,16 @@ export default class OnBoardingScreen extends Component {
       data, 
       isProfilePhoto, 
       username ,
-      profilePhoto
+      profilePhoto,
+      shouldRedirect
     } = this.state
+
+    const { from } = this.props.location.state
+      || { from: { pathname: "/Workout" } }
+
+    if (shouldRedirect) {
+      return <Redirect to={from} />
+    }
 
     let defaultValue = username.length > 0 ? username : ""
     let middleElement
