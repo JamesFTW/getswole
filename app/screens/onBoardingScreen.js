@@ -4,7 +4,10 @@ import CenterOfScreen       from '../components/centerOfScreen'
 import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
 import ChooseUsername       from '../components/chooseUsername'
 import OnBoardingNav        from '../containers/onBoardingNav'
-import { getUser }          from '../api'
+import { 
+  getUser, 
+  registerUser 
+} from '../api'
 
 import {
   StyleSheet,
@@ -79,8 +82,11 @@ export default class OnBoardingScreen extends Component {
   }
 
   submit = () => {
-    //api call to create user goes here.
-    console.log('submit works')
+    const { username, profilePhoto } = this.state
+
+    registerUser(username, profilePhoto)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 
   render() {
