@@ -4,9 +4,9 @@ import CenterOfScreen       from '../components/centerOfScreen'
 import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
 import ChooseUsername       from '../components/chooseUsername'
 import OnBoardingNav        from '../containers/onBoardingNav'
-import { 
-  getUser, 
-  registerUser 
+import {
+  getUser,
+  registerUser
 } from '../api'
 
 import {
