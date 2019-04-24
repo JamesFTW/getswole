@@ -82,5 +82,5 @@ module.exports = {
   getWorkoutSelections, 
   isUser, 
   getUser, 
-  registerUser 
+  registerUser
 }
