@@ -59,7 +59,7 @@ const getUser = () => {
 }
 
 const registerUser = (username, profilePhoto) => {
-  const body = {
+  const data = {
     username,
     profilePhoto
   }
@@ -67,8 +67,8 @@ const registerUser = (username, profilePhoto) => {
   return new Promise((resolve, reject) => {
     request({ 
       endpoint: `${API_ENDPOINT}/user/create`, 
-      body: JSON.stringify(body), 
-      headers: 'application/ json'
+      body: JSON.stringify(data), 
+      headers: 'application/json'
     })
       .then(res => res.json())
       .then(res => {
