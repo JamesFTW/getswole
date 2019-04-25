@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import { Redirect } from "react-router-native"
 import { WebView }  from 'react-native-webview'
 import Loading      from '../components/loading'
+import { getUser }  from '../api'
+import { API_ENDPOINT } from '../api/endpoint'
 
 import {
   View,
@@ -13,13 +15,31 @@ export default class TwitterCredScreen extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      redirectToReferrer: false,
-      isLoading: true
+      redirectToOnBoarding: false,
+      redirectToWorkoutScreen: false,
+      isLoading: true,
+      isUser: false,
+      showWebView: false,
+      user: ''
     }
   }
 
   componentDidMount() {
-
+    getUser()
+      .then(data => {
+        //TODO:  API needs to query database for user info and return id
+       if (data.user.id) {
+         this.setState({
+           showWebView: true
+         })
+       } else {
+        this.setState({
+          user: data.user.id,
+          redirectToWorkoutScreen: true
+        })
+       }
+    })
+    .catch(err => console.log(err))
   }
 
   handleWebViewNavigationStateChange = newNavState => {
@@ -27,11 +47,10 @@ export default class TwitterCredScreen extends PureComponent {
     const { url } = newNavState
     if (!url) return
 
-    // one way to handle a successful form submit is via query strings
     if (url.includes('/success')) {
       this.webview.stopLoading()
       this.setState({
-        redirectToReferrer: true
+        redirectToOnBoarding: true
       })
     }
   }
@@ -43,25 +62,38 @@ export default class TwitterCredScreen extends PureComponent {
   }
 
   render() {
-    const { from } = this.props.location.state 
-      || { from: { pathname: "/Onboarding" } } 
-      || { from: { pathname: "/Workout" } }
+    const { 
+      redirectToWorkoutScreen,
+      redirectToOnBoarding,
+      isLoading, 
+      showWebView,
+      user
+    } = this.state
 
-    const { redirectToReferrer, isLoading } = this.state
+    if (redirectToOnBoarding) {
+      return <Redirect to='/OnBoarding'/>
+    }
 
-    if (redirectToReferrer) {
-      return <Redirect to={from}/>
+    if (redirectToWorkoutScreen) {
+      return (
+        <Redirect to={{
+          pathname: '/Workout',
+          state: {
+            user
+          }
+        }}/>
+      )
     }
 
     return (
       <View style={styles.container}>
-        <WebView
+        {showWebView? <WebView
           ref={ref => (this.webview = ref)}
           javaScriptEnabled={true}
-          source={{ uri: 'https://swole.herokuapp.com/api/login/twitter' }}
+          source={{ uri: `${API_ENDPOINT}/login/twitter` }}
           onNavigationStateChange={this.handleWebViewNavigationStateChange}
           onLoadEnd={() => this.stopSpinner()}
-        />
+        /> : <Loading/>}
         {isLoading && (
           <Loading/>
         )}
