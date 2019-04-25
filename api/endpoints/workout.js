@@ -3,10 +3,10 @@ const express = require('express')
 const router  = express.Router()
 const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login/failed')
 
-const { Workout: { getAllWorkouts } } = require('../db')
+const { Workout } = require('../db')
 
 router.get('/', (req, res) => {
-  getAllWorkouts
+  Workout.getAllWorkouts()
     .then(data => res.json(data))
     .catch(err => console.log(err))
 })
