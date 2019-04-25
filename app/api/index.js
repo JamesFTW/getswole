@@ -24,7 +24,6 @@ const getWorkoutSelections = workoutID => {
       .then(res => res.json())
       .then(data => {
         const workoutData = JSON.stringify(data)
-        
         AsyncStorage.setItem(data.planid, workoutData)
         
         return resolve(data)
