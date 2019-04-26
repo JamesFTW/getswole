@@ -62,10 +62,10 @@ export default class TwitterCredScreen extends PureComponent {
   }
 
   render() {
-    const { 
+    const {
       redirectToWorkoutScreen,
       redirectToOnBoarding,
-      isLoading, 
+      isLoading,
       showWebView,
       user
     } = this.state
