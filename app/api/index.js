@@ -46,8 +46,22 @@ const isUser = () => {
   })
 }
 
-const getUser = () => {
-//TODO:  API needs to query database for user info and return id
+const getUser = twitterId => {
+  const data = {
+    id: twitterId
+  }
+  return new Promise((resolve, reject) => {
+    request({
+      endpoint: `${API_ENDPOINT}/user/find`,
+      body: JSON.stringify(data),
+      headers: 'application/json'
+    })
+      .then(res => resolve(res.json()))
+      .catch(err => reject(err))
+  })
+}
+
+const getUserSession = () => {
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/user`,
@@ -71,9 +85,7 @@ const registerUser = (username, profilePhoto) => {
       headers: 'application/json'
     })
       .then(res => res.json())
-      .then(res => {
-        resolve(res)
-      })
+      .then(res => resolve(res))
       .catch(err => reject(err))
   })
 }
@@ -82,5 +94,6 @@ module.exports = {
   getWorkoutSelections, 
   isUser, 
   getUser, 
-  registerUser
+  registerUser,
+  getUserSession
 }
