@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import { Redirect } from "react-router-native"
-import { WebView }  from 'react-native-webview'
-import Loading      from '../components/loading'
-import { getUser }  from '../api'
-import { API_ENDPOINT } from '../api/endpoint'
+import React, { PureComponent }    from 'react'
+import { Redirect }                from "react-router-native"
+import { WebView }                 from 'react-native-webview'
+import Loading                     from '../components/loading'
+import { API_ENDPOINT }            from '../api/endpoint'
+import { getUser, getUserSession } from '../api'
 
 import {
   View,
@@ -25,19 +25,24 @@ export default class TwitterCredScreen extends PureComponent {
   }
 
   componentDidMount() {
-    getUser()
+    //TODO: This works, but look into combining getUserSession and getUser in API
+    getUserSession()
+    .then(data => {
+      const userId = parseInt(data.user.id)
+
+    getUser(userId)
       .then(data => {
-        //TODO:  API needs to query database for user info and return id
-       if (data.user.id) {
+       if (!data.userid) {
          this.setState({
            showWebView: true
          })
        } else {
         this.setState({
-          user: data.user.id,
+          user: data.userid,
           redirectToWorkoutScreen: true
         })
        }
+      })
     })
     .catch(err => console.log(err))
   }
@@ -87,13 +92,13 @@ export default class TwitterCredScreen extends PureComponent {
 
     return (
       <View style={styles.container}>
-        {showWebView? <WebView
-          ref={ref => (this.webview = ref)}
-          javaScriptEnabled={true}
-          source={{ uri: `${API_ENDPOINT}/login/twitter` }}
-          onNavigationStateChange={this.handleWebViewNavigationStateChange}
-          onLoadEnd={() => this.stopSpinner()}
-        /> : <Loading/>}
+        {showWebView ?
+          <WebView
+            ref={ref => (this.webview = ref)}
+            javaScriptEnabled={true}
+            source={{ uri: `${API_ENDPOINT}/login/twitter` }}
+            onNavigationStateChange={this.handleWebViewNavigationStateChange}
+            onLoadEnd={() => this.stopSpinner()}/> : <Loading/>}
         {isLoading && (
           <Loading/>
         )}

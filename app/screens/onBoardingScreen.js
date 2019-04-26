@@ -42,7 +42,7 @@ export default class OnBoardingScreen extends Component {
   }
 
   componentDidMount() {
-    getUser()
+    getUserSession()
       .then(res => {
         const userPhoto = res.user.profilePhoto
 
