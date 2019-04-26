@@ -12,7 +12,7 @@ router.get('/', isLoggedIn, (req, res) => {
 
 router.post('/find', (req, res) => {
   const { id } = req.body
-  
+
   if (typeof id !== Number) return res.sendStatus(400)
 
   User.findById(id)
