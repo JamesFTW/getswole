@@ -47,6 +47,7 @@ const isUser = () => {
 }
 
 const getUser = () => {
+//TODO:  API needs to query database for user info and return id
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/user`,
