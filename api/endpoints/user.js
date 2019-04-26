@@ -15,7 +15,7 @@ router.post('/find', (req, res) => {
 
   console.log(typeof id)
   console.log(id)
-  
+
   if (!Number.isInteger(id)) {
     return res.status(400).send({ error: 'No user' })
   }
