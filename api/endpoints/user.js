@@ -12,10 +12,7 @@ router.get('/', isLoggedIn, (req, res) => {
 
 router.post('/find', (req, res) => {
   const { id } = req.body
-
-  console.log(typeof id)
-  console.log(id)
-
+ 
   if (!Number.isInteger(id)) {
     return res.status(400).send({ error: 'No user' })
   }
