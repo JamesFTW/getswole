@@ -7,7 +7,7 @@ import OnBoardingNav        from '../containers/onBoardingNav'
 import { Redirect }         from "react-router-native"
 
 import {
-  getUser,
+  getUserSession,
   registerUser
 } from '../api'
 
