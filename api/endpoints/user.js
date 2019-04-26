@@ -10,6 +10,16 @@ router.get('/', isLoggedIn, (req, res) => {
   res.json(passport)
 })
 
+router.post('/find', (req, res) => {
+  const { id } = req.body
+
+  if (!id) res.sendStatus(400)
+
+  User.findById(id)
+    .then(data => res.json(data))
+    .catch(err => console.log(err))
+})
+
 router.post('/create', isLoggedIn, (req, res) => {
   const { username, profilePhoto } = req.body
   const { id } = req.user
