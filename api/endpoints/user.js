@@ -15,7 +15,10 @@ router.post('/find', (req, res) => {
 
   console.log(typeof id)
   console.log(id)
-  if (typeof id !== Number) return res.status(400).send({error: 'No user'})
+  
+  if (!Number.isInteger(id)) {
+    return res.status(400).send({ error: 'No user' })
+  }
 
   User.findById(id)
     .then(data => res.json(data))
