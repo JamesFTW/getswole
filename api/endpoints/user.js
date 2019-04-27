@@ -7,6 +7,8 @@ const { User } = require('../db')
 router.get('/', isLoggedIn, (req, res) => {
   const { passport } = req.session
 
+  console.log(req.session)
+
   if (!passport) {
     return res.json({})
   }
