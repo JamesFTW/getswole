@@ -3,8 +3,6 @@ const passport = require('passport')
 const Strategy = require('passport-twitter').Strategy
 const twitterConfig = require('../../config/twitterConfig.js')
 
-const { User } = require('../db')
-
 passport.use(new Strategy(twitterConfig,
   (token, tokenSecret, profile, cb) => {
     //make a select statement to see if person is valid, it not
@@ -26,11 +24,7 @@ passport.serializeUser((user, cb) => {
 
 //Need to create user here
 passport.deserializeUser((obj, cb) => {
-  const { id } = obj
-  console.log(obj)
-  User.findById(id)
-    .then(user => cb(null, user))
-    .catch(err => cb(err, {}))
+  cb(null, obj)
 })
 
 const authSettings = {
