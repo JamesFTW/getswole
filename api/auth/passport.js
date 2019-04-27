@@ -30,7 +30,7 @@ passport.deserializeUser((obj, cb) => {
   console.log(obj)
   User.findById(id)
     .then(user => cb(null, user))
-    .catch(err => cb(null, err.message))
+    .catch(err => cb(err, {}))
 })
 
 const authSettings = {
