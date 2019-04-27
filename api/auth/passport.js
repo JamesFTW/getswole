@@ -27,10 +27,10 @@ passport.serializeUser((user, cb) => {
 //Need to create user here
 passport.deserializeUser((obj, cb) => {
   const { id } = obj
-
+  console.log(obj)
   User.findById(id)
     .then(user => cb(null, user))
-    .catch(err => cd(null, err.message))
+    .catch(err => cb(null, err.message))
 })
 
 const authSettings = {
