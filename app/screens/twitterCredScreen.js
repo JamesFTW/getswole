@@ -28,23 +28,22 @@ export default class TwitterCredScreen extends PureComponent {
     //TODO: This works, but look into combining getUserSession and getUser in API
     getUserSession()
     .then(data => {
+      console.log(data)
       const userId = parseInt(data.user.id)
 
     getUser(userId)
       .then(data => {
-       if (!data.userid) {
-         this.setState({
-           showWebView: true
-         })
-       } else {
         this.setState({
           user: data.userid,
           redirectToWorkoutScreen: true
         })
-       }
       })
     })
-    .catch(err => console.log(err))
+    .catch(_ => {
+      this.setState({
+        showWebView: true
+      })
+    })
   }
 
   handleWebViewNavigationStateChange = newNavState => {
