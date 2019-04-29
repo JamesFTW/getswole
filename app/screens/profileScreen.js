@@ -74,7 +74,7 @@ export default class ProfileScreen extends Component {
             </FollowingContainer>
           </UserContainer>
           <CompletedWorkouts workouts={100} totalWeight={`100k`}/>
-          {CompletedWorkoutDetails}
+          { CompletedWorkoutDetails }
         </ScrollContent>
       </BackGroundWrapper>
     )

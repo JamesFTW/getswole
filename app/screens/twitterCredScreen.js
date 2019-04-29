@@ -27,9 +27,8 @@ export default class TwitterCredScreen extends PureComponent {
   componentDidMount() {
     //TODO: This works, but look into combining getUserSession and getUser in API
     getUserSession()
-    .then(data => {
-      console.log(data)
-      const userId = parseInt(data.user.id)
+      .then(data => {
+        const userId = parseInt(data.user.id)
 
     getUser(userId)
       .then(data => {
