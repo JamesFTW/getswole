@@ -32,20 +32,6 @@ const getWorkoutSelections = workoutID => {
   })
 }
 
-const isUser = () => {
-  return new Promise((resolve, reject) => {
-    fetch(`${API_ENDPOINT}/user/isuser`)
-      .then(res => res.json())
-      .then(data => {
-        if (data) {
-          // sign in
-        } else {
-          // redirect to onBoardingScreen
-        }
-      })
-  })
-}
-
 const getUser = twitterId => {
   const data = {
     id: twitterId
@@ -108,7 +94,6 @@ const registerUser = (username, profilePhoto) => {
 
 module.exports = { 
   getWorkoutSelections, 
-  isUser, 
   getUser, 
   registerUser,
   getUserSession
