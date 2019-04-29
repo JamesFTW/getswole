@@ -16,7 +16,7 @@ const node = (state = {isFollowing: false}, action) => {
 export default (state, action) => {
   const { type } = action
 
-  if(type === 'TOGGLE_FOLLOW') {
+  if (type === TOGGLE_FOLLOW) {
     return {
       ...state,
       isFollowing: node(!state.isFollowing, type)
