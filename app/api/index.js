@@ -50,13 +50,30 @@ const getUser = twitterId => {
   const data = {
     id: twitterId
   }
+
   return new Promise((resolve, reject) => {
+    const id = twitterId.toString()
+
+    AsyncStorage.getItem(id)
+      .then(user => {
+        if (user) {
+          const data = JSON.parse(user)
+
+          return resolve(data)
+        }
+      })
     request({
       endpoint: `${API_ENDPOINT}/user/find`,
       body: JSON.stringify(data),
       headers: 'application/json'
     })
-      .then(res => resolve(res.json()))
+      .then(res => res.json())
+      .then(data => {
+        const userData = JSON.stringify(data)
+        AsyncStorage.setItem(id, userData)
+
+        return resolve(data)
+      })
       .catch(err => reject(err))
   })
 }
@@ -84,8 +101,7 @@ const registerUser = (username, profilePhoto) => {
       body: JSON.stringify(data), 
       headers: 'application/json'
     })
-      .then(res => res.json())
-      .then(res => resolve(res))
+      .then(res => resolve(res.json()))
       .catch(err => reject(err))
   })
 }
