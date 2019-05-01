@@ -16,7 +16,7 @@ router.get('/', isLoggedIn, (req, res) => {
   res.json(passport)
 })
 
-router.post('/find', (req, res) => {
+router.get('/find', (req, res) => {
   const { id } = req.body
 
   if (!Number.isInteger(id)) {
