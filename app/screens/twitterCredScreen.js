@@ -1,9 +1,9 @@
-import React, { PureComponent }    from 'react'
-import { Redirect }                from "react-router-native"
-import { WebView }                 from 'react-native-webview'
-import Loading                     from '../components/loading'
-import { API_ENDPOINT }            from '../api/endpoint'
-import { getUser, getUserSession } from '../api'
+import React, { PureComponent } from 'react'
+import { Redirect }             from "react-router-native"
+import { WebView }              from 'react-native-webview'
+import Loading                  from '../components/loading'
+import { API_ENDPOINT }         from '../api/endpoint'
+import { getUserFromCache }     from '../api'
 
 import {
   View,
@@ -25,19 +25,13 @@ export default class TwitterCredScreen extends PureComponent {
   }
 
   componentDidMount() {
-    //TODO: This works, but look into combining getUserSession and getUser in API
-    getUserSession()
-      .then(data => {
-        const userId = parseInt(data.user.id)
-
-    getUser(userId)
+    getUserFromCache()
       .then(data => {
         this.setState({
           user: data.userid,
-          redirectToWorkoutScreen: true
+          redirectToWorkoutScreen: true,
         })
       })
-    })
     .catch(_ => {
       this.setState({
         showWebView: true
