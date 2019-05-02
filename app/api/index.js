@@ -91,6 +91,9 @@ const registerUser = (username, profilePhoto) => {
       .then(data => {
         const userData = JSON.stringify(data)
         const userId = JSON.stringify(data.userid)
+
+        AsyncStorage.setItem(userId, userData)
+
       })
       .catch(err => reject(err))
   })
