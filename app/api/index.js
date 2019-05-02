@@ -87,13 +87,33 @@ const registerUser = (username, profilePhoto) => {
       body: JSON.stringify(data), 
       headers: 'application/json'
     })
-      .then(res => resolve(res.json()))
+      .then(res => res.json())
       .then(data => {
         const userData = JSON.stringify(data)
         const userId = JSON.stringify(data.userid)
 
         AsyncStorage.setItem(userId, userData)
+        AsyncStorage.setItem('userid', userId)
 
+        resolve(data)
+      })
+      .catch(err => reject(err))
+  })
+}
+
+const getUserFromCache = () => {
+  return new Promise((resolve, reject) => {
+    AsyncStorage.getItem('userid')
+      .then(data => {
+        if (data) {
+          AsyncStorage.getItem(data)
+            .then(res => {
+              const data = JSON.parse(res)
+              resolve(data)
+            })
+        } else {
+          reject(data)
+        }
       })
       .catch(err => reject(err))
   })
@@ -103,5 +123,6 @@ module.exports = {
   getWorkoutSelections, 
   getUser, 
   registerUser,
-  getUserSession
+  getUserSession,
+  getUserFromCache
 }
