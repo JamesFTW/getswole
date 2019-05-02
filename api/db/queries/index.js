@@ -2,7 +2,7 @@ const GET_USER =
   `SELECT userid, username, profilephoto FROM users WHERE twitterid=$1`
 
 const CREATE_USER = 
-  `INSERT INTO users(username, profilePhoto, twitterid) VALUES($1, $2, $3) RETURNING username, userid, profilePhoto`
+  `INSERT INTO users(username, profilePhoto, twitterid) VALUES($1, $2, $3) RETURNING *`
 
   module.exports = {
     GET_USER,
