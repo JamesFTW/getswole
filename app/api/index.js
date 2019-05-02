@@ -88,6 +88,10 @@ const registerUser = (username, profilePhoto) => {
       headers: 'application/json'
     })
       .then(res => resolve(res.json()))
+      .then(data => {
+        const userData = JSON.stringify(data)
+        const userId = JSON.stringify(data.userid)
+      })
       .catch(err => reject(err))
   })
 }
