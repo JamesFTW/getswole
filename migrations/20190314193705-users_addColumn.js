@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.addColumn('users', 'twitterid', {
-      type: Sequelize.INTEGER,
+      type: Sequelize.BIGINT,
       allowNull: true
     })
   },
