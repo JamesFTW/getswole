@@ -5,8 +5,9 @@ import CenterOfScreen              from '../components/centerOfScreen.js'
 import TwitterLoginButton          from '../components/twitterLoginButton.js'
 import SwoleLoginLogo              from '../components/swoleLoginLogo.js'
 import Loading                     from '../components/loading'
-import { getUser, getUserSession } from '../api'
+import { getUserFromCache }        from '../api'
 import { Redirect }                from "react-router-native"
+import { AsyncStorage } from 'react-native'
 
 export default class LoginScreen extends PureComponent {
   constructor(props) {
@@ -21,18 +22,13 @@ export default class LoginScreen extends PureComponent {
   }
 
   componentDidMount() {
-    getUserSession()
+    getUserFromCache()
       .then(data => {
-        const userId = parseInt(data.user.id)
-
-        getUser(userId)
-          .then(data => {
-            this.setState({
-              user: data.userid,
-              redirectToWorkoutScreen: true,
-              isLoading: false
-            })
-          })
+        this.setState({
+          user: data.userid,
+          redirectToWorkoutScreen: true,
+          isLoading: false 
+        })
       })
       .catch(_ => {
         this.setState({
