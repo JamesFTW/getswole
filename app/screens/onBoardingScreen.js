@@ -3,12 +3,15 @@ import LoginWrapper         from '../components/loginWrapper'
 import CenterOfScreen       from '../components/centerOfScreen'
 import ChooseProfilePhoto   from '../components/chooseProfilePhoto'
 import ChooseUsername       from '../components/chooseUsername'
+import Loading              from '../components/loading'
 import OnBoardingNav        from '../containers/onBoardingNav'
 import { Redirect }         from "react-router-native"
 
 import {
   getUserSession,
-  registerUser
+  getUserFromCache,
+  registerUser,
+  getUser 
 } from '../api'
 
 import {
@@ -37,17 +40,20 @@ export default class OnBoardingScreen extends Component {
       username: '',
       isProfilePhoto: false,
       profilePhoto: '',
-      shouldRedirect: false
+      shouldRedirect: false,
+      isLoading: true
     }
   }
 
   componentDidMount() {
+    //Need to check if user exist
     getUserSession()
       .then(res => {
         const userPhoto = res.user.profilePhoto
 
         this.setState({
-          profilePhoto: userPhoto
+          profilePhoto: userPhoto,
+          isLoading: false
         })
       })
       .catch(err => console.log(err))
@@ -88,8 +94,7 @@ export default class OnBoardingScreen extends Component {
     const { username, profilePhoto } = this.state
 
     registerUser(username, profilePhoto)
-      .then(res => {
-        //set userid in async storage
+      .then(_ => {
         this.setState({
           shouldRedirect: true
         })
@@ -103,14 +108,16 @@ export default class OnBoardingScreen extends Component {
       isProfilePhoto, 
       username ,
       profilePhoto,
-      shouldRedirect
+      shouldRedirect,
+      isLoading
     } = this.state
 
-    const { from } = this.props.location.state
-      || { from: { pathname: "/Workout" } }
+    if (isLoading) {
+      return <Loading />
+    }
 
     if (shouldRedirect) {
-      return <Redirect to={from} />
+      return <Redirect to='/Workout'/>
     }
 
     let defaultValue = username.length > 0 ? username : ""
