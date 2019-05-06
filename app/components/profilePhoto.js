@@ -10,7 +10,7 @@ export default class ProfilePhoto extends PureComponent {
     const { photo } = this.props
 
     return (
-      <Image style={styles.profilePhotoStyle} source={photo}/>
+      <Image style={styles.profilePhotoStyle} source={{ uri: photo }}/>
     )
   }
 }
