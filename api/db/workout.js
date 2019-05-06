@@ -1,5 +1,5 @@
 
-const getAllWorkouts = db =>
+const getAllWorkouts = db => () =>
   db.one(`SELECT * FROM workoutplans`)
 
 const createUser = db => (username, profilePhoto) =>
