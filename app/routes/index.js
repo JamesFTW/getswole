@@ -1,12 +1,12 @@
 
 import React                                from 'react'
 import { NativeRouter, Route, hashHistory } from 'react-router-native'
+import Navbar                               from '../components/navBar.js'
 import WorkoutScreen                        from '../screens/workoutScreen.js'
 import ProfileScreen                        from '../screens/profileScreen.js'
 import WorkoutDetails                       from '../screens/workoutDetails.js'
 import WorkoutSelectScreen                  from '../screens/workoutSelectScreen.js'
 import LoginScreen                          from '../screens/loginScreen.js'
-import Navbar                               from '../components/navBar.js'
 import SelectDateScreen                     from '../screens/selectDateScreen.js'
 import TwitterCredScreen                    from '../screens/twitterCredScreen.js'
 import OnBoardingScreen                     from '../screens/onBoardingScreen.js'
