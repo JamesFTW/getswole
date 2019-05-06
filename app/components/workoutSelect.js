@@ -12,15 +12,25 @@ import { Link } from 'react-router-native'
 
 export default class WorkoutSelect extends PureComponent {
   render() {
-    const { workoutPhoto, workoutTitle } = this.props
+    const {
+      workoutPhoto,
+      workoutTitle,
+      workoutId
+    } = this.props
 
     return (
-      <Link>
-        <TouchableOpacity>
-          <ImageBackground style={styles.container} source={{ uri: workoutPhoto }}>
-              <Text style={styles.title}>{workoutTitle}</Text>
-          </ImageBackground>
-        </TouchableOpacity>
+      <Link 
+        to={{
+          pathname: `/WorkoutSelect/SelectDateScreen/${workoutId}`,
+          state: {
+            workoutId
+          }
+        }}
+        component={TouchableOpacity}
+        >
+        <ImageBackground style={styles.container} source={{ uri: workoutPhoto }}>
+          <Text style={styles.title}>{workoutTitle}</Text>
+        </ImageBackground>
       </Link>              
     )
   }

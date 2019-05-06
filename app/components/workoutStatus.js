@@ -16,9 +16,9 @@ export default class WorkoutStatus extends Component {
   render() {
     const id = this.props.id
 
-    return(
+    return (
       <Link
-        to={`/WorkoutDetails/${id}`}
+        to={`/ProfileScreen/WorkoutDetails/${id}`}
         component={TouchableOpacity}
         >
       <View style={styles.border}>
