@@ -12,6 +12,7 @@ import Followers            from '../components/followers.js'
 import CompletedWorkouts    from '../components/completedWorkout.js'
 import ScrollContent        from '../components/scrollContent.js'
 import WorkoutStatus        from '../components/workoutStatus.js'
+import { getUserFromCache } from '../api'
 
 import {
   View,
@@ -27,22 +28,34 @@ export default class ProfileScreen extends Component {
     this.state = {
       isLoading: true,
       isFollowing: false,
+      userName: '',
+      profilePhoto: '',
       status: data
     }
   }
 
   componentDidMount() {
-    this.setState({
-      isLoading: false
-    })
+    getUserFromCache()
+      .then(data => {
+        this.setState({
+          isLoading: false,
+          userName: data.username,
+          profilePhoto: data.profilephoto
+        })
+      })
   }
 
   render() {
-    const { isLoading, status } = this.state
+    const {
+      isLoading,
+      status,
+      userName,
+      profilePhoto
+    } = this.state
 
-    if (isLoading) {
-      return <ActivityIndicator size="large" />
-    }
+    // if (isLoading) {
+    //   return <ActivityIndicator size="large" />
+    // }
 
     const CompletedWorkoutDetails = status.map((exercise, i) => {
       return (
@@ -60,11 +73,11 @@ export default class ProfileScreen extends Component {
     
     return (
       <BackGroundWrapper>
-        <ProfileHeader userName={"Jamesftw"}/>
+        <ProfileHeader userName={userName}/>
         <ScrollContent>
           <UserFirstName />
           <UserContainer>
-            <ProfilePhoto photo={me}/>
+            <ProfilePhoto photo={profilePhoto}/>
             <FollowingContainer>
               <Following following={0} />
               <Followers followers={0} />
