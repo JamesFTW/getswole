@@ -36,6 +36,7 @@ export default class WorkoutSelectScreen extends PureComponent {
         key={i}
         workoutPhoto={info.image}
         workoutTitle={info.planname}
+        workoutId={info.planid}
       />  
     ))
     
@@ -43,7 +44,7 @@ export default class WorkoutSelectScreen extends PureComponent {
       <BackGroundWrapper>
         <GreenHeader title={"Pick Workout Plan"} />
         <ScrollView style={styles.container}>
-          {workoutButtons}
+          { workoutButtons }
         </ScrollView>
       </BackGroundWrapper>
     )
