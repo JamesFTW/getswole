@@ -1,13 +1,12 @@
 
-import React, { PureComponent }    from 'react'
-import LoginWrapper                from '../components/loginWrapper.js'
-import CenterOfScreen              from '../components/centerOfScreen.js'
-import TwitterLoginButton          from '../components/twitterLoginButton.js'
-import SwoleLoginLogo              from '../components/swoleLoginLogo.js'
-import Loading                     from '../components/loading'
-import { getUserFromCache }        from '../api'
-import { Redirect }                from "react-router-native"
-import { AsyncStorage } from 'react-native'
+import React, { PureComponent } from 'react'
+import LoginWrapper             from '../components/loginWrapper.js'
+import CenterOfScreen           from '../components/centerOfScreen.js'
+import TwitterLoginButton       from '../components/twitterLoginButton.js'
+import SwoleLoginLogo           from '../components/swoleLoginLogo.js'
+import Loading                  from '../components/loading'
+import { getUserFromCache }     from '../api'
+import { Redirect }             from "react-router-native"
 
 export default class LoginScreen extends PureComponent {
   constructor(props) {
