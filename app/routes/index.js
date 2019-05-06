@@ -21,23 +21,21 @@ import {
 const routes = () => (
   <Provider store={store}>
     <NativeRouter history={hashHistory}>
-      <View style={styles.container2}>
-        <View style={styles.flexContainer}>
-
-          <View style={styles.flexBody}/>
-          <Route exact path="/" component={LoginScreen} />
-          <Route exact path="/TwitterCreds" component={TwitterCredScreen} />
-          <Route exact path="/Onboarding" component={OnBoardingScreen} />
-          <Route exact path="/Workout" component={WorkoutScreen} />
-          <Route exact path="/WorkoutSelect" component={WorkoutSelectScreen} />
-          <Route path="/ProfileScreen" component={ProfileScreen}/>
-          <Route path="/WorkoutDetails/:id" component={WorkoutDetails}/>
-          <Navbar />
-        </View>
+      <View style={styles.flexContainer}>
+        <Route exact path="/" component={LoginScreen} />
+        <Route exact path="/TwitterCreds" component={TwitterCredScreen} />
+        <Route exact path="/Onboarding" component={OnBoardingScreen} />
+        <Route exact path="/Workout" component={WorkoutScreen} />
+        <Route exact path="/WorkoutSelect" component={WorkoutSelectScreen} />
+        <Route exact path="/SelectDateScreen" component={SelectDateScreen} />
+        <Route exact path="/ProfileScreen" component={ProfileScreen} />
+        <Route path="/ProfileScreen/WorkoutDetails/:id" component={WorkoutDetails} />
+        <Navbar />
       </View>
     </NativeRouter>
   </Provider>
 )
+
 const styles = StyleSheet.create({
   flexContainer:{
     display: 'flex',
