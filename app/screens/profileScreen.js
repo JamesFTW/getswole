@@ -20,7 +20,6 @@ import {
 } from 'react-native'
 
 let data = require('../completedworkout.json')
-const me = require('../assets/img/me.jpg')
 
 export default class ProfileScreen extends Component {
   constructor(props) {
