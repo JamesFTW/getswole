@@ -15,7 +15,7 @@ export default class DateConfirm extends PureComponent {
   render() {
     const { title } = this.props
 
-    return(
+    return (
       <View style={styles.container}>
         <View style={styles.dateConfirm}>
           <Text style={styles.title}>Start on {title}?</Text>
