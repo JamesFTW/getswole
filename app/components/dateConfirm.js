@@ -4,25 +4,39 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native'
+
+const YES = 'Yes'
+const NO  = 'No'
 
 export default class DateConfirm extends PureComponent {
   render() {
+    const { title } = this.props
+
     return(
       <View style={styles.container}>
         <View style={styles.dateConfirm}>
-          <Text style={styles.title}>Start on 05-05-19?</Text>
+          <Text style={styles.title}>Start on {title}?</Text>
           <View style={styles.confirmationContainer}>
             <View style={styles.topSeparator} />
             <View style={styles.middleSeparator}/> 
           </View>
           <View style={styles.flexInputContainer}>
             <TouchableOpacity style={styles.textContainer}>
-              <Text style={styles.noText}>No</Text>
+              <Image
+                style={styles.photo}
+                source={{ uri: NO }}
+              />
+              <Text style={styles.noText}>NO</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.textContainer}>
-              <Text style={styles.yesText}>Yes</Text>
+              <Image
+                style={styles.photo}
+                source={{ uri: YES }}
+              />
+              <Text style={styles.yesText}>YES</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -76,9 +90,9 @@ const styles = StyleSheet.create({
   noText: {
     textAlign: 'center',
     lineHeight: 47.5,
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'HelveticaNeue',
-    color: '#EB5757',
+    color: '#F65D5D',
     fontWeight: '700',
   },
   yesText: {
@@ -98,5 +112,12 @@ const styles = StyleSheet.create({
     color: '#1F1C1C',
     alignSelf: 'center',
     fontWeight: '300',
-  }
+  },
+  photo: {
+    position: 'absolute',
+    marginTop: 15,
+    marginLeft: 20,
+    height: 18,
+    width: 18
+  },
 })
