@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     height: '50%',
     fontFamily: 'HelveticaNeue',
     fontSize: 24,
-    color: '#4F4F4F',
+    color: '#1F1C1C',
     alignSelf: 'center',
     fontWeight: '300',
   }
