@@ -23,11 +23,12 @@ const customTheme = {
 
 export default class CalendarComponent extends Component {
   render() {
+    const { getData } = this.props
     return (
       <Calendar
         style={styles.customStyle}
         theme={customTheme}
-        onDayPress={(day) => { console.log('selected day', day) }}
+        onDayPress={(day) => { getData(day)}}
         onDayLongPress={(day) => { console.log('selected day', day) }}
         monthFormat={'MMMM yyyy'}
         onMonthChange={(month) => { console.log('month changed', month) }}
