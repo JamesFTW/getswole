@@ -13,25 +13,25 @@ const NO  = 'No'
 
 export default class DateConfirm extends PureComponent {
   render() {
-    const { title } = this.props
+    const { title, onYes, onNo } = this.props
 
     return (
       <View style={styles.container}>
         <View style={styles.dateConfirm}>
-          <Text style={styles.title}>Start on {title}?</Text>
+          <Text style={styles.title}>Start plan on {title}?</Text>
           <View style={styles.confirmationContainer}>
             <View style={styles.topSeparator} />
             <View style={styles.middleSeparator}/> 
           </View>
           <View style={styles.flexInputContainer}>
-            <TouchableOpacity style={styles.textContainer}>
+            <TouchableOpacity onPress={() => onNo()} style={styles.textContainer}>
               <Image
                 style={styles.photo}
                 source={{ uri: NO }}
               />
               <Text style={styles.noText}>NO</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.textContainer}>
+            <TouchableOpacity onPress={() => onYes()} style={styles.textContainer}>
               <Image
                 style={styles.photo}
                 source={{ uri: YES }}
