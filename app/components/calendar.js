@@ -21,14 +21,44 @@ const customTheme = {
   textDayHeaderFontSize: 14
 }
 
+const selectedDateTheme = {
+  customStyles: {
+    container: {
+      backgroundColor: '#9A87D1'
+    },
+    text: {
+      color: 'white',
+      fontWeight: 'bold',
+      fontSize: 18
+    },
+  }
+}
+
 export default class CalendarComponent extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      date: ''
+    }
+  }
   render() {
     const { getData } = this.props
+    const { date } = this.state
+
+    const markedDate = {}
+    markedDate[date] = selectedDateTheme
+
     return (
       <Calendar
         style={styles.customStyle}
         theme={customTheme}
-        onDayPress={(day) => { getData(day)}}
+        onDayPress={(day) => {
+          this.setState({
+            date: day.dateString
+          })
+          getData(day)
+        }}
         onDayLongPress={(day) => { console.log('selected day', day) }}
         monthFormat={'MMMM yyyy'}
         onMonthChange={(month) => { console.log('month changed', month) }}
@@ -36,6 +66,8 @@ export default class CalendarComponent extends Component {
         firstDay={1}
         onPressArrowLeft={substractMonth => substractMonth()}
         onPressArrowRight={addMonth => addMonth()}
+        markingType={'custom'}
+        markedDates={markedDate}
       />
     )
   }
