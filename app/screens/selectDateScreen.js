@@ -10,8 +10,7 @@ export default class SelectDateScreen extends PureComponent {
     super(props)
     this.state = {
       datePicked: false,
-      data: {},
-      day: ''
+      data: {}
     }
   }
 
@@ -20,6 +19,16 @@ export default class SelectDateScreen extends PureComponent {
       data,
       datePicked: true
     })
+  }
+
+  onNo = () => {
+    this.setState({
+      datePicked: false
+    })
+  }
+
+  onYes() {
+    console.log('yes')
   }
 
   render() {
@@ -32,7 +41,13 @@ export default class SelectDateScreen extends PureComponent {
       <BackGroundWrapper>
         <ProfileHeader userName={"Pick Start Date"}/>
         <CalendarComponent getData={this.getDate}/>
-        { datePicked && <DateConfirm title={startDate}/> }
+        { datePicked && (
+          <DateConfirm 
+            onNo={this.onNo}
+            onYes={this.onYes}
+            title={startDate} 
+          />
+        ) }
       </BackGroundWrapper>
     )
   }
