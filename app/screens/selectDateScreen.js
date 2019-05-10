@@ -10,8 +10,22 @@ export default class SelectDateScreen extends PureComponent {
     super(props)
     this.state = {
       datePicked: false,
-      data: {}
+      data: {},
+      workoutId: '',
+      length: ''
     }
+  }
+
+  componentDidMount() {
+    const {
+      workoutId,
+      length
+    } = this.props.location.state
+
+    this.setState({
+      workoutId,
+      length
+    })
   }
 
   getDate = data => {

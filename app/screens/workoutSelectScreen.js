@@ -37,6 +37,7 @@ export default class WorkoutSelectScreen extends PureComponent {
         workoutPhoto={info.image}
         workoutTitle={info.planname}
         workoutId={info.planid}
+        length={info.length}
       />  
     ))
     

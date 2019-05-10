@@ -15,7 +15,8 @@ export default class WorkoutSelect extends PureComponent {
     const {
       workoutPhoto,
       workoutTitle,
-      workoutId
+      workoutId,
+      length
     } = this.props
 
     return (
@@ -23,7 +24,8 @@ export default class WorkoutSelect extends PureComponent {
         to={{
           pathname: `/WorkoutSelect/SelectDateScreen/${workoutId}`,
           state: {
-            workoutId
+            workoutId,
+            length
           }
         }}
         component={TouchableOpacity}
