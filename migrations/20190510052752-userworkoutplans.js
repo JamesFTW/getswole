@@ -11,21 +11,21 @@ module.exports = {
           key: "userid"
         }
       },
-      workoutid: {
+      planid: {
         type: Sequelize.UUID,
         allowNull: false,
         references: {
-          model: "workouts",
-          key: "workoutid"
+          model: "workoutplans",
+          key: "planid"
         }
       },
       createdat: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
         allowNull: false
       },
       endat: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
     })
   },
