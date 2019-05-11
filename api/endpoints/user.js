@@ -37,6 +37,15 @@ router.post('/create', isLoggedIn, (req, res) => {
     .catch(err => console.log(err))
 })
 
+router.post('/create/workoutplan', (req, res) => {
+  const { userId, planId, length } = req.body
+  const startDate = new Date()
+
+  User.createWorkoutPlan(userId, planId, startDate, startDate)
+    .then(data => res.json(data))
+    .catch(err => console.log(err))
+})
+
 router.get('/logout', (req, res) => {
   req.logout()
   res.redirect('/api/signup')
