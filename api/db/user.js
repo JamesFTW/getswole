@@ -11,9 +11,8 @@ const findById = db => twitterid =>
 const createUser = db => (username, profilePhoto, twitterid) =>
   db.one(CREATE_USER, [username, profilePhoto, twitterid])
 
-const createUserPlan = db => (userId, planId, startDate, endDate) => {
-  db.one(REGISTER_USERWORKOUT_PLAN, userId, planId, startDate, endDate)
-}
+const createUserPlan = db => (userId, planId, startDate, endDate) => 
+  db.none(REGISTER_USERWORKOUT_PLAN, [userId, planId, startDate, endDate])
 
 const getUserWorkouts = db => id =>
   'too be added'

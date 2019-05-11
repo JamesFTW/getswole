@@ -4,8 +4,15 @@ const GET_USER =
 const CREATE_USER = 
   `INSERT INTO users(username, profilePhoto, twitterid) VALUES($1, $2, $3) RETURNING *`
 
+const GET_USERID_SUBQUERY = id =>
+  `(SELECT userid FROM users WHERE userid=${id})`
+
+const GET_PLANID_SUBQUERY = id =>
+  `(SELECT planid FROM workoutplans WHERE planid=${id})`
+
 const REGISTER_USERWORKOUT_PLAN =
-  `INSERT INTO userworkoutplans(userid, planid, createdat, endat) VALUES($1, $2, $3, $4)`
+  `INSERT INTO userworkoutplans(userid, planid, createdat, endat)
+  VALUES(${GET_USERID_SUBQUERY('$1')}, ${GET_PLANID_SUBQUERY('$2')}, $3, $4)`
 
   module.exports = {
     GET_USER,
