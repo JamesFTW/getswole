@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   yesText: {
     textAlign: 'center',
     lineHeight: 47.5,
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'HelveticaNeue',
     color: '#40D4BB',
     fontWeight: '700',
