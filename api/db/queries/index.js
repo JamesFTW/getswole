@@ -14,8 +14,8 @@ const REGISTER_USERWORKOUT_PLAN =
   `INSERT INTO userworkoutplans(userid, planid, createdat, endat)
   VALUES(${GET_USERID_SUBQUERY('$1')}, ${GET_PLANID_SUBQUERY('$2')}, $3, $4)`
 
-  module.exports = {
-    GET_USER,
-    CREATE_USER,
-    REGISTER_USERWORKOUT_PLAN
-  }
+module.exports = {
+  GET_USER,
+  CREATE_USER,
+  REGISTER_USERWORKOUT_PLAN
+}
