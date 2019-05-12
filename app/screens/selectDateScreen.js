@@ -41,8 +41,11 @@ export default class SelectDateScreen extends PureComponent {
     })
   }
 
-  onYes() {
-    console.log('yes')
+  onYes = () => {
+    const { workoutId, length } = this.state
+    const { timestamp } = this.state.data
+
+    registerUserWorkout(workoutId, length, timestamp)
   }
 
   render() {
