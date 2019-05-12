@@ -19,10 +19,6 @@ router.get('/', isLoggedIn, (req, res) => {
 router.post('/find', (req, res) => {
   const { id } = req.body
 
-  if (!Number.isInteger(id)) {
-    return res.status(400).send({ error: 'No user' })
-  }
-
   User.findById(id)
     .then(data => res.json(data))
     .catch(err => console.log(err))
