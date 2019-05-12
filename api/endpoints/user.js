@@ -38,11 +38,15 @@ router.post('/create', isLoggedIn, (req, res) => {
 })
 
 router.post('/create/workoutplan', (req, res) => {
-  const { userId, planId, length } = req.body
-  const startDate = new Date()
+  const { userId, planId, length, timeStamp } = req.body
+  const oneWeek = 604800000
+  const endDateTimeStamp = (length * oneWeek) + timeStamp
 
-  User.createWorkoutPlan(userId, planId, startDate, startDate)
-    .then(data => res.json(data))
+  const startDate = new Date(timeStamp)
+  const endDate = new Date(endDateTimeStamp)
+
+  User.createWorkoutPlan(userId, planId, startDate, endDate)
+    .then(_ => res.sendStatus(200))
     .catch(err => console.log(err))
 })
 
