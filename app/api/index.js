@@ -119,10 +119,34 @@ const getUserFromCache = () => {
   })
 }
 
+const registerUserWorkout = (planId, length, timeStamp) => {
+  AsyncStorage.getItem('userid')
+    .then(userData => {
+      const userId =  userData.replace(/"/g, "")
+      const data = {
+        userId,
+        planId,
+        length,
+        timeStamp
+      }
+
+      return new Promise((resolve, reject) => {
+        request({
+          endpoint: `${API_ENDPOINT}/user/create/workoutplan`,
+          body: JSON.stringify(data),
+          headers: 'application/json'
+        })
+          .then(data => resolve(data))
+          .catch(err => reject(err))
+      })
+    })
+}
+
 module.exports = { 
   getWorkoutSelections, 
   getUser, 
   registerUser,
   getUserSession,
-  getUserFromCache
+  getUserFromCache,
+  registerUserWorkout
 }
