@@ -33,7 +33,7 @@ router.post('/create', isLoggedIn, (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.post('/create/workoutplan', (req, res) => {
+router.post('/create/workoutplan', isLoggedIn, (req, res) => {
   const { userId, planId, length, timeStamp } = req.body
   const oneWeek = 604800000
   const endDateTimeStamp = (length * oneWeek) + timeStamp
