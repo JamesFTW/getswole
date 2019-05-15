@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
 
     borderWidth: 1,
     borderRadius: 1,
-    borderColor: '#2D9CDB',
-    backgroundColor: '#2D9CDB',
+    borderColor: '#5491FF',
+    backgroundColor: '#5491FF',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
