@@ -11,10 +11,12 @@ export default class WorkoutSwitchHeader extends Component {
       <View style={styles.container}>
         <View style={styles.switch}>
           <View style={styles.flexContent}>
-            <View style={styles.statsContainer}>
-              <Text style={styles.content}>Your Stats</Text>
-            </View>
-            <Text style={styles.content}>Next Workout</Text>
+            <TouchableOpacity style={styles.statsContainer}>
+              <Text style={styles.stats}>Your Stats</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.workoutContainer}>
+              <Text style={styles.workout}>Next Workout</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 40,
-    marginTop: 30,
+    marginTop: 25,
     paddingLeft: 10,
     paddingRight: 10,
   },
@@ -53,10 +55,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center'
   },
-  content: {
+  workoutContainer: {
+    flexDirection: 'row',
+    width: '50%',
+    backgroundColor: '#EDEDED',
+    borderTopRightRadius: 25,
+    borderBottomRightRadius: 25,
+    textAlign: 'center',
+    justifyContent: 'center',
+    color: '#5491FF'
+  },
+  stats: {
     fontSize: 18,
     fontFamily: 'HelveticaNeue',
     color: 'white',
+    fontWeight: '900',
+    alignSelf: 'center'
+  },
+  workout: {
+    fontSize: 18,
+    fontFamily: 'HelveticaNeue',
+    color: '#5491FF',
     fontWeight: '900',
     alignSelf: 'center'
   }
