@@ -1,22 +1,81 @@
+
 import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native'
 
 export default class WorkoutSwitchHeader extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      workoutSelected: false,
+      statsSelected: true
+    }
+  }
+
+  changeSwitchStateWorkout = () => {
+    this.setState({
+      workoutSelected: true,
+      statsSelected: false
+    })
+  }
+
+  changeSwitchStateStats = () => {
+    this.setState({
+      workoutSelected: false,
+      statsSelected: true
+    })
+  }
+  
   render() {
+    const {
+      workoutSelected,
+      statsSelected
+    } = this.state
+
+    let Workout = ''
+    let Stats = ''
+
+    if (workoutSelected) {
+      Workout = (
+        <TouchableOpacity style={styles.workoutContainerSelected}>
+          <Text style={styles.workoutSelected}>Today's Workout</Text>
+        </TouchableOpacity>
+      )
+    } else {
+      Workout = (
+        <TouchableOpacity 
+          onPress={this.changeSwitchStateWorkout} 
+          style={styles.workoutContainer}>
+            <Text style={styles.workout}>Today's Workout</Text>
+        </TouchableOpacity>
+      )
+    }
+
+    if (statsSelected) {
+      Stats = (
+        <TouchableOpacity style={styles.statsContainerSelected}>
+          <Text style={styles.statsSelected}>Your Stats</Text>
+        </TouchableOpacity>
+      )
+    } else {
+      Stats = (
+        <TouchableOpacity onPress={this.changeSwitchStateStats} style={styles.statsContainer}>
+          <Text style={styles.stats}>Your Stats</Text>
+        </TouchableOpacity>
+      )
+    }
+
+    
     return (
       <View style={styles.container}>
         <View style={styles.switch}>
           <View style={styles.flexContent}>
-            <TouchableOpacity style={styles.statsContainer}>
-              <Text style={styles.stats}>Your Stats</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.workoutContainer}>
-              <Text style={styles.workout}>Next Workout</Text>
-            </TouchableOpacity>
+            { Stats }
+            { Workout }
           </View>
         </View>
       </View>
@@ -49,11 +108,22 @@ const styles = StyleSheet.create({
   statsContainer: {
     flexDirection: 'row',
     width: '50%',
+    backgroundColor: '#EDEDED',
+    borderTopLeftRadius: 25,
+    borderBottomLeftRadius: 25,
+    textAlign: 'center',
+    justifyContent: 'center',
+    color: '#5491FF'
+  },
+  statsContainerSelected: {
+    flexDirection: 'row',
+    width: '50%',
     backgroundColor: '#5491FF',
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     textAlign: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    color: 'white'
   },
   workoutContainer: {
     flexDirection: 'row',
@@ -65,10 +135,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     color: '#5491FF'
   },
+  workoutContainerSelected: {
+    flexDirection: 'row',
+    width: '50%',
+    backgroundColor: '#5491FF',
+    borderTopRightRadius: 25,
+    borderBottomRightRadius: 25,
+    textAlign: 'center',
+    justifyContent: 'center',
+    color: '#FFFFFF'
+  },
   stats: {
     fontSize: 18,
     fontFamily: 'HelveticaNeue',
+    color: '#5491FF',
+    fontWeight: '900',
+    alignSelf: 'center'
+  },
+  statsSelected: {
+    fontSize: 18,
     color: 'white',
+    fontFamily: 'HelveticaNeue',
     fontWeight: '900',
     alignSelf: 'center'
   },
@@ -76,6 +163,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'HelveticaNeue',
     color: '#5491FF',
+    fontWeight: '900',
+    alignSelf: 'center'
+  },
+  workoutSelected: {
+    fontSize: 18,
+    fontFamily: 'HelveticaNeue',
+    color: 'white',
     fontWeight: '900',
     alignSelf: 'center'
   }
