@@ -29,15 +29,12 @@ export default class WorkoutSwitchHeader extends Component {
       statsSelected: true
     })
   }
-  
+
   render() {
     const {
       workoutSelected,
       statsSelected
     } = this.state
-
-    let Workout = ''
-    let Stats = ''
 
     if (workoutSelected) {
       Workout = (
@@ -69,7 +66,6 @@ export default class WorkoutSwitchHeader extends Component {
       )
     }
 
-    
     return (
       <View style={styles.container}>
         <View style={styles.switch}>
