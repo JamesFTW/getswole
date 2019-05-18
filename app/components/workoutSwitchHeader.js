@@ -17,17 +17,25 @@ export default class WorkoutSwitchHeader extends Component {
   }
 
   changeSwitchStateWorkout = () => {
+    const { getHeaderState } = this.props
+
     this.setState({
       workoutSelected: true,
       statsSelected: false
     })
+
+    getHeaderState(this.state)
   }
 
   changeSwitchStateStats = () => {
+    const { getHeaderState } = this.props
+
     this.setState({
       workoutSelected: false,
       statsSelected: true
     })
+
+    getHeaderState(this.state)
   }
 
   render() {

@@ -4,29 +4,23 @@ import BackGroundWrapper    from '../components/backGroundWrapper.js'
 import Header               from '../components/header.js'
 import Workout              from '../containers/workout.js'
 import data                 from '../sample.json'
+import WorkoutSwitchHeader  from '../components/workoutSwitchHeader'
 
 import {
   ScrollView
 } from 'react-native'
 
 export default class WorkoutScreen extends Component {
-  // componentDidMount() {
-  //   fetch('https://swole.herokuapp.com/api/workout/test', {
-  //     credentials: "include"
-  //   })
-  //     .then(res => {
-  //       const result = res._bodyText
-  //       const jsonVersion = JSON.parse(result)
-  //       console.log(jsonVersion)
-  //     })
-  //     .catch(err => console.log(err))
-  // }
   constructor(props) {
     super(props)
     this.state = {
       workouts: data.exercises,
       workoutName: data.workout
     }
+  }
+
+  tester = headerState => {
+    console.log(headerState)
   }
 
   render() {
@@ -47,7 +41,9 @@ export default class WorkoutScreen extends Component {
 
     return (
       <BackGroundWrapper>
-        <Header workoutName="Leg Day"/>
+        <Header workoutName="Leg Day">
+          <WorkoutSwitchHeader getHeaderState={this.tester}/>
+        </Header>
         <ScrollView style={{marginBottom: 45}}>
           {WOD}
         </ScrollView>
