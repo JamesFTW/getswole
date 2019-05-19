@@ -4,7 +4,6 @@ import BackGroundWrapper    from '../components/backGroundWrapper.js'
 import Header               from '../components/header.js'
 import Workout              from '../containers/workout.js'
 import data                 from '../sample.json'
-import WorkoutSwitchHeader  from '../components/workoutSwitchHeader'
 
 import {
   ScrollView
