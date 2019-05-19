@@ -11,8 +11,8 @@ export default class WorkoutSwitchHeader extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      workoutSelected: false,
-      statsSelected: true
+      workoutSelected: true,
+      statsSelected: false
     }
   }
 
@@ -39,6 +39,7 @@ export default class WorkoutSwitchHeader extends Component {
   }
 
   render() {
+    const { workoutDate } = this.props
     const {
       workoutSelected,
       statsSelected
@@ -47,7 +48,7 @@ export default class WorkoutSwitchHeader extends Component {
     if (workoutSelected) {
       Workout = (
         <TouchableOpacity style={styles.workoutContainerSelected}>
-          <Text style={styles.workoutSelected}>Today's Workout</Text>
+          <Text style={styles.workoutSelected}>{workoutDate}</Text>
         </TouchableOpacity>
       )
     } else {
@@ -55,7 +56,7 @@ export default class WorkoutSwitchHeader extends Component {
         <TouchableOpacity 
           onPress={this.changeSwitchStateWorkout} 
           style={styles.workoutContainer}>
-            <Text style={styles.workout}>Today's Workout</Text>
+            <Text style={styles.workout}>{workoutDate}</Text>
         </TouchableOpacity>
       )
     }
