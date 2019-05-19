@@ -22,9 +22,9 @@ export default class WorkoutSwitchHeader extends Component {
     this.setState({
       workoutSelected: true,
       statsSelected: false
+    }, () => {
+      getHeaderState(this.state)
     })
-
-    getHeaderState(this.state)
   }
 
   changeSwitchStateStats = () => {
@@ -33,9 +33,9 @@ export default class WorkoutSwitchHeader extends Component {
     this.setState({
       workoutSelected: false,
       statsSelected: true
+    }, () => {
+      getHeaderState(this.state)
     })
-
-    getHeaderState(this.state)
   }
 
   render() {
