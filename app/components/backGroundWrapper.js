@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import {
   StyleSheet,
   View
 } from 'react-native'
 
-export default class BackGroundWrapper extends Component {
+export default class BackGroundWrapper extends PureComponent {
 
   render() {
     const { children } = this.props

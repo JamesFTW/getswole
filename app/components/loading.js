@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   ActivityIndicator
 } from 'react-native'
@@ -6,7 +6,7 @@ import {
 import CenterOfScreen from '../components/centerOfScreen.js'
 import LoginWrapper from '../components/loginWrapper.js'
 
-export default class Loading extends Component {
+export default class Loading extends PureComponent {
   constructor(props) {
     super(props)
     SQUATPHOTO = 'squatphoto'

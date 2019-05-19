@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import {
   StyleSheet,
   ScrollView
 } from 'react-native'
 
-export default class ScrollContent extends Component {
+export default class ScrollContent extends PureComponent {
 
   render() {
     const { children } = this.props

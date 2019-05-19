@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   StyleSheet,
   View,
@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-export default class WorkoutSwitchHeader extends Component {
+export default class WorkoutSwitchHeader extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
