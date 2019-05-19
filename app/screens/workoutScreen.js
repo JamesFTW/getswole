@@ -41,9 +41,10 @@ export default class WorkoutScreen extends Component {
 
     return (
       <BackGroundWrapper>
-        <Header workoutName="Leg Day">
-          <WorkoutSwitchHeader getHeaderState={this.tester}/>
-        </Header>
+        <Header
+          getHeaderState={this.tester}
+          workoutName="Leg Day"
+        />
         <ScrollView style={{marginBottom: 45}}>
           {WOD}
         </ScrollView>
