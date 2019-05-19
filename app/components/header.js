@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import WorkoutSwitchHeader from './workoutSwitchHeader.js'
+import WorkoutSwitchHeader      from './workoutSwitchHeader.js'
 
 import {
   StyleSheet,
@@ -14,14 +14,18 @@ export default class Header extends PureComponent {
   render(){
     const {
       workoutName,
-      getHeaderState
+      getHeaderState,
+      workoutDate
     } = this.props
 
     return (
       <View style={styles.flexHeader}>
         <ImageBackground style={styles.image} source={{uri: HEADERPHOTO}}>
           <Text style={styles.header}>{workoutName}</Text>
-          <WorkoutSwitchHeader getHeaderState={e => getHeaderState(e)} />
+          <WorkoutSwitchHeader
+            workoutDate={workoutDate}
+            getHeaderState={e => getHeaderState(e)}
+          />
         </ImageBackground>
       </View>
     )
