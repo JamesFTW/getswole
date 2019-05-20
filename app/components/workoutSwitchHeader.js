@@ -1,5 +1,7 @@
 
 import React, { PureComponent } from 'react'
+import { connect }  from 'react-redux'
+import * as actions from '../actions'
 import {
   StyleSheet,
   View,
@@ -7,43 +9,24 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-export default class WorkoutSwitchHeader extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
-      workoutSelected: true,
-      statsSelected: false
-    }
-  }
+class WorkoutSwitchHeader extends PureComponent {
 
   changeSwitchStateWorkout = () => {
-    const { getHeaderState } = this.props
-
-    this.setState({
-      workoutSelected: true,
-      statsSelected: false
-    }, () => {
-      getHeaderState(this.state)
-    })
+    const { toggleHeaderWorkout } = this.props
+    toggleHeaderWorkout()
   }
 
   changeSwitchStateStats = () => {
-    const { getHeaderState } = this.props
-
-    this.setState({
-      workoutSelected: false,
-      statsSelected: true
-    }, () => {
-      getHeaderState(this.state)
-    })
+    const { toggleHeaderStats } = this.props
+    toggleHeaderStats()
   }
 
   render() {
-    const { workoutDate } = this.props
     const {
-      workoutSelected,
-      statsSelected
-    } = this.state
+      workoutDate,
+      statsSelected,
+      workoutSelected
+    } = this.props
 
     if (workoutSelected) {
       Workout = (
@@ -86,6 +69,9 @@ export default class WorkoutSwitchHeader extends PureComponent {
       </View>
     )
   }
+}
+const mapStateToProps = state => {
+  return state.workoutHeaderReducer
 }
 
 const styles = StyleSheet.create({
@@ -179,3 +165,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 })
+
+const ConnectedNode = connect(mapStateToProps, actions)(WorkoutSwitchHeader)
+export default ConnectedNode
