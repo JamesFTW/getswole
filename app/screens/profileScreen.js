@@ -42,6 +42,7 @@ export default class ProfileScreen extends Component {
           profilePhoto: data.profilephoto
         })
       })
+      .catch(err => console.log(err))
   }
 
   render() {
