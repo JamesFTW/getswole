@@ -10,7 +10,7 @@ class WorkoutSwitchScreen extends Component {
   render() {
     const {
       workoutSelected
-    } = this.props.workoutHeaderReducer
+    } = this.props
 
     const SwitchContent = workoutSelected? <WorkoutContainer /> : <StatsScreen />
 
@@ -27,7 +27,7 @@ class WorkoutSwitchScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return state
+  return state.workoutHeaderReducer
 }
 
 const ConnectedNode = connect(mapStateToProps)(WorkoutSwitchScreen)
