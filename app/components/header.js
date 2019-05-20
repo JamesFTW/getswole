@@ -14,7 +14,6 @@ export default class Header extends PureComponent {
   render(){
     const {
       workoutName,
-      getHeaderState,
       workoutDate
     } = this.props
 
@@ -22,10 +21,7 @@ export default class Header extends PureComponent {
       <View style={styles.flexHeader}>
         <ImageBackground style={styles.image} source={{uri: HEADERPHOTO}}>
           <Text style={styles.header}>{workoutName}</Text>
-          <WorkoutSwitchHeader
-            workoutDate={workoutDate}
-            getHeaderState={e => getHeaderState(e)}
-          />
+          <WorkoutSwitchHeader workoutDate={workoutDate} />
         </ImageBackground>
       </View>
     )
