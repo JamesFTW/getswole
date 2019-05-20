@@ -1,11 +1,14 @@
 
 import { TOGGLE_FOLLOW } from '../actions'
 
-const node = (state = {isFollowing: false}, action) => {
+const initialState = {
+  isFollowing: false
+}
+
+const node = (state = {}, action) => {
   switch(action.type) {
     case TOGGLE_FOLLOW:
       return {
-        ...state,
         isFollowing: !state.isFollowing
       }
     default:
@@ -13,12 +16,11 @@ const node = (state = {isFollowing: false}, action) => {
   }
 }
 
-export default (state, action) => {
+export default (state = initialState, action) => {
   const { type } = action
 
   if (type === TOGGLE_FOLLOW) {
     return {
-      ...state,
       isFollowing: node(!state.isFollowing, type)
     }
   }

@@ -17,12 +17,10 @@ const node = (state = {}, action) => {
   switch(action.type) {
     case INCREMENT:
       return {
-        ...state,
         weight: state.weight + 1
       }
     case DECREMENT:
       return {
-        ...state,
         weight: state.weight - 1
       }
     default:

@@ -17,13 +17,11 @@ const node = (state = {}, action) => {
   switch(action.type) {
     case TOGGLE_HEADER_WORKOUT:
       return {
-        ...state,
         workoutSelected: true,
         statsSelected: false
       }
     case TOGGLE_HEADER_STATS:
       return {
-        ...state,
         workoutSelected: false,
         statsSelected: true
       }
