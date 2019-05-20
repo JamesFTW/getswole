@@ -4,43 +4,32 @@ import BackGroundWrapper    from '../components/backGroundWrapper.js'
 import Header               from '../components/header.js'
 import WorkoutContainer     from '../containers/workoutContainer.js'
 import StatsScreen          from '../screens/statsScreen.js'
+import { connect }          from 'react-redux'
 
-export default class WorkoutSwitchScreen extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      workoutSelected: true,
-      statsSelected: false
-    }
-  }
-  getScreen = headerState => {
-    const { 
-      workoutSelected,
-      statsSelected
-    } = headerState
-
-    this.setState({
-      workoutSelected,
-      statsSelected
-    })
-  }
+class WorkoutSwitchScreen extends Component {
   render() {
-    const { workoutSelected } = this.state
+    const {
+      workoutSelected
+    } = this.props.workoutHeaderReducer
 
-    if (workoutSelected) {
-      SwithContent = <WorkoutContainer/>
-    } else {
-      SwithContent = <StatsScreen />
-    }
+    const SwitchContent = workoutSelected? <WorkoutContainer /> : <StatsScreen />
+
     return (
       <BackGroundWrapper>
         <Header 
-          getHeaderState={this.getScreen} 
           workoutName="Leg Day"
           workoutDate="Today's Workout"
         />
-        { SwithContent }
+        { SwitchContent }
       </BackGroundWrapper>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return state
+}
+
+const ConnectedNode = connect(mapStateToProps)(WorkoutSwitchScreen)
+export default ConnectedNode
+
