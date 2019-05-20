@@ -8,11 +8,6 @@ const initialState = {
   statsSelected: false
 }
 
-const workoutState = {
-  workoutSelected: true,
-  statsSelected: false
-}
-
 const statsState = {
   workoutSelected: false,
   statsSelected: true
@@ -42,7 +37,7 @@ export default (state = initialState, action) => {
 
   if (type === TOGGLE_HEADER_WORKOUT) {
     return {
-      ...node(workoutState, type)
+      ...node(initialState, type)
     }
   }
 
