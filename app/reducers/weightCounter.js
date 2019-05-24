@@ -5,12 +5,12 @@ import {
   DECREMENT
 } from '../actions'
 
-let obj = {}
+let initialState = {}
 
 const workout = data.exercises
 
 workout.map((exercises) => {
-  obj[exercises.id] = exercises
+  initialState[exercises.id] = exercises
 })
 
 const node = (state = {}, action) => {
@@ -28,7 +28,7 @@ const node = (state = {}, action) => {
   }
 }
 
-export default (state = obj, action) => {
+export default (state = initialState, action) => {
   const { nodeId } = action
   
   if (typeof nodeId === 'undefined') {
