@@ -52,8 +52,10 @@ class WorkoutSwitchHeader extends PureComponent {
       )
     } else {
       Stats = (
-        <TouchableOpacity onPress={this.changeSwitchStateStats} style={styles.statsContainer}>
-          <Text style={styles.stats}>Your Stats</Text>
+        <TouchableOpacity
+          onPress={this.changeSwitchStateStats}
+          style={styles.statsContainer}>
+            <Text style={styles.stats}>Your Stats</Text>
         </TouchableOpacity>
       )
     }
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 40,
-    marginTop: 25,
+    marginTop: 35,
     paddingLeft: 10,
     paddingRight: 10,
   },
