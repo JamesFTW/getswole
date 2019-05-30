@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Link } from 'react-router-native'
 
 import {
   Text,
@@ -14,10 +15,14 @@ export default class StatsExercise extends PureComponent {
     const { bodyPart } = this.props
 
     return (
-      <TouchableOpacity style={styles.border}>
+      <Link 
+        to={`/StatsScreen/BodyPart/${bodyPart}`} 
+        component={TouchableOpacity} 
+        style={styles.border}
+      >
         <Text style={styles.text}>{bodyPart}</Text>
         <Image style={styles.icon} source={{ uri: arrow }}></Image>
-      </TouchableOpacity >
+      </Link >
     )
   }
 }
