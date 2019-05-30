@@ -13,11 +13,12 @@ class WorkoutSwitchScreen extends Component {
     } = this.props
 
     const SwitchContent = workoutSelected? <WorkoutContainer /> : <StatsScreen />
+    const workoutName = workoutSelected? "Leg Day" : "Exercise Stats"
 
     return (
       <BackGroundWrapper>
         <Header 
-          workoutName="Leg Day"
+          workoutName={workoutName}
           workoutDate="Today's Workout"
         />
         { SwitchContent }
