@@ -58,9 +58,9 @@
         "date_completed": "1/8/18",
         "time_completed": "4:30pm",
         "sets": 4,
-        "reps": 12,
-          },
-        ],
+        "reps": 12
+          }
+        ]
       },
   "2": {
     "workout": "Back And Biceps",
@@ -106,7 +106,7 @@
         "time_completed": "4:30pm",
         "sets": 4,
         "reps": 12
-      },
-    ],
+      }
+    ]
   }
 }
