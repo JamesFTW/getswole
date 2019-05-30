@@ -17,7 +17,7 @@ const bodyParts = [
 export default class StatsExerciseContainer extends Component {
   render() {
     const ExerciseStats = bodyParts.map((exercise, i) => (
-      <StatsExercise key={i.toString()} bodyPart={exercise} />
+      <StatsExercise id={exercise} key={i.toString()} bodyPart={exercise} />
     ))
 
     return (
