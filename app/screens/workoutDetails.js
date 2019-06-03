@@ -49,8 +49,6 @@ export default class WorkoutScreen extends Component {
       currentWorkout
     } = this.state
 
-    const { id } = this.props.match.params
-
     if(isLoading) {
       return <ActivityIndicator size="large"/>
     }
@@ -77,7 +75,7 @@ export default class WorkoutScreen extends Component {
             currentWorkout={currentWorkout}
           />
           <View style={styles.flexContainer}>
-            {exercise}
+            { exercise }
           </View>
         </ScrollView>
       </BackGroundWrapper>
