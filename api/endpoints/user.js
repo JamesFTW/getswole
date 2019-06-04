@@ -34,25 +34,6 @@ router.post('/create', isLoggedIn, (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.post('/create/workoutplan', isLoggedIn, (req, res) => {
-  const {
-    userId,
-    planId,
-    length,
-    timeStamp
-  } = req.body
-
-  const oneWeek = 604800000
-  const endDateTimeStamp = (length * oneWeek) + timeStamp
-
-  const startDate = new Date(timeStamp)
-  const endDate = new Date(endDateTimeStamp) // have to change this to 11:59pm
-
-  User.createWorkoutPlan(userId, planId, startDate, endDate)
-    .then(_ => res.sendStatus(200))
-    .catch(err => console.log(err))
-})
-
 router.get('/logout', (req, res) => {
   req.logout()
   res.redirect('/api/signup')
