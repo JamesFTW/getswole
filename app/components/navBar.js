@@ -11,15 +11,9 @@ import {
 import homeIcon      from '../assets/img/home/Home.png'
 import homeActive    from '../assets/img/homeActive/Vector.png'
 import userActive    from '../assets/img/userActive/Vector.png'
-import workoutActive from '../assets/img/workoutActive/Vector.png'
-import barbellIcon   from '../assets/img/workout/Dumbell.png'
-import userIcon      from '../assets/img/user/Vector.png'
-
-const ImageIcon = ({img, style}) => {
-  return (
-    <Image style={style} source={img}/>
-  )
-}
+import workoutActive from '../assets/img/workoutActive/Frame.png'
+import barbellIcon   from '../assets/img/workout/Frame.png'
+import userIcon      from '../assets/img/user/Frame.png'
 
 export default class Navbar extends PureComponent {
   constructor(props) {
@@ -45,7 +39,7 @@ export default class Navbar extends PureComponent {
   }
 
   render() {
-    const { workout, profile} = this.state
+    const { workout, profile } = this.state
     const workoutIcon = workout ? workoutActive : barbellIcon
     const profileIcon = profile ? userActive : userIcon
 
