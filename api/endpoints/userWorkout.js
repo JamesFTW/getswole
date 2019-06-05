@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 
-const { UserWorkoutPlan } = require('./db')
+const { UserWorkoutPlan } = require('../db')
 
 //check if user has completed any workouts
 //starting new userworkouts
