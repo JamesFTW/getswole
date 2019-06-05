@@ -15,16 +15,16 @@ export default class WorkoutSelect extends PureComponent {
     const {
       workoutPhoto,
       workoutTitle,
-      workoutId,
+      planId,
       length
     } = this.props
 
     return (
       <Link 
         to={{
-          pathname: `/WorkoutSelect/SelectDateScreen/${workoutId}`,
+          pathname: `/WorkoutSelect/SelectDateScreen/${planId}`,
           state: {
-            workoutId,
+            planId,
             length
           }
         }}
