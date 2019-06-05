@@ -27,6 +27,8 @@ router.post('/create', isLoggedIn, (req, res) => {
     .catch(err => console.log(err))
 })
 
+module.exports = router
+
 /**
  * /userworkout/create //creates workoutplan for user
  * /userworkout/:id //returns current userworkout
