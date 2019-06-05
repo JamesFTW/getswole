@@ -11,7 +11,7 @@ import {
 const HEADERPHOTO = 'header'
 
 export default class Header extends PureComponent {
-  render(){
+  render() {
     const {
       workoutName,
       workoutDate
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   image:{
     backgroundColor: 'transparent',
-    height: 120
+    height: 120,
+    paddingTop: 5
   },
 })
