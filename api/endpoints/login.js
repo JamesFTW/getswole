@@ -8,6 +8,8 @@ router.get('/twitter', authenticate)
 router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
+  console.log(req.session)
+  //here is where I will make request to see if user exist on swole
   res.sendStatus(200).end()
 })
 
