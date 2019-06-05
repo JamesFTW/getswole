@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import Workout              from './workout.js'
+import Workout              from '../components/workout.js'
 import data                 from '../sample.json'
 
 import {
@@ -33,7 +33,7 @@ export default class WorkoutContainer extends Component {
     })
 
     return (
-      <ScrollView style={{marginBottom: 45}}>
+      <ScrollView style={{marginBottom: 50}}>
         { WOD }
       </ScrollView>
     )
