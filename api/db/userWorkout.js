@@ -10,4 +10,4 @@ const userWorkoutPlanInit = db => ({
   create: createUserPlan(db)
 })
 
-  module.exports = { userWorkoutPlanInit }
+module.exports = userWorkoutPlanInit

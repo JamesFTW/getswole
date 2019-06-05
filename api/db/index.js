@@ -5,11 +5,11 @@ const db = pgp(connection)
 
 const userInit    = require('./user.js')
 const workoutInit = require('./workout.js')
-const userWorkoutInit = require('./userWorkout.js')
+const userWorkoutPlanInit = require('./userWorkout.js')
 
 module.exports = { 
   connection,
   User: userInit(db),
   Workout: workoutInit(db),
-  UserWorkoutPlan: userWorkoutInit(db)
+  UserWorkoutPlan: userWorkoutPlanInit(db)
 }
