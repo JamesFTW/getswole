@@ -74,7 +74,7 @@ export default class ExerciseTotalsScreen extends Component {
             currentWorkout={currentWorkout}
           />
           <View style={styles.flexContainer}>
-            {exercise}
+            { exercise }
           </View>
         </ScrollView>
       </BackGroundWrapper>

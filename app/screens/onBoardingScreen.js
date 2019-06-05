@@ -104,9 +104,9 @@ export default class OnBoardingScreen extends Component {
 
   render() {
     const { 
-      data, 
-      isProfilePhoto, 
-      username ,
+      data,
+      isProfilePhoto,
+      username,
       profilePhoto,
       shouldRedirect,
       isLoading
@@ -131,7 +131,7 @@ export default class OnBoardingScreen extends Component {
             defaultValue={defaultValue}
             placeholderTextColor='#C2BEBE'
             style={styles.input}
-            onChangeText={(username) => this.setState({ username })}
+            onChangeText={username => this.setState({ username })}
           />
         </ChooseUsername>
       )
@@ -148,7 +148,7 @@ export default class OnBoardingScreen extends Component {
             submitUser={this.submit}
             back={this.backFunc}
             components={data}
-            text={this.state.username}
+            text={username}
           />
         </CenterOfScreen>
       </LoginWrapper>
