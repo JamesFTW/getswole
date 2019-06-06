@@ -4,13 +4,18 @@ const { authenticate } = require('../auth/passport.js')
 const express = require('express')
 const router  = express.Router()
 
+const { User } = require('../db')
+
 router.get('/twitter', authenticate)
 router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
-  console.log(req.session)
+  const { passport } = req.session
+  User.findById(passport.id)
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
   //here is where I will make request to see if user exist on swole
-  res.sendStatus(200).end()
+  // res.sendStatus(200).end()
 })
 
 router.get('/failed', (req, res) => {
