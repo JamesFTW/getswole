@@ -11,6 +11,7 @@ router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
   const { passport } = req.session
+  console.log(passport.id)
   User.findById(passport.id)
     .then(data => console.log(data))
     .catch(err => console.log(err))
