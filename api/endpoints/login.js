@@ -10,9 +10,9 @@ router.get('/twitter', authenticate)
 router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
-  const { passport } = req.session
-  console.log(passport)
-  User.findById(passport.id)
+  const { id } = req.session.passport.user
+  console.log(id)
+  User.findById(id)
     .then(data => console.log(data))
     .catch(err => console.log(err))
   //here is where I will make request to see if user exist on swole
