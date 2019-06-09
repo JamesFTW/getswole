@@ -5,7 +5,7 @@ import {
   StyleSheet,
   View,
   Image,
-  TouchableOpacity
+  TouchableHighlight
 } from 'react-native'
 
 import homeIcon      from '../assets/img/home/Home.png'
@@ -45,19 +45,21 @@ export default class Navbar extends PureComponent {
 
     return (
       <View style={styles.navRectangle}>
-        <TouchableOpacity>
+        <TouchableHighlight underlayColor={"rgba(0, 0, 0, 0)"}>
           <Image style={{ marginLeft: 40 }} source={homeIcon} />
-        </TouchableOpacity>
+        </TouchableHighlight>
         <Link
           to='/Workout'
-          component={TouchableOpacity}
+          component={TouchableHighlight}
+          underlayColor={"rgba(0, 0, 0, 0)"}
           onPress={this.onWorkoutPress}
           >
           <Image source={workoutIcon} />
         </Link>
         <Link
           to='/ProfileScreen'
-          component={TouchableOpacity}
+          component={TouchableHighlight}
+          underlayColor={"rgba(0, 0, 0, 0)"}
           onPress={this.onProfilePress}
           >
           <Image style={{ marginRight: 40}} source={profileIcon} />
