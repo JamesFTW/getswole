@@ -13,7 +13,7 @@ router.get('/success', isLoggedIn, (req, res) => {
   const { id } = req.session.passport.user
   console.log(id)
 
-  User.findById(id)
+  User.findById(id.toString())
     .then(data => {
       console.log(data)
       res.redirect('/api/login/workoutscreen')
