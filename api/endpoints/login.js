@@ -11,12 +11,18 @@ router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
   const { id } = req.session.passport.user
-  console.log(id)
+
   User.findById(id)
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-  //here is where I will make request to see if user exist on swole
-  // res.sendStatus(200).end()
+    .then(_ => res.redirect('/api/login/workoutscreen'))
+    .catch(_ => res.redirect('/api/login/onboardingscreen'))
+})
+
+router.get('/workoutscreen', (req, res) => {
+  res.sendStatus(200).end()
+})
+
+router.get('/onboardingscreen', (req, res) => {
+  res.sendStatus(200).end()
 })
 
 router.get('/failed', (req, res) => {
