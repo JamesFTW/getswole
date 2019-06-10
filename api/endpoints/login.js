@@ -11,9 +11,13 @@ router.get('/oauth/callback', authenticate)
 
 router.get('/success', isLoggedIn, (req, res) => {
   const { id } = req.session.passport.user
+  console.log(id)
 
   User.findById(id)
-    .then(_ => res.redirect('/api/login/workoutscreen'))
+    .then(data => {
+      console.log(data)
+      res.redirect('/api/login/workoutscreen')
+    })
     .catch(_ => res.redirect('/api/login/onboardingscreen'))
 })
 
