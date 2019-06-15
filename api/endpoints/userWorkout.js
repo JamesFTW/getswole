@@ -41,8 +41,8 @@ router.get('/find', isLoggedIn, (req, res) => {
 
       UserWorkoutPlan.findByUserid(userid)
         .then(data => {
-          console.log(data)
           if(data) {
+            console.log(data)
             res.sendStatus(200)
           } else {
             res.sendStatus(404)
