@@ -43,11 +43,18 @@ export default class TwitterCredScreen extends PureComponent {
     //api will return url /failed for bad request
     const { url } = newNavState
     if (!url) return
-
-    if (url.includes('/success')) {
+    
+    if (url.includes('/onboardingscreen')) {
       this.webview.stopLoading()
       this.setState({
         redirectToOnBoarding: true
+      })
+    }
+
+    if (url.includes('/workoutscreen')) {
+      this.webview.stopLoading()
+      this.setState({
+        redirectToWorkoutScreen: true
       })
     }
   }
