@@ -46,6 +46,7 @@ router.get('/find', isLoggedIn, (req, res) => {
           }
         })
     })
+    .catch(err => console.log(err))
 })
 
 module.exports = router
