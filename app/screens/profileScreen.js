@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react'
+import { View }             from 'react-native'
+import FollowButton         from '../containers/followButton.js'
 import BackGroundWrapper    from '../components/backGroundWrapper.js'
 import ProfileHeader        from '../components/profileHeader.js'
-import FollowButton         from '../containers/followButton.js'
 import UserFirstName        from '../components/userFirstName.js'
 import UserContainer        from '../components/userContainer.js'
 import FollowingContainer   from '../components/followingContainer.js'
@@ -13,11 +14,6 @@ import CompletedWorkouts    from '../components/completedWorkout.js'
 import ScrollContent        from '../components/scrollContent.js'
 import WorkoutStatus        from '../components/workoutStatus.js'
 import { getUserFromCache } from '../api'
-
-import {
-  View,
-  ActivityIndicator
-} from 'react-native'
 
 let data = require('../completedworkout.json')
 
@@ -42,7 +38,7 @@ export default class ProfileScreen extends Component {
           profilePhoto: data.profilephoto
         })
       })
-      .catch(err => console.log(err))
+      .catch(err => /** should make request here if no cache */ console.log(err))
   }
 
   render() {
