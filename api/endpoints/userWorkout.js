@@ -2,7 +2,10 @@ const express = require('express')
 const router = express.Router()
 const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
 
-const { UserWorkoutPlan } = require('../db')
+const {
+  UserWorkoutPlan,
+  User
+} = require('../db')
 
 //check if user has completed any workouts
 //starting new userworkouts
@@ -25,6 +28,24 @@ router.post('/create', isLoggedIn, (req, res) => {
   UserWorkoutPlan.create(userId, planId, startDate, endDate)
     .then(_ => res.sendStatus(200))
     .catch(err => console.log(err))
+})
+
+router.get('/find', isLoggedIn, (req, res) => {
+  const { id } = req.session.passport.user
+
+  User.findById(id)
+    .then(user => {
+      const { userid } = user
+
+      UserWorkoutPlan.findByUserid(userid)
+        .then(data => {
+          if(data) {
+            res.sendStatus(200)
+          } else {
+            res.sendStatus(404)
+          }
+        })
+    })
 })
 
 module.exports = router
