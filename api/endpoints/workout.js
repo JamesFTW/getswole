@@ -5,6 +5,7 @@ const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login/fa
 
 const { Workout } = require('../db')
 
+//Global level workout stuff
 router.get('/', (req, res) => {
   Workout.getAllWorkouts()
     .then(data => res.json(data))
