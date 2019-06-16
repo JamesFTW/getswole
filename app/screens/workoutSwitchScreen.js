@@ -1,38 +1,42 @@
 
-import React, { Component } from 'react'
-import BackGroundWrapper    from '../components/backGroundWrapper.js'
-import Header               from '../components/header.js'
-import Loading              from '../components/loading'
-import WorkoutContainer     from '../containers/workoutContainer.js'
-import StatsScreen          from '../screens/statsScreen.js'
-import { connect }          from 'react-redux'
+import React, { Component }   from 'react'
+import { Redirect }           from "react-router-native"
+import { connect }            from 'react-redux'
+import BackGroundWrapper      from '../components/backGroundWrapper.js'
+import Header                 from '../components/header.js'
+import WorkoutContainer       from '../containers/workoutContainer.js'
+import StatsScreen            from '../screens/statsScreen.js'
+import { getUserWorkoutPlan } from '../api'
 
 class WorkoutSwitchScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: true
+      isLoading: true,
+      redirectToWorkoutSelectScreen: false
     }
   }
-  componentDidMount() {
-    this.setState({
-      isLoading: false
-    })
-    /**
-     * here is where you check if you has a current workoutplan.
-     * if so show workout of the day or next workout.
-     * if not show workoutSelectScreen
-     */
-  }
-  render() {
-    const { isLoading } = this.state
-    const {
-      workoutSelected
-    } = this.props
 
-    if(isLoading) {
-      return <Loading/>
+  async componentDidMount() {
+    try {
+      let res = await getUserWorkoutPlan()
+      
+      res.status === 200 ? 
+        this.setState({ isLoading:false }) : 
+        this.setState({ redirectToWorkoutSelectScreen: true })
+
+    } catch(err) {
+      console.log(err)
     }
+  }
+
+  render() {
+    const { workoutSelected } = this.props
+    const { redirectToWorkoutSelectScreen } = this.state
+
+     if (redirectToWorkoutSelectScreen) {
+      return <Redirect to='/WorkoutSelect' />
+     }
 
     const SwitchContent = workoutSelected? <WorkoutContainer /> : <StatsScreen />
     const workoutName = workoutSelected? "Leg Day" : "Exercise Stats"
