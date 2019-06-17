@@ -1,20 +1,24 @@
 
-import React                                from 'react'
-import { NativeRouter, Route, hashHistory } from 'react-router-native'
-import Navbar                               from '../components/navBar.js'
-import WorkoutContainer                     from '../containers/workoutContainer.js'
-import ProfileScreen                        from '../screens/profileScreen.js'
-import WorkoutDetails                       from '../screens/workoutDetails.js'
-import WorkoutSelectScreen                  from '../screens/workoutSelectScreen.js'
-import LoginScreen                          from '../screens/loginScreen.js'
-import SelectDateScreen                     from '../screens/selectDateScreen.js'
-import TwitterCredScreen                    from '../screens/twitterCredScreen.js'
-import OnBoardingScreen                     from '../screens/onBoardingScreen.js'
-import WorkoutSwitchScreen                  from '../screens/workoutSwitchScreen.js'
-import store                                from '../store/store.js'
-import { Provider }                         from 'react-redux'
-import StatsScreen                          from '../screens/statsScreen.js'
-import ExerciseTotalsScreen                  from '../screens/exerciseTotalsScreen.js'
+import React                from 'react'
+import { Provider }         from 'react-redux'
+import store                from '../store/store.js'
+import Navbar               from '../components/navBar.js'
+import ProfileScreen        from '../screens/profileScreen.js'
+import WorkoutDetails       from '../screens/workoutDetails.js'
+import WorkoutSelectScreen  from '../screens/workoutSelectScreen.js'
+import LoginScreen          from '../screens/loginScreen.js'
+import SelectDateScreen     from '../screens/selectDateScreen.js'
+import TwitterCredScreen    from '../screens/twitterCredScreen.js'
+import OnBoardingScreen     from '../screens/onBoardingScreen.js'
+import StatsScreen          from '../screens/statsScreen.js'
+import ExerciseTotalsScreen from '../screens/exerciseTotalsScreen.js'
+import WorkoutScreen        from '../screens/workoutScreen.js'
+
+import {
+  NativeRouter,
+  Route,
+  hashHistory
+} from 'react-router-native'
 
 import {
   View,
