@@ -4,6 +4,8 @@ import ProfileHeader            from '../components/profileHeader.js'
 import CalendarComponent        from '../components/calendar.js'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
 import DateConfirm              from '../components/dateConfirm'
+import { Redirect }             from "react-router-native"
+import { registerUserWorkout }  from '../api'
 
 export default class SelectDateScreen extends PureComponent {
   constructor(props) {
@@ -11,19 +13,20 @@ export default class SelectDateScreen extends PureComponent {
     this.state = {
       datePicked: false,
       data: {},
-      workoutId: '',
-      length: ''
+      planId: '',
+      length: '',
+      redirectToWorkout: false
     }
   }
 
   componentDidMount() {
     const {
-      workoutId,
+      planId,
       length
     } = this.props.location.state
 
     this.setState({
-      workoutId,
+      planId,
       length
     })
   }
@@ -41,17 +44,25 @@ export default class SelectDateScreen extends PureComponent {
     })
   }
 
-  onYes = () => {
-    const { workoutId, length } = this.state
+   onYes = async () => {
+    const { planId, length } = this.state
     const { timestamp } = this.state.data
 
-    registerUserWorkout(workoutId, length, timestamp)
+    let res = await registerUserWorkout(planId, length, timestamp)
+
+    res.status === 200 ?
+      this.setState({ redirectToWorkout: true}) :
+      console.log("Something broke during workout registration")   
   }
 
   render() {
-    const { datePicked } = this.state
+    const { datePicked, redirectToWorkout } = this.state
     const { day, month, year } = this.state.data
 
+    if (redirectToWorkout) {
+      return <Redirect to='/Workout'/>
+    }
+    
     const startDate = `${month}/${day}/${year}`
 
     return (
