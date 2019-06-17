@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
+const { isLoggedIn } = require('../auth/isAuthenticated.js')
 
 const { User } = require('../db')
 
 router.get('/', isLoggedIn, (req, res) => {
   const { passport } = req.session
-
-  console.log(req.session)
 
   if (!passport) {
     return res.json({})
@@ -16,7 +14,7 @@ router.get('/', isLoggedIn, (req, res) => {
   res.json(passport)
 })
 
-router.post('/find', (req, res) => {
+router.post('/find', isLoggedIn, (req, res) => {
   const { id } = req.body
 
   User.findById(id)

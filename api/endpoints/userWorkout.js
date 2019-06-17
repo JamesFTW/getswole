@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const isLoggedIn = require('connect-ensure-login').ensureLoggedIn('/api/login')
+const { isLoggedIn } = require('../auth/isAuthenticated.js')
 
 const {
   UserWorkoutPlan,
