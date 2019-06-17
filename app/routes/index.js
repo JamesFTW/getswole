@@ -29,10 +29,11 @@ const routes = () => (
   <Provider store={store}>
     <NativeRouter history={hashHistory}>
       <View style={styles.flexContainer}>
-        <Route exact path="/" component={WorkoutSwitchScreen} />
-        <Route exact path="/TwitterCreds" component={TwitterCredScreen} />
-        <Route exact path="/Onboarding" component={OnBoardingScreen} />
-        <Route exact path="/Workout" component={WorkoutContainer} />
+        <Route exact path="/" component={LoginScreen} />
+        <Route path="/TwitterCreds" component={TwitterCredScreen} />
+        <Route path="/Onboarding" component={OnBoardingScreen} />
+
+        <Route exact path="/Workout" component={WorkoutScreen} />
 
         <Route exact path="/WorkoutSelect" component={WorkoutSelectScreen} />
         <Route path="/WorkoutSelect/SelectDateScreen/:id" component={SelectDateScreen} />
