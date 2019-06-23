@@ -51,13 +51,17 @@ export default class SelectDateScreen extends PureComponent {
     let res = await registerUserWorkout(planId, length, timestamp)
 
     res.status === 200 ?
-      this.setState({ redirectToWorkout: true}) :
-      console.log("Something broke during workout registration")   
+      this.setState({ redirectToWorkout: true }) :
+      console.log(new Error("Something broke during workout registration"))
   }
 
   render() {
     const { datePicked, redirectToWorkout } = this.state
-    const { day, month, year } = this.state.data
+    const { day, month, year, timestamp } = this.state.data
+
+    if (timestamp) {
+      console.log(dayofWeek(timestamp))
+    }
 
     if (redirectToWorkout) {
       return <Redirect to='/Workout'/>
