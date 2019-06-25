@@ -13,7 +13,11 @@ import Followers            from '../components/followers.js'
 import CompletedWorkouts    from '../components/completedWorkout.js'
 import ScrollContent        from '../components/scrollContent.js'
 import WorkoutStatus        from '../components/workoutStatus.js'
-import { getUserFromCache } from '../api'
+import { 
+  getUserFromCache,
+  getUserSession,
+  getUser
+} from '../api'
 
 let data = require('../completedworkout.json')
 
@@ -29,16 +33,30 @@ export default class ProfileScreen extends Component {
     }
   }
 
-  componentDidMount() {
-    getUserFromCache()
-      .then(data => {
+  async componentDidMount() {
+    try {
+      let user = await getUserFromCache()
+      
+      if (user === null) {
+        let id   = await getUserSession()
+        let user = await getUser(id.user.id)
+
         this.setState({
           isLoading: false,
-          userName: data.username,
-          profilePhoto: data.profilephoto
+          userName: user.username,
+          profilePhoto: user.profilephoto
         })
+      }
+      
+      this.setState({
+        isLoading: false,
+        userName: user.username,
+        profilePhoto: user.profilephoto
       })
-      .catch(err => /** should make request here if no cache */ console.log(err))
+
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
