@@ -20,11 +20,24 @@ const FIND_USERWORKOUT_PLANID =
 const FIND_USERWORKOUT_PLAN =
   `SELECT * FROM workoutplans WHERE planid=$1`
 
+const GET_TODAYS_WORKOUT =
+  `SELECT * FROM workouts WHERE workoutid=$1 AND dayofWeek=$2`
+
+const GET_TODAYS_EXERCISE =
+  `SELECT * FROM exercises WHERE exerciseid=$1`
+
+const GET_EXERCISE_IDS =
+  `SELECT exerciseid, sets,reps FROM workoutexercises WHERE workoutid=$1`
+
+
 
 module.exports = {
   GET_USER,
   CREATE_USER,
   REGISTER_USERWORKOUT_PLAN,
   FIND_USERWORKOUT_PLANID,
-  FIND_USERWORKOUT_PLAN
+  FIND_USERWORKOUT_PLAN,
+  GET_TODAYS_WORKOUT,
+  GET_TODAYS_EXERCISE,
+  GET_EXERCISE_IDS
 }
