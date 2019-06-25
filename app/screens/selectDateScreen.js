@@ -1,11 +1,12 @@
 
 import React, { PureComponent } from 'react'
+import { Redirect }             from "react-router-native"
 import ProfileHeader            from '../components/profileHeader.js'
 import CalendarComponent        from '../components/calendar.js'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
 import DateConfirm              from '../components/dateConfirm'
-import { Redirect }             from "react-router-native"
 import { registerUserWorkout }  from '../api'
+import dayofWeek                from '../api/util/getDayOfWeek.js'
 
 export default class SelectDateScreen extends PureComponent {
   constructor(props) {
