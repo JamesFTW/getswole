@@ -9,9 +9,11 @@ const days = [
   'Saturday'
 ]
 
-export default dayOfWeek = timeStamp => {
+const dayOfWeek = timeStamp => {
   const workoutDate = new Date(timeStamp)
   const dayOfWeek = workoutDate.getUTCDay()
 
   return days[dayOfWeek]
 }
+
+module.exports = dayOfWeek
