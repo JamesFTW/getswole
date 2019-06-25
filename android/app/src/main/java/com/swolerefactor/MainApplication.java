@@ -3,6 +3,7 @@ package com.swolerefactor;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.pusherman.networkinfo.RNNetworkInfoPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.horcrux.svg.SvgPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNNetworkInfoPackage(),
             new ImagePickerPackage(),
             new RNCWebViewPackage(),
             new SvgPackage(),
