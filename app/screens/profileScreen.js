@@ -36,18 +36,7 @@ export default class ProfileScreen extends Component {
   async componentDidMount() {
     try {
       let user = await getUserFromCache()
-      
-      if (user === null) {
-        let id   = await getUserSession()
-        let user = await getUser(id.user.id)
-
-        this.setState({
-          isLoading: false,
-          userName: user.username,
-          profilePhoto: user.profilephoto
-        })
-      }
-      
+    
       this.setState({
         isLoading: false,
         userName: user.username,
@@ -56,6 +45,14 @@ export default class ProfileScreen extends Component {
 
     } catch(err) {
       console.log(err)
+      let id = await getUserSession()
+      let user = await getUser(id.user.id)
+
+      this.setState({
+        isLoading: false,
+        userName: user.username,
+        profilePhoto: user.profilephoto
+      })
     }
   }
 
