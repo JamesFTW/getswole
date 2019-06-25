@@ -1,6 +1,7 @@
 
 let API_ENDPOINT = ''
 
+//hardcoded IP for now.
 if (process.env.NODE_ENV === 'development') {
   API_ENDPOINT = 'http://192.168.1.172:3000/api'
 } else {
