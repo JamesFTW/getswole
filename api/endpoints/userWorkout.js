@@ -1,11 +1,8 @@
 const express = require('express')
-const router = express.Router()
+const router  = express.Router()
 const { isLoggedIn } = require('../auth/isAuthenticated.js')
 
-const {
-  UserWorkoutPlan,
-  User
-} = require('../db')
+const { UserWorkoutPlan } = require('../db')
 
 //check if user has completed any workouts
 //starting new userworkouts
@@ -33,22 +30,17 @@ router.post('/create', isLoggedIn, (req, res) => {
 router.get('/find', isLoggedIn, (req, res) => {
   const { id } = req.session.passport.user
 
-  User.findById(id)
-    .then(user => {
-      const { userid } = user
-
-      UserWorkoutPlan.findByUserid(userid)
-        .then(data => {
-          console.log(data)
-          if(data.length > 0) {
-            //get latest workout and then do something
-            res.sendStatus(200).end()
-          } else {
-            res.sendStatus(404).end()
-          }
-        })
-    })
-    .catch(err => console.log(err))
+    UserWorkoutPlan.findByUserid(id)
+      .then(data => {
+        console.log(data)
+        if(data) {
+          //get latest workout and then do something
+          res.sendStatus(200).end()
+        } else {
+          res.sendStatus(404).end()
+        }
+      })
+      .catch(err => console.log(err))
 })
 
 module.exports = router
