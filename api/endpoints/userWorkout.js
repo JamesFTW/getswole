@@ -30,7 +30,7 @@ router.post('/create', isLoggedIn, (req, res) => {
 router.get('/find', isLoggedIn, (req, res) => {
   const { id } = req.session.passport.user
 
-    UserWorkoutPlan.findByUserid(id)
+    UserWorkoutPlan.findWorkout(id)
       .then(data => {
         console.log(data)
         if(data) {
