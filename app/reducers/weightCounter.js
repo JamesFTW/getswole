@@ -1,27 +1,37 @@
 
-import data from '../sample.json'
 import {
   INCREMENT,
-  DECREMENT
+  DECREMENT,
+  FETCH_DATA
 } from '../actions'
 
 let initialState = {}
 
-const workout = data.exercises
+const fetchActionHandler = (state = {}, action) => {
+  switch(action.type) {
+    case FETCH_DATA:
+      if (action.data) {
+        initialState['workoutName'] = action.data.workout
 
-workout.map((exercises) => {
-  initialState[exercises.id] = exercises
-})
+        action.data.exercises.map(exercise => {
+          initialState[exercise.exerciseid] = exercise
+        })
+      }
+      return initialState
+  }
+}
 
 const node = (state = {}, action) => {
   switch(action.type) {
     case INCREMENT:
       return {
-        weight: state.weight + 1
+        ...state,
+        suggestedweight: state.suggestedweight + 1
       }
     case DECREMENT:
       return {
-        weight: state.weight - 1
+        ...state,
+        suggestedweight: state.suggestedweight - 1
       }
     default:
       return state
@@ -29,10 +39,14 @@ const node = (state = {}, action) => {
 }
 
 export default (state = initialState, action) => {
-  const { nodeId } = action
-  
-  if (typeof nodeId === 'undefined') {
+  const { nodeId, data } = action
+
+  if (data === undefined && nodeId === undefined) {
     return state
+  }
+
+  if (nodeId === undefined) {
+    return fetchActionHandler(state, action)
   }
 
   return {
