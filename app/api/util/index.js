@@ -16,4 +16,15 @@ const dayOfWeek = timeStamp => {
   return days[dayOfWeek]
 }
 
-module.exports = dayOfWeek
+const title = text => {
+  return text = text.toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ')
+
+}
+
+module.exports = {
+ dayOfWeek,
+ title 
+}
