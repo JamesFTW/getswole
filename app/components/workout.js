@@ -1,8 +1,8 @@
 
-import React, { PureComponent } from 'react'
-import { connect }              from 'react-redux'
-import SwipeableViews           from 'react-swipeable-views-native'
-import * as actions             from '../actions'
+import React, { Component } from 'react'
+import { connect }          from 'react-redux'
+import SwipeableViews       from 'react-swipeable-views-native'
+import * as actions         from '../actions'
 import {
   StyleSheet,
   Text,
@@ -30,7 +30,7 @@ const Container = ({ styleid, children }) => {
   }
 }
 
-export class Workout extends PureComponent {
+class Workout extends Component {
   onDecrement = () => {
     const { decrement, id } = this.props
     decrement(id)
@@ -81,9 +81,8 @@ export class Workout extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return state.weightCounter[ownProps.id]
+  return state
 }
-
 
 const ConnectedNode = connect(mapStateToProps, actions)(Workout)
 
@@ -102,12 +101,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0'
   },
   workout: {
-    fontSize: 36,
-    fontFamily: 'HelveticaNeue-Thin',
+    fontSize: 34,
+    fontFamily: 'HelveticaNeue',
+    fontWeight: '200',
     letterSpacing: 2,
     textAlign: 'auto',
     color: '#1F1C1C',
-    backgroundColor: 'rgba(0,0,0,0)'
+    backgroundColor: 'rgba(0,0,0,0)',
+    marginLeft: 10,
+    marginRight: 10
   },
   weight: {
     fontSize: 34,
