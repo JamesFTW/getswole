@@ -38,7 +38,6 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		321F858142E54DF4BFEEC038 /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 194E59756E20413585F7D6E4 /* libRNCWebView.a */; };
 		3F4D049BEF094A45A87B866E /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 708E3EF7A134429F84E7E44A /* libRNSVG-tvOS.a */; };
-		64492AA422C166ED000CD40A /* libRNNetworkInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64492AA122C16625000CD40A /* libRNNetworkInfo.a */; };
 		644E0C6C222C39370029AFEF /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644E0C3C222C39370029AFEF /* JavaScriptCore.framework */; };
 		64CFA2D4224FD69800C115D8 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CFA2D3224FD58700C115D8 /* libRNImagePicker.a */; };
 		64E53A4B2245C9B300359625 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E53A482245C95300359625 /* libBVLinearGradient.a */; };
@@ -435,7 +434,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64492AA422C166ED000CD40A /* libRNNetworkInfo.a in Frameworks */,
 				64CFA2D4224FD69800C115D8 /* libRNImagePicker.a in Frameworks */,
 				64E53A4C2245C9D500359625 /* libRNSVG.a in Frameworks */,
 				64E53A4B2245C9B300359625 /* libBVLinearGradient.a in Frameworks */,
