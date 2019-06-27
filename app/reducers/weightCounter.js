@@ -4,7 +4,7 @@ import {
   DECREMENT,
   FETCH_DATA
 } from '../actions'
-
+import { isEmptyObj } from '../api/util'
 let initialState = {}
 
 const fetchActionHandler = (state = {}, action) => {
@@ -17,7 +17,7 @@ const fetchActionHandler = (state = {}, action) => {
           initialState[exercise.exerciseid] = exercise
         })
       }
-      return initialState
+      return state
   }
 }
 
@@ -40,12 +40,12 @@ const node = (state = {}, action) => {
 
 export default (state = initialState, action) => {
   const { nodeId, data } = action
-
+  
   if (data === undefined && nodeId === undefined) {
     return state
   }
 
-  if (nodeId === undefined) {
+  if (nodeId === undefined && isEmptyObj(state)) {
     return fetchActionHandler(state, action)
   }
 
