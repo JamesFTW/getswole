@@ -34,8 +34,9 @@ router.get('/find', isLoggedIn, (req, res) => {
       .then(data => {
         console.log(data)
         if(data) {
+          res.json(data)
           //get latest workout and then do something
-          res.sendStatus(200).end()
+          // res.sendStatus(200).end()
         } else {
           res.sendStatus(404).end()
         }
