@@ -19,8 +19,12 @@ export default class WorkoutSelectScreen extends PureComponent {
   }
 
   async componentDidMount() {
-    let workouts = await getWorkoutSelections('57bb4378-c268-468e-a6dd-9989fdee0601')
-    this.setState({ workouts: [workouts] })
+    try {
+      let workouts = await getWorkoutSelections('57bb4378-c268-468e-a6dd-9989fdee0601')
+      this.setState({ workouts: [workouts] })
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
