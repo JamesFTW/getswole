@@ -1,13 +1,13 @@
 
-import React, { Component } from 'react'
-import { connect }          from 'react-redux'
-import { Redirect }         from "react-router-native"
-import * as actions         from '../actions'
-import Workout              from '../components/workout.js'
-import BackGroundWrapper    from '../components/backGroundWrapper.js'
-import Header               from '../components/header.js'
-import StatsScreen          from './statsScreen.js'
-import { title }            from '../api/util'
+import React, { Component }  from 'react'
+import { connect }           from 'react-redux'
+import { Redirect }          from "react-router-native"
+import * as actions          from '../actions'
+import Workout               from '../components/workout.js'
+import BackGroundWrapper     from '../components/backGroundWrapper.js'
+import Header                from '../components/header.js'
+import StatsScreen           from './statsScreen.js'
+import { title, isEmptyObj } from '../api/util'
 
 import {
   ScrollView
@@ -65,17 +65,20 @@ class WorkoutScreen extends Component {
 
     if (workouts) {
       WOD = workouts.map((exercise, i) => {
-        return (
-          <Workout
-            type={title(exercise.name)}
-            id={exercise.exerciseid}
-            styleid={i}
-            sets={exercise.sets}
-            rep={exercise.reps}
-            weight={exercise.suggestedweight}
-            key={i + 1}
-          />
-        )
+        if (!isEmptyObj(exercise)) {
+          const workoutTitle = title(exercise.name)
+          return (
+            <Workout
+              type={workoutTitle}
+              id={exercise.exerciseid}
+              styleid={i}
+              sets={exercise.sets}
+              rep={exercise.reps}
+              weight={exercise.suggestedweight}
+              key={i + 1}
+            />
+          )
+        }
       })
     } else {
       WOD = null
