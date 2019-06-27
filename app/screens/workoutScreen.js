@@ -1,78 +1,88 @@
 
-import React, { Component }   from 'react'
-import { connect }            from 'react-redux'
-import { Redirect }           from "react-router-native"
-import Workout                from '../components/workout.js'
-import BackGroundWrapper      from '../components/backGroundWrapper.js'
-import Header                 from '../components/header.js'
-import StatsScreen            from './statsScreen.js'
-import data                   from '../sample.json'
-import { getUserWorkoutPlan } from '../api'
+import React, { Component } from 'react'
+import { connect }          from 'react-redux'
+import { Redirect }         from "react-router-native"
+import * as actions         from '../actions'
+import Workout              from '../components/workout.js'
+import BackGroundWrapper    from '../components/backGroundWrapper.js'
+import Header               from '../components/header.js'
+import StatsScreen          from './statsScreen.js'
+import { title }            from '../api/util'
 
 import {
   ScrollView
 } from 'react-native'
 
-/**
- * Move all workoutscreen switch stuff here.
- * Make switch just something to choose between screens
- */
-
 class WorkoutScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      workouts: data.exercises,
-      workoutName: data.workout,
       redirectToSelectWorkout: false,
       isLoading: true
     }
   }
 
-  async componentDidMount() {
-    try {
-      let res = await getUserWorkoutPlan()
-
-      res.status === 200 ?
-        this.setState({ isLoading:false }) :
-        this.setState({ redirectToSelectWorkout: true})
-
-    } catch(err) {
-      console.log(err)
-    }
+  componentDidMount() {
+    const { fetchWorkouts } = this.props
+    fetchWorkouts()
+    /**
+     * IF no workouts are returned redirect to select
+     * workout
+     */
+    this.setState({ isLoading: false })
   }
 
   render() {
-    const { workoutSelected } = this.props
     const {
-      workouts,
       redirectToSelectWorkout,
       isLoading
     } = this.state
 
-    if ( redirectToSelectWorkout ) {
+    const {
+      workoutHeaderReducer: workoutSelected,
+      weightCounter
+    } = this.props
+
+    let workouts = []
+
+    const WorkoutName = weightCounter.workoutName ?
+      title(weightCounter.workoutName) :
+      null
+
+    for (let key in weightCounter) {
+      if (key !== 'workoutName') {
+        workouts.push(weightCounter[key])
+      }
+    }
+
+    if (redirectToSelectWorkout) {
       return <Redirect to='/WorkoutSelect'/>
     }
 
-    if ( isLoading ) {
+    if (isLoading) {
       return <BackGroundWrapper/>
     }
 
-    const WOD = workouts.map((exercise, i) => {
-      return (
-        <Workout
-          type={exercise.exerciseName}
-          id={exercise.id}
-          styleid={i}
-          sets={exercise.sets}
-          rep={exercise.rep}
-          key={i+1}
-        />
-      )
-    })
+    if (workouts) {
+      WOD = workouts.map((exercise, i) => {
+        return (
+          <Workout
+            type={title(exercise.name)}
+            id={exercise.exerciseid}
+            styleid={i}
+            sets={exercise.sets}
+            rep={exercise.reps}
+            weight={exercise.suggestedweight}
+            key={i + 1}
+          />
+        )
+      })
+    } else {
+      WOD = null
+    }
 
-    const middleContent = workoutSelected ? WOD : <StatsScreen/>
-    const workoutName = workoutSelected ? "Leg Day" : "Exercise Stats"
+    const middleContent = workoutSelected.workoutSelected ? WOD : <StatsScreen/>
+    const workoutName = workoutSelected.workoutSelected ? WorkoutName : "Exercise Stats"
 
     return (     
       <BackGroundWrapper>
@@ -89,8 +99,13 @@ class WorkoutScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return state.workoutHeaderReducer
+  const { workoutHeaderReducer, weightCounter }  = state
+
+  return {
+    workoutHeaderReducer,
+    weightCounter
+  }
 }
 
-const ConnectedNode = connect(mapStateToProps)(WorkoutScreen)
+const ConnectedNode = connect(mapStateToProps, actions)(WorkoutScreen)
 export default ConnectedNode
