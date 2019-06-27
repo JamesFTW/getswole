@@ -1,15 +1,14 @@
 
-const days = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday'
-]
-
 const dayOfWeek = timeStamp => {
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ]
   const workoutDate = new Date(timeStamp)
   const dayOfWeek = workoutDate.getUTCDay()
 
@@ -24,9 +23,11 @@ const title = text => {
 }
 
 const allEqual = arr => arr.every(v => v === arr[0])
+const isEmptyObj = obj => Object.entries(obj).length === 0 && obj.constructor === Object
 
 module.exports = {
  dayOfWeek,
  title,
- allEqual 
+ allEqual,
+ isEmptyObj
 }
