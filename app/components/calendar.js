@@ -59,9 +59,7 @@ export default class CalendarComponent extends Component {
           })
           getData(day)
         }}
-        onDayLongPress={(day) => { console.log('selected day', day) }}
         monthFormat={'MMMM yyyy'}
-        onMonthChange={(month) => { console.log('month changed', month) }}
         hideExtraDays={true}
         firstDay={1}
         onPressArrowLeft={substractMonth => substractMonth()}
