@@ -21,10 +21,12 @@ const title = text => {
     .split(' ')
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ')
-
 }
+
+const allEqual = arr => arr.every(v => v === arr[0])
 
 module.exports = {
  dayOfWeek,
- title 
+ title,
+ allEqual 
 }

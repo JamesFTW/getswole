@@ -9,8 +9,7 @@ const {
   GET_EXERCISE_IDS
 } = require('./queries')
 
-const dayofWeek = require('../../app/api/util/getDayOfWeek.js')
-const allEqual = arr => arr.every(v => v === arr[0])
+const { dayOfWeek, allEqual } = require('../../app/api/util/index.js')
 
 const createUserPlan = db => (userId, planId, startDate, endDate) =>
   db.none(REGISTER_USERWORKOUT_PLAN, [userId, planId, startDate, endDate])
@@ -45,7 +44,9 @@ const getTodaysWorkout = db => twitterid => {
 
         const workoutIds = workoutPlan.workoutids
         const queries = []
-        const today = dayofWeek(new Date())
+        const today = dayOfWeek(new Date())
+
+        //the times for today is not correct
 
         workoutIds.map(workoutId => {
           queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, today]))
@@ -83,12 +84,12 @@ const getTodaysWorkout = db => twitterid => {
         const exercises = await t.batch(workoutQueries)
         const res = {}
 
-        res['workoutName'] = todaysWorkout.workoutname
+        res['workout'] = todaysWorkout.workoutname
         res['workoutType'] = todaysWorkout.workouttype
         res['dayofWeek']   = todaysWorkout.dayofweek
 
         const userExercises = []
-        res['userExercises'] = userExercises
+        res['exercises'] = userExercises
 
         for(var i = 0; i < exercises.length; i++) {
           const exercise = exercises[i]
