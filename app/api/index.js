@@ -74,7 +74,7 @@ const getUserWorkoutPlan = () => {
       endpoint: `${API_ENDPOINT}/userworkoutplan/find`,
       method: GET
     })
-      .then(res => resolve(res))
+      .then(res => resolve(res.json()))
       .catch(err => reject(err))
   })
 }
