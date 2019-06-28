@@ -4,7 +4,7 @@ import {
   DECREMENT,
   FETCH_DATA
 } from '../actions'
-import { isEmptyObj } from '../api/util'
+import { isEmptyObj } from '../../util'
 let initialState = {}
 
 const fetchActionHandler = (state = {}, action) => {
