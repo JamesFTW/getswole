@@ -9,7 +9,7 @@ const {
   GET_EXERCISE_IDS
 } = require('./queries')
 
-const { dayOfWeek, allEqual } = require('../../app/api/util/index.js')
+const { dayOfWeek, allEqual, stringify } = require('../../util/')
 
 const createUserPlan = db => (userId, planId, startDate, endDate) =>
   db.none(REGISTER_USERWORKOUT_PLAN, [userId, planId, startDate, endDate])
@@ -47,15 +47,17 @@ const getTodaysWorkout = db => twitterid => {
         const today = dayOfWeek(new Date())
 
         //the times for today is not correct
-
         workoutIds.map(workoutId => {
-          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, today]))
+          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, 'Thursday']))
         })
 
         const workouts = await t.batch(queries)
         
-        if(allEqual(workouts)) {
-          return reject('Day off')
+        if (allEqual(workouts)) {
+          const restDay = JSON.stringify({ 'restDay': true })
+          const res = stringify(restDay)
+
+          return resolve(res)
         }
 
         let workoutId = ''
@@ -76,20 +78,19 @@ const getTodaysWorkout = db => twitterid => {
           let gains = {}
           gains['sets'] = workout.sets
           gains['reps'] = workout.reps
-          workoutQueries.push(t.one(GET_TODAYS_EXERCISE, workout.exerciseid))
 
+          workoutQueries.push(t.one(GET_TODAYS_EXERCISE, workout.exerciseid))
           setsAndReps.push(gains)
         })
 
         const exercises = await t.batch(workoutQueries)
+        const userExercises = []
         const res = {}
 
-        res['workout'] = todaysWorkout.workoutname
+        res['workout']     = todaysWorkout.workoutname
         res['workoutType'] = todaysWorkout.workouttype
         res['dayofWeek']   = todaysWorkout.dayofweek
-
-        const userExercises = []
-        res['exercises'] = userExercises
+        res['exercises']   = userExercises
 
         for(var i = 0; i < exercises.length; i++) {
           const exercise = exercises[i]
@@ -97,7 +98,8 @@ const getTodaysWorkout = db => twitterid => {
           userExercises.push({...exercise, ...sets})
         }
 
-        resolve(res)
+        const data = stringify(res)
+        resolve(data)
 
       } catch(err) {
         reject(err)

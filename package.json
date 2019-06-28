@@ -22,6 +22,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "helmet": "^3.9.0",
+    "jsesc": "^2.5.2",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-twitter": "^1.0.4",
