@@ -15,6 +15,16 @@ const dayOfWeek = timeStamp => {
   return days[dayOfWeek]
 }
 
+const stringify = data => {
+  const jsesc = require("jsesc")
+  const res = jsesc(data, {
+    json: true,
+    isScriptContext: true
+  })
+
+  return res
+}
+
 const title = text => {
   return text = text.toLowerCase()
     .split(' ')
@@ -29,5 +39,6 @@ module.exports = {
  dayOfWeek,
  title,
  allEqual,
- isEmptyObj
+ isEmptyObj,
+ stringify
 }
