@@ -74,7 +74,11 @@ const getUserWorkoutPlan = () => {
       endpoint: `${API_ENDPOINT}/userworkoutplan/find`,
       method: GET
     })
-      .then(res => resolve(res.json()))
+      .then(res => res.json())
+      .then(res => {
+        const data = JSON.parse(res)
+        resolve(data)
+      })
       .catch(err => reject(err))
   })
 }
