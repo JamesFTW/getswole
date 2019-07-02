@@ -6,8 +6,9 @@ import * as actions          from '../actions'
 import Workout               from '../components/workout.js'
 import BackGroundWrapper     from '../components/backGroundWrapper.js'
 import Header                from '../components/header.js'
+import SwipeComponent        from '../components/swipeComponent.js'
 import StatsScreen           from './statsScreen.js'
-import { title, isEmptyObj } from '../api/util'
+import { title, isEmptyObj } from '../../util'
 
 import {
   ScrollView
@@ -18,24 +19,67 @@ class WorkoutScreen extends Component {
     super(props)
     this.state = {
       redirectToSelectWorkout: false,
-      isLoading: true
+      isLoading: true,
+      workouts: []
     }
   }
 
   componentDidMount() {
-    const { fetchWorkouts } = this.props
-    fetchWorkouts()
+    const {
+      fetchWorkouts,
+      weightCounter
+    } = this.props
+
+    isEmptyObj(weightCounter) ?
+      fetchWorkouts() :
+      this.setWorkouts(weightCounter)
+    
+    this.setState({isLoading: false})
+
     /**
      * IF no workouts are returned redirect to select
      * workout
      */
-    this.setState({ isLoading: false })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== undefined) {
+      const { weightCounter } = nextProps
+      this.setWorkouts(weightCounter)
+    }
+  }
+
+  setWorkouts = props => {
+    let workoutState = []
+
+    for (var key in props) {
+      if (
+        !isEmptyObj(props[key]) &&
+        typeof props[key] !== 'string'
+      ) {
+        workoutState.push(props[key])
+      }
+    }
+    this.setState({
+      workouts: workoutState,
+      isLoading: false
+    })
+  }
+
+  getData = data => {
+    const { toggleCompletedWorkout } = this.props
+
+    this.setState({
+      completedExerciseId: data
+    }, () => toggleCompletedWorkout(data)) 
   }
 
   render() {
     const {
       redirectToSelectWorkout,
-      isLoading
+      isLoading,
+      workouts,
+      completedExerciseId
     } = this.state
 
     const {
@@ -43,17 +87,9 @@ class WorkoutScreen extends Component {
       weightCounter
     } = this.props
 
-    let workouts = []
-
     const WorkoutName = weightCounter.workoutName ?
       title(weightCounter.workoutName) :
       null
-
-    for (let key in weightCounter) {
-      if (key !== 'workoutName') {
-        workouts.push(weightCounter[key])
-      }
-    }
 
     if (redirectToSelectWorkout) {
       return <Redirect to='/WorkoutSelect'/>
@@ -66,18 +102,29 @@ class WorkoutScreen extends Component {
     if (workouts) {
       WOD = workouts.map((exercise, i) => {
         if (!isEmptyObj(exercise)) {
-          const workoutTitle = title(exercise.name)
-          return (
-            <Workout
-              type={workoutTitle}
-              id={exercise.exerciseid}
-              styleid={i}
-              sets={exercise.sets}
-              rep={exercise.reps}
-              weight={exercise.suggestedweight}
-              key={i + 1}
-            />
-          )
+          const { name, exerciseid} = exercise
+          const workoutTitle = title(name)
+
+          if (exerciseid !== completedExerciseId) {
+            return (
+              <SwipeComponent
+                getData={this.getData}
+                key={i}
+              >
+                <Workout
+                  type={workoutTitle}
+                  id={exercise.exerciseid}
+                  styleid={i}
+                  sets={exercise.sets}
+                  rep={exercise.reps}
+                  weight={exercise.suggestedweight}
+                  key={i}
+                />
+              </SwipeComponent>
+            )
+          } else {
+            return null
+          }  
         }
       })
     } else {
