@@ -6,7 +6,7 @@ import CalendarComponent        from '../components/calendar.js'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
 import DateConfirm              from '../components/dateConfirm'
 import { registerUserWorkout }  from '../api'
-import { dayofWeek }            from '../api/util'
+import { dayofWeek }            from '../../util'
 
 export default class SelectDateScreen extends PureComponent {
   constructor(props) {
