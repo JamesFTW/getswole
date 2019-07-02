@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
-import SwipeableViews       from 'react-swipeable-views-native'
 import * as actions         from '../actions'
+
 import {
   StyleSheet,
   Text,
@@ -53,7 +53,7 @@ class Workout extends Component {
     } = this.props
 
     return (
-      <SwipeableViews style={styles.slideContainer}>
+      <View style={styles.slideContainer}>
         <Container id={id} styleid={styleid} key={key}>
           <Text style={styles.workout}>{type}</Text>
           <Text style={styles.weight}>{weight} lb</Text>
@@ -67,15 +67,15 @@ class Workout extends Component {
             <Image style={styles.minus} source={{uri: minusButton}} />
           </TouchableHighlight>
 
-          <TouchableHighlight activeOpacity={.5} onPress={this.onIncrement}>
+          <TouchableHighlight 
+            underlayColor={"rgba(0, 0, 0, 0)"}
+            activeOpacity={.5} 
+            onPress={this.onIncrement}
+          >
             <Image style={styles.plus} source={{uri: plusButton}} />
           </TouchableHighlight>
         </Container>
-
-        <View style={styles.slide1}>
-          <Text style={styles.completed}>{type} completed!</Text>
-        </View>
-      </SwipeableViews>
+      </View>
     )
   }
 }
