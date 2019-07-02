@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   header: {
     textAlign: 'center',
-    top: 11,
+    top: 8,
     fontSize: 24,
     fontFamily: 'HelveticaNeue-Thin',
     letterSpacing: 3,
