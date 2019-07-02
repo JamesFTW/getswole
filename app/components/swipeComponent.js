@@ -16,6 +16,7 @@ export default class SwipeComponent extends Component {
 
     return (
       <Interactable.View
+        horizontalOnly={true}
         snapPoints={[{ x: 0 },
           {'id': 'slideoff', x: -750 }]}
         onSnap={this.onDrawerSnap}
