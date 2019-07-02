@@ -7,6 +7,7 @@ export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
 export const TOGGLE_HEADER_WORKOUT = 'TOOGLE_HEADER_WORKOUT'
 export const TOGGLE_HEADER_STATS = 'TOOGLE_HEADER_STATS'
 export const FETCH_DATA = 'FETCH_DATA'
+export const COMPLETE = 'COMPLETE'
 
 export const increment = nodeId => ({
   type: INCREMENT,
@@ -36,6 +37,11 @@ export const fetchData = data => {
     data
   }
 }
+
+export const toggleCompletedWorkout = workoutid => ({
+  type: COMPLETE,
+  workoutid
+})
 
 export const fetchWorkouts = () => {
   return (dispatch) => {
