@@ -2,10 +2,19 @@
 import {
   INCREMENT,
   DECREMENT,
-  FETCH_DATA
+  FETCH_DATA,
+  COMPLETE
 } from '../actions'
 import { isEmptyObj } from '../../util'
 let initialState = {}
+
+const filterState = (workoutid, state) =>
+  Object.keys(state).reduce((accumulator, key) => (
+    state[key].exerciseid === workoutid ? accumulator : {
+      ...accumulator,
+      [key]: state[key]
+    }
+  ), {})
 
 const fetchActionHandler = (state = {}, action) => {
   switch(action.type) {
@@ -33,13 +42,19 @@ const node = (state = {}, action) => {
         ...state,
         suggestedweight: state.suggestedweight - 1
       }
+    case COMPLETE:
+      return state
     default:
       return state
   }
 }
 
 export default (state = initialState, action) => {
-  const { nodeId, data } = action
+  const { nodeId, data, workoutid } = action
+
+  if (workoutid !== undefined) {
+    return filterState(workoutid, state)
+  }
   
   if (data === undefined && nodeId === undefined) {
     return state
