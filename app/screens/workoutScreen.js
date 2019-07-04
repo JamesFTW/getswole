@@ -102,8 +102,8 @@ class WorkoutScreen extends Component {
     if (workouts) {
       WOD = workouts.map((exercise, i) => {
         if (!isEmptyObj(exercise)) {
-          const { name, exerciseid} = exercise
-          const workoutTitle = title(name)
+          const { name, exerciseid } = exercise
+          const exerciseTitle = title(name)
 
           if (exerciseid !== completedExerciseId) {
             return (
@@ -112,7 +112,7 @@ class WorkoutScreen extends Component {
                 key={i}
               >
                 <Workout
-                  type={workoutTitle}
+                  exerciseName={exerciseTitle}
                   id={exercise.exerciseid}
                   styleid={i}
                   sets={exercise.sets}
@@ -140,7 +140,10 @@ class WorkoutScreen extends Component {
           workoutName={workoutName}
           workoutDate="Today's Workout"
         />
-        <ScrollView style={{marginBottom: 50}}>
+        <ScrollView style={{
+          flex: 1,
+          flexDirection: 'column',
+          marginBottom: 50}}>
           { middleContent }
         </ScrollView>
       </BackGroundWrapper>

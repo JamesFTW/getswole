@@ -18,13 +18,13 @@ const Container = ({ styleid, children }) => {
   if (styleid % 2 === 0) {
     return (
     <View style={styles.container2}>
-      {children}
+      { children }
     </View>
     )
   } else {
     return (
     <View style={styles.container}>
-      {children}
+      { children }
     </View>
     )
   }
@@ -43,7 +43,7 @@ class Workout extends Component {
 
   render() {
     const {
-      type,
+      exerciseName,
       rep,
       id,
       styleid,
@@ -55,25 +55,32 @@ class Workout extends Component {
     return (
       <View style={styles.slideContainer}>
         <Container id={id} styleid={styleid} key={key}>
-          <Text style={styles.workout}>{type}</Text>
-          <Text style={styles.weight}>{weight} lb</Text>
-          <Text style={styles.set}> {sets} sets x {rep} reps </Text>
 
-          <TouchableHighlight
-            underlayColor = {"rgba(0, 0, 0, 0)"}
-            activeOpacity ={.5}
-            onPress={this.onDecrement}
-          >
-            <Image style={styles.minus} source={{uri: minusButton}} />
-          </TouchableHighlight>
+        <Text style={styles.workout}>{ exerciseName }</Text>
 
-          <TouchableHighlight 
-            underlayColor={"rgba(0, 0, 0, 0)"}
-            activeOpacity={.5} 
-            onPress={this.onIncrement}
-          >
-            <Image style={styles.plus} source={{uri: plusButton}} />
-          </TouchableHighlight>
+          <View style={styles.weightIncrementRow}>
+
+            <TouchableHighlight
+              underlayColor = {"rgba(0, 0, 0, 0)"}
+              activeOpacity ={.5}
+              onPress={this.onDecrement}
+            >
+              <Image style={styles.minus} source={{uri: minusButton}} />
+            </TouchableHighlight>
+
+              <View style={styles.weightAndReps}>
+                <Text style={styles.weight}>{ weight } lb</Text>
+                <Text style={styles.set}> { sets } sets x { rep } reps </Text>
+              </View>
+
+            <TouchableHighlight 
+              underlayColor={"rgba(0, 0, 0, 0)"}
+              activeOpacity={.5} 
+              onPress={this.onIncrement}
+            >
+              <Image style={styles.plus} source={{uri: plusButton}} />
+            </TouchableHighlight>
+          </View>
         </Container>
       </View>
     )
@@ -87,32 +94,45 @@ const mapStateToProps = (state, ownProps) => {
 const ConnectedNode = connect(mapStateToProps, actions)(Workout)
 
 const styles = StyleSheet.create({
-  slideContainer:{
-    height: 125,
+  slideContainer: {
+    width: '100%'
+  },
+  weightIncrementRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  weightAndReps: {
+    marginRight: 25,
+    marginLeft: 30
   },
   container: {
-    height: 125,
     alignItems: 'center',
-    backgroundColor: '#EDEDED'
+    backgroundColor: '#EDEDED',
+    paddingTop: 12,
+    paddingBottom: 12,
+    flex: 1,
+    flexDirection: 'column',
   },
   container2: {
-    height: 125,
     alignItems: 'center',
-    backgroundColor: '#E0E0E0'
+    backgroundColor: '#E0E0E0',
+    paddingTop: 12,
+    paddingBottom: 12,
+    flex: 1,
+    flexDirection: 'column',
   },
   workout: {
     fontSize: 34,
     fontFamily: 'HelveticaNeue',
     fontWeight: '200',
     letterSpacing: 2,
-    textAlign: 'auto',
+    textAlign: 'center',
     color: '#1F1C1C',
-    backgroundColor: 'rgba(0,0,0,0)',
-    marginLeft: 10,
-    marginRight: 10
+    backgroundColor: 'rgba(0,0,0,0)'
   },
   weight: {
-    fontSize: 34,
+    fontSize: 40,
     fontFamily: 'HelveticaNeue-Medium',
     textAlign: 'center',
     letterSpacing: -1,
@@ -122,35 +142,19 @@ const styles = StyleSheet.create({
   set: {
     fontSize: 18,
     fontFamily: 'HelveticaNeue-Thin',
-    top:10,
     textAlign: 'center',
     color: '#333333',
     backgroundColor: 'rgba(0,0,0,0)'
   },
-  minus:{
-    right: 105,
-    bottom: 60,
-    height: 38,
-    width: 35
+  minus: {
+    height: 43.43,
+    width: 40,
+    marginBottom: 15
   },
-  plus:{
-    left: 105,
-    bottom: 100,
-    height: 38,
-    width: 35
-  },
-  completed:{
-    fontFamily: 'HelveticaNeue-Thin',
-    color: '#FFFFFF',
-    fontSize: 24,
-    top: 20,
-    textAlign: 'center'
-  },
-  slide1: {
-    backgroundColor: '#40D4BB',
-    height: 80,
-    top: 20,
-    bottom: 20
+  plus: {
+    height: 43.43,
+    width: 40,
+    marginBottom: 15
   }
 })
 
