@@ -17,12 +17,12 @@ import {
 
 class WorkoutScreen extends Component {
   constructor(props) {
+    completedExercises = []
     super(props)
     this.state = {
       redirectToSelectWorkout: false,
       isLoading: true,
       workouts: [],
-      completedExercises: [],
       completedExerciseId: '',
       userid: ''
     }
@@ -43,8 +43,6 @@ class WorkoutScreen extends Component {
     isEmptyObj(weightCounter) ?
       fetchWorkouts() :
       this.setWorkouts(weightCounter)
-    
-
     /**
      * IF no workouts are returned redirect to select
      * workout
@@ -76,11 +74,19 @@ class WorkoutScreen extends Component {
   }
 
   getData = data => {
-    const { toggleCompletedWorkout } = this.props
+    const {
+      toggleCompletedWorkout,
+      updateCompletedWorkoutState
+    } = this.props
 
     this.setState({
       completedExerciseId: data
-    }, () => toggleCompletedWorkout(data)) 
+    }, () => {
+        const workout = completedExercises.pop()
+
+        updateCompletedWorkoutState(workout)
+        toggleCompletedWorkout(data)
+    }) 
   }
 
   render() {
@@ -89,7 +95,6 @@ class WorkoutScreen extends Component {
       isLoading,
       workouts,
       completedExerciseId,
-      completedExercises, 
       userid
     } = this.state
 
@@ -169,11 +174,16 @@ class WorkoutScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  const { workoutHeaderReducer, weightCounter }  = state
+  const {
+    workoutHeaderReducer,
+    weightCounter,
+    completedWorkoutReducer
+  }  = state
 
   return {
     workoutHeaderReducer,
-    weightCounter
+    weightCounter,
+    completedWorkoutReducer
   }
 }
 
