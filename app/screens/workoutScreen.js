@@ -9,6 +9,7 @@ import Header                from '../components/header.js'
 import SwipeComponent        from '../components/swipeComponent.js'
 import StatsScreen           from './statsScreen.js'
 import { title, isEmptyObj } from '../../util'
+import { getUserFromCache }  from '../api'
 
 import {
   ScrollView
@@ -20,21 +21,29 @@ class WorkoutScreen extends Component {
     this.state = {
       redirectToSelectWorkout: false,
       isLoading: true,
-      workouts: []
+      workouts: [],
+      completedExercises: [],
+      completedExerciseId: '',
+      userid: ''
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const {
       fetchWorkouts,
       weightCounter
     } = this.props
 
+    this.setState({ isLoading: false })
+
+    const user = await getUserFromCache()
+    this.setState({ userid: user.userid })
+    //This user setState makes transition from any screen to workout flicker
+
     isEmptyObj(weightCounter) ?
       fetchWorkouts() :
       this.setWorkouts(weightCounter)
     
-    this.setState({isLoading: false})
 
     /**
      * IF no workouts are returned redirect to select
@@ -79,7 +88,9 @@ class WorkoutScreen extends Component {
       redirectToSelectWorkout,
       isLoading,
       workouts,
-      completedExerciseId
+      completedExerciseId,
+      completedExercises, 
+      userid
     } = this.state
 
     const {
@@ -123,7 +134,13 @@ class WorkoutScreen extends Component {
               </SwipeComponent>
             )
           } else {
-            return null
+            const completeWorkout = {}
+            completeWorkout['userid'] = userid
+            completeWorkout['exerciseid'] = exercise.exerciseid
+            completeWorkout['weightused'] = exercise.suggestedweight
+            completeWorkout['createdAt'] = new Date()
+
+            completedExercises.push(completeWorkout)
           }  
         }
       })
