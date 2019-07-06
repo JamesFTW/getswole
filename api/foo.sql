@@ -72,77 +72,117 @@ insert into workouts values
 --Chest--
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='515a16b6-0cf6-4af7-b68d-f29fd5335725'),
-  (select exerciseid from exercises where exerciseid='c8d0b62a-9864-429b-9fea-0fd9b792c303')
+  (select exerciseid from exercises where exerciseid='c8d0b62a-9864-429b-9fea-0fd9b792c303'),
+  3,
+  12
 );
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='515a16b6-0cf6-4af7-b68d-f29fd5335725'),
-  (select exerciseid from exercises where exerciseid='4c04f20f-df39-4cbd-be25-a636ccbf68c2')
+  (select exerciseid from exercises where exerciseid='4c04f20f-df39-4cbd-be25-a636ccbf68c2'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='515a16b6-0cf6-4af7-b68d-f29fd5335725'),
-  (select exerciseid from exercises where exerciseid='e4e2c9cb-2f1a-4082-b434-4f6594037435')
+  (select exerciseid from exercises where exerciseid='e4e2c9cb-2f1a-4082-b434-4f6594037435'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='515a16b6-0cf6-4af7-b68d-f29fd5335725'),
-  (select exerciseid from exercises where exerciseid='783c16e5-25e6-425b-9e40-134ce9ab5297')
+  (select exerciseid from exercises where exerciseid='783c16e5-25e6-425b-9e40-134ce9ab5297'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='515a16b6-0cf6-4af7-b68d-f29fd5335725'),
-  (select exerciseid from exercises where exerciseid='006e088d-8f58-49fa-bce2-beb4ff485baa')
+  (select exerciseid from exercises where exerciseid='006e088d-8f58-49fa-bce2-beb4ff485baa'),
+  3,
+  12
 );
 
 --Legs--
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='99e624f4-2c87-443a-8d87-d5b798f58f4f'),
-  (select exerciseid from exercises where exerciseid='84830b39-1ce9-45c7-83c9-ade756848e24')
+  (select exerciseid from exercises where exerciseid='84830b39-1ce9-45c7-83c9-ade756848e24'),
+  3,
+  12
 );
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='99e624f4-2c87-443a-8d87-d5b798f58f4f'),
-  (select exerciseid from exercises where exerciseid='4d8def64-5b89-444a-9d7a-87316832f6ec')
+  (select exerciseid from exercises where exerciseid='4d8def64-5b89-444a-9d7a-87316832f6ec'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='99e624f4-2c87-443a-8d87-d5b798f58f4f'),
-  (select exerciseid from exercises where exerciseid='5fdcaa59-a750-4b16-92b2-289925f5fefc')
+  (select exerciseid from exercises where exerciseid='5fdcaa59-a750-4b16-92b2-289925f5fefc'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='99e624f4-2c87-443a-8d87-d5b798f58f4f'),
-  (select exerciseid from exercises where exerciseid='8b38562a-cab3-4419-af85-8d6c0e67f629')
+  (select exerciseid from exercises where exerciseid='8b38562a-cab3-4419-af85-8d6c0e67f629'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='99e624f4-2c87-443a-8d87-d5b798f58f4f'),
-  (select exerciseid from exercises where exerciseid='ecd39acb-3a1b-46b5-9506-9720d009d69a')
+  (select exerciseid from exercises where exerciseid='ecd39acb-3a1b-46b5-9506-9720d009d69a'),
+  3,
+  12
 );
 
 --Shoulders--
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='bee06605-396d-490c-af6d-3857941134a2'),
-  (select exerciseid from exercises where exerciseid='506f4bd0-2b83-4a28-a8e5-b172b48def4a')
+  (select exerciseid from exercises where exerciseid='506f4bd0-2b83-4a28-a8e5-b172b48def4a'),
+  3,
+  12
 );
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='bee06605-396d-490c-af6d-3857941134a2'),
-  (select exerciseid from exercises where exerciseid='5f69c829-f677-4180-9916-239b367e7ee4')
+  (select exerciseid from exercises where exerciseid='5f69c829-f677-4180-9916-239b367e7ee4'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='bee06605-396d-490c-af6d-3857941134a2'),
-  (select exerciseid from exercises where exerciseid='b9c03284-a39f-4d37-8f90-197c8422de63')
+  (select exerciseid from exercises where exerciseid='b9c03284-a39f-4d37-8f90-197c8422de63'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='bee06605-396d-490c-af6d-3857941134a2'),
-  (select exerciseid from exercises where exerciseid='b3c9f566-1448-41dc-83ae-747fe6760498')
+  (select exerciseid from exercises where exerciseid='b3c9f566-1448-41dc-83ae-747fe6760498'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='bee06605-396d-490c-af6d-3857941134a2'),
-  (select exerciseid from exercises where exerciseid='2547b667-7dd0-40c5-8532-613ee8f1343f')
+  (select exerciseid from exercises where exerciseid='2547b667-7dd0-40c5-8532-613ee8f1343f'),
+  3,
+  12
 );
 
 --Back--
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='615b6766-f177-482d-8ba4-5a6df3ddb68c'),
-  (select exerciseid from exercises where exerciseid='8928fd83-d533-4d3f-80cd-2ea6d320f4d4')
+  (select exerciseid from exercises where exerciseid='8928fd83-d533-4d3f-80cd-2ea6d320f4d4'),
+  3,
+  12
 );
 insert into workoutexercises values
 ((select workoutid from workouts where workoutid='615b6766-f177-482d-8ba4-5a6df3ddb68c'),
-  (select exerciseid from exercises where exerciseid='d398bba1-b8a7-409d-bd7c-8b7e6a22b65a')
+  (select exerciseid from exercises where exerciseid='d398bba1-b8a7-409d-bd7c-8b7e6a22b65a'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='615b6766-f177-482d-8ba4-5a6df3ddb68c'),
-  (select exerciseid from exercises where exerciseid='ddd7d58f-f813-4181-99f7-e331f34cd504')
+  (select exerciseid from exercises where exerciseid='ddd7d58f-f813-4181-99f7-e331f34cd504'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='615b6766-f177-482d-8ba4-5a6df3ddb68c'),
-  (select exerciseid from exercises where exerciseid='d478c1f8-58c5-4ff8-8310-b7d330fd9743')
+  (select exerciseid from exercises where exerciseid='d478c1f8-58c5-4ff8-8310-b7d330fd9743'),
+  3,
+  12
 ),
 ((select workoutid from workouts where workoutid='615b6766-f177-482d-8ba4-5a6df3ddb68c'),
-  (select exerciseid from exercises where exerciseid='4cf3d181-3e48-48d9-8800-d57e5ae6487c')
+  (select exerciseid from exercises where exerciseid='4cf3d181-3e48-48d9-8800-d57e5ae6487c'),
+  3,
+  12
 );
 
 --workoutplan--
@@ -158,5 +198,5 @@ SELECT
   exercises.exerciseid
 from
   workouts, exercises
-INNER JOIN workoutexercises ON workoutexercises.workoutid = workouts.workoutid
-INNER JOIN workoutexercises ON exercises.exerciseid = workouts.exerciseid;
+INNER JOIN workouts ON workoutexercises.workoutid = workouts.workoutid
+INNER JOIN exercises ON workoutexercises.exerciseid = exercises.exerciseid;
