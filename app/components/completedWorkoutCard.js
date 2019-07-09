@@ -31,9 +31,14 @@ export default class CompletedWorkoutCard extends Component {
 
     let totalWeight = 0
     let completedDate = ''
+
+    /**
+     * Eventually edit weight over 999,999 to display
+     * 1M
+     */
     
     const Workouts = exercises.map((exercise, i) => {
-      totalWeight = totalWeight + exercise.weightused
+      totalWeight = totalWeight + (exercise.weightused * exercise.sets * exercise.reps)
       completedDate = exercise.createdAt
       return <WorkoutList key={i} exercise={exercise.exercise} />
     })

@@ -145,6 +145,8 @@ class WorkoutScreen extends Component {
             completeWorkout['userid'] = userid
             completeWorkout['exerciseid'] = exercise.exerciseid
             completeWorkout['weightused'] = exercise.suggestedweight
+            completeWorkout['sets'] = exercise.sets
+            completeWorkout['reps'] = exercise.reps
             completeWorkout['createdAt'] = new Date()
             completeWorkout['exercise'] = exerciseTitle
 
