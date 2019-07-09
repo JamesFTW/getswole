@@ -48,7 +48,7 @@ const getTodaysWorkout = db => twitterid => {
 
         //the times for today is not correct
         workoutIds.map(workoutId => {
-          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, 'Thursday']))
+          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, today]))
         })
 
         const workouts = await t.batch(queries)
