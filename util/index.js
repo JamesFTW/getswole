@@ -1,5 +1,6 @@
 
-const dayOfWeek = timeStamp => {
+const dayOfWeek = dateObject => {
+  const getDay = require('date-fns/get_day')
   const days = [
     'Sunday',
     'Monday',
@@ -9,10 +10,16 @@ const dayOfWeek = timeStamp => {
     'Friday',
     'Saturday'
   ]
-  const workoutDate = new Date(timeStamp)
-  const dayOfWeek = workoutDate.getUTCDay()
+  const dayNumber = getDay(dateObject)
 
-  return days[dayOfWeek]
+  return days[dayNumber]
+}
+
+const formatDate = dateObject => {
+  const format = require('date-fns/format')
+  const date = format(dateObject, 'MM-DD-YYYY')
+
+  return date
 }
 
 const stringify = data => {
@@ -25,12 +32,12 @@ const stringify = data => {
   return res
 }
 
-const title = text => {
-  return text = text.toLowerCase()
-    .split(' ')
-    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(' ')
-}
+const title = text => (
+  text = text.toLowerCase()
+  .split(' ')
+  .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+  .join(' ')
+)
 
 const allEqual = arr => arr.every(v => v === arr[0])
 const isEmptyObj = obj => Object.entries(obj).length === 0 && obj.constructor === Object
@@ -40,5 +47,6 @@ module.exports = {
  title,
  allEqual,
  isEmptyObj,
- stringify
+ stringify,
+ formatDate
 }
