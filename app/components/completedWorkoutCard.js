@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import CenterOfScreen       from '../components/centerOfScreen.js'
 import {
   View,
   Text,
@@ -7,10 +8,31 @@ import {
   Image
 } from 'react-native'
 
-import CenterOfScreen from '../components/centerOfScreen.js'
+const Card_Icon = 'Card_Icon'
+const Workout_Icon_Card = 'Workout_Icon_Card'
+
+const WorkoutList = ({ exercise }) => {
+  return (
+    <View style={styles.workoutFlex}>
+      <Text style={styles.exerciseText}>{ exercise }</Text>
+      <Image
+        style={styles.photo}
+        source={{ uri: Card_Icon }}
+      />
+    </View>
+  )
+}
 
 export default class CompletedWorkoutCard extends Component {
   render() {
+    const {
+      exercises
+    } = this.props
+    
+    const Workouts = exercises.map((exercise, i) => {
+      return <WorkoutList key={i} exercise={exercise} />
+    })
+
     return (
       <View style={styles.container}>
         <View style={styles.card}>
@@ -38,65 +60,29 @@ export default class CompletedWorkoutCard extends Component {
           </View>
 
           <View style={styles.workoutsContainer}>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
-            <View style={styles.workoutFlex}>
-              <Text style={styles.exerciseText}>Barebell Squat</Text>
-              <Image
-                style={styles.photo}
-                source={{ uri: 'Card_Icon' }}
-              />
-            </View>
+            { Workouts }
           </View>
-          <View style={{ position: 'absolute', bottom: 0, width: '100%', marginBottom: 10 }}>
+          <View style={styles.footer}>
             <CenterOfScreen>
             <Image
               style={styles.icon}
-              source={{ uri: 'Workout_Icon_Card' }}
+              source={{ uri: Workout_Icon_Card }}
             />
             </CenterOfScreen>
           </View>
         </View>
       </View>
-    
     )
   }
 }
 
 const styles = StyleSheet.create({
+  footer: {
+    position: 'absolute', 
+    bottom: 0, 
+    width: '100%', 
+    marginBottom: 10 
+  },
   photo: {
     height: 20,
     width: 20
@@ -106,10 +92,10 @@ const styles = StyleSheet.create({
     width: 42
   },
   container: {
+    position: 'absolute',
     flex: 1,
     flexDirection: 'column',
-    width: '100%',
-    top: 30  
+    width: '100%'
   },
   workoutsContainer: {
     flex: 1,
@@ -161,7 +147,7 @@ const styles = StyleSheet.create({
   weightLifted: {
     position: 'relative',
     width: '100%',
-    height: 20
+    height: 21
   },
   weightLiftedText: {
     fontSize: 18,
