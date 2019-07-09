@@ -1,6 +1,7 @@
 
-import React, { Component } from 'react'
-import CenterOfScreen       from '../components/centerOfScreen.js'
+import React, { Component }      from 'react'
+import CenterOfScreen            from '../components/centerOfScreen.js'
+import { dayOfWeek, formatDate } from '../../util/'
 import {
   View,
   Text,
@@ -11,39 +12,46 @@ import {
 const Card_Icon = 'Card_Icon'
 const Workout_Icon_Card = 'Workout_Icon_Card'
 
-const WorkoutList = ({ exercise }) => {
-  return (
-    <View style={styles.workoutFlex}>
-      <Text style={styles.exerciseText}>{ exercise }</Text>
-      <Image
-        style={styles.photo}
-        source={{ uri: Card_Icon }}
-      />
-    </View>
-  )
-}
+const WorkoutList = ({ exercise }) => (
+  <View style={styles.workoutFlex}>
+    <Text style={styles.exerciseText}>{ exercise }</Text>
+    <Image
+      style={styles.photo}
+      source={{ uri: Card_Icon }}
+    />
+  </View>
+)
 
 export default class CompletedWorkoutCard extends Component {
   render() {
     const {
-      exercises
+      exercises,
+      workoutName
     } = this.props
+
+    let totalWeight = 0
+    let completedDate = ''
     
     const Workouts = exercises.map((exercise, i) => {
-      return <WorkoutList key={i} exercise={exercise} />
+      totalWeight = totalWeight + exercise.weightused
+      completedDate = exercise.createdAt
+      return <WorkoutList key={i} exercise={exercise.exercise} />
     })
+    
+    let day = dayOfWeek(completedDate)
+    let date = formatDate(completedDate)
 
     return (
       <View style={styles.container}>
         <View style={styles.card}>
           <View style={styles.header}>
             <CenterOfScreen>
-              <Text style={styles.workout}>Leg Day</Text>
+              <Text style={styles.workout}>{workoutName}</Text>
             </CenterOfScreen>
           </View>
           <View style={styles.date}>
             <CenterOfScreen>
-              <Text style={styles.dateText}>Saturday 7-6-19</Text>
+              <Text style={styles.dateText}>{day} {date}</Text>
             </CenterOfScreen>
           </View>
 
@@ -55,7 +63,7 @@ export default class CompletedWorkoutCard extends Component {
 
           <View style={styles.weight}>
             <CenterOfScreen>
-              <Text style={styles.weightText}>645 LBS</Text>
+              <Text style={styles.weightText}>{totalWeight} LBS</Text>
             </CenterOfScreen>
           </View>
 
