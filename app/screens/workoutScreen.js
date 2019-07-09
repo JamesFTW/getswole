@@ -4,6 +4,7 @@ import { connect }           from 'react-redux'
 import { Redirect }          from "react-router-native"
 import * as actions          from '../actions'
 import Workout               from '../components/workout.js'
+import CompletedWorkoutCard  from '../components/completedWorkoutCard.js'
 import BackGroundWrapper     from '../components/backGroundWrapper.js'
 import Header                from '../components/header.js'
 import SwipeComponent        from '../components/swipeComponent.js'
@@ -14,6 +15,8 @@ import { getUserFromCache }  from '../api'
 import {
   ScrollView
 } from 'react-native'
+
+let scrollStyle = null
 
 class WorkoutScreen extends Component {
   constructor(props) {
@@ -33,8 +36,6 @@ class WorkoutScreen extends Component {
       fetchWorkouts,
       weightCounter
     } = this.props
-
-    this.setState({ isLoading: false })
 
     const user = await getUserFromCache()
     this.setState({ userid: user.userid })
@@ -100,7 +101,8 @@ class WorkoutScreen extends Component {
 
     const {
       workoutHeaderReducer: workoutSelected,
-      weightCounter
+      weightCounter,
+      completedWorkoutReducer
     } = this.props
 
     const WorkoutName = weightCounter.workoutName ?
@@ -115,7 +117,7 @@ class WorkoutScreen extends Component {
       return <BackGroundWrapper/>
     }
 
-    if (workouts) {
+    if (workouts.length > 0) {
       WOD = workouts.map((exercise, i) => {
         if (!isEmptyObj(exercise)) {
           const { name, exerciseid } = exercise
@@ -144,6 +146,7 @@ class WorkoutScreen extends Component {
             completeWorkout['exerciseid'] = exercise.exerciseid
             completeWorkout['weightused'] = exercise.suggestedweight
             completeWorkout['createdAt'] = new Date()
+            completeWorkout['exercise'] = exerciseTitle
 
             completedExercises.push(completeWorkout)
           }  
@@ -153,8 +156,26 @@ class WorkoutScreen extends Component {
       WOD = null
     }
 
-    const middleContent = workoutSelected.workoutSelected ? WOD : <StatsScreen/>
-    const workoutName = workoutSelected.workoutSelected ? WorkoutName : "Exercise Stats"
+    if (workouts.length === 0) {
+      scrollStyle = { 
+        flexGrow: 1, 
+        justifyContent: 'center', 
+        marginBottom: 30 
+      }
+      WOD = (
+        <CompletedWorkoutCard 
+          workoutName={WorkoutName} 
+          exercises={completedWorkoutReducer} 
+        />
+      )
+    } 
+
+    let middleContent = workoutSelected.workoutSelected ? WOD : <StatsScreen/>
+    let workoutName = workoutSelected.workoutSelected ? WorkoutName : "Exercise Stats"
+
+    if(workouts.length === 0) {
+      workoutName = 'Completed Workout'
+    }
 
     return (     
       <BackGroundWrapper>
@@ -162,10 +183,12 @@ class WorkoutScreen extends Component {
           workoutName={workoutName}
           workoutDate="Today's Workout"
         />
-        <ScrollView style={{
-          flex: 1,
-          flexDirection: 'column',
-          marginBottom: 50}}>
+        <ScrollView 
+          contentContainerStyle={scrollStyle}
+          style={{
+            flex: 1,
+            flexDirection: 'column',
+            marginBottom: 50}}>
           { middleContent }
         </ScrollView>
       </BackGroundWrapper>
