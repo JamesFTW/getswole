@@ -9,6 +9,8 @@ export const TOGGLE_HEADER_STATS   = 'TOOGLE_HEADER_STATS'
 export const FETCH_DATA            = 'FETCH_DATA'
 export const COMPLETE              = 'COMPLETE'
 export const UPDATEWORKOUT         = 'UPDATEWORKOUT'
+export const INCREMENTBY10         = 'INCREMENTBY10'
+export const DECREMENTBY10         = 'DECREMENTBY10'
 
 export const increment = nodeId => ({
   type: INCREMENT,
@@ -17,6 +19,16 @@ export const increment = nodeId => ({
 
 export const decrement = nodeId => ({
   type: DECREMENT,
+  nodeId
+})
+
+export const incrementBy10 = nodeId => ({
+  type: INCREMENTBY10,
+  nodeId
+})
+
+export const decrementBy10 = nodeId => ({
+  type: DECREMENTBY10,
   nodeId
 })
 
