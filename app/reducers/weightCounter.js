@@ -2,6 +2,8 @@
 import {
   INCREMENT,
   DECREMENT,
+  INCREMENTBY10,
+  DECREMENTBY10,
   FETCH_DATA,
   COMPLETE
 } from '../actions'
@@ -41,6 +43,16 @@ const node = (state = {}, action) => {
       return {
         ...state,
         suggestedweight: state.suggestedweight - 1
+      }
+    case INCREMENTBY10:
+      return {
+        ...state,
+        suggestedweight: state.suggestedweight + 10
+      }
+    case DECREMENTBY10:
+      return {
+        ...state,
+        suggestedweight: state.suggestedweight - 10
       }
     case COMPLETE:
       return state

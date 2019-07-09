@@ -31,6 +31,10 @@ const Container = ({ styleid, children }) => {
 }
 
 class Workout extends Component {
+  constructor(props) {
+    super(props)
+    this.timer = null
+  }
   onDecrement = () => {
     const { decrement, id } = this.props
     decrement(id)
@@ -39,6 +43,22 @@ class Workout extends Component {
   onIncrement = () => {
     const { increment, id } = this.props
     increment(id)
+  }
+
+  longDecrement = () => {
+    const { decrementBy10, id } = this.props
+    decrementBy10(id)
+    this.timer = setTimeout(this.longDecrement, 200)
+  }
+
+  longIncrement = () => {
+    const { incrementBy10, id} = this.props
+    incrementBy10(id)
+    this.timer = setTimeout(this.longIncrement, 200)
+  }
+
+  stopTimer = () => {
+    clearTimeout(this.timer)
   }
 
   render() {
@@ -64,6 +84,8 @@ class Workout extends Component {
               underlayColor = {"rgba(0, 0, 0, 0)"}
               activeOpacity ={.5}
               onPress={this.onDecrement}
+              onLongPress={this.longDecrement}
+              onPressOut={this.stopTimer}
             >
               <Image style={styles.minus} source={{uri: minusButton}} />
             </TouchableHighlight>
@@ -77,6 +99,8 @@ class Workout extends Component {
               underlayColor={"rgba(0, 0, 0, 0)"}
               activeOpacity={.5} 
               onPress={this.onIncrement}
+              onLongPress={this.longIncrement}
+              onPressOut={this.stopTimer}
             >
               <Image style={styles.plus} source={{uri: plusButton}} />
             </TouchableHighlight>
