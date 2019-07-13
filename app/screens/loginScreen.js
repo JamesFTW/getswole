@@ -11,7 +11,6 @@ import { Redirect }             from "react-router-native"
 export default class LoginScreen extends PureComponent {
   constructor(props) {
     SQUATPHOTO = 'squatphoto'
-
     super(props)
     this.state = {
       user: '',
@@ -20,20 +19,21 @@ export default class LoginScreen extends PureComponent {
     }
   }
 
-  componentDidMount() {
-    getUserFromCache()
-      .then(data => {
+  async componentDidMount() {
+    try {
+      let userFromCache = await getUserFromCache()
+
+      userFromCache === null ?
+        this.setState({ isLoading: false }) :
         this.setState({
-          user: data.userid,
+          user: userFromCache.userid,
           redirectToWorkoutScreen: true,
-          isLoading: false 
-        })
-      })
-      .catch(_ => {
-        this.setState({
           isLoading: false
         })
-      })
+
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
