@@ -112,13 +112,17 @@ const registerUser = (username, profilePhoto) => {
         const userId = JSON.stringify(data.userid)
 
         AsyncStorage.setItem(userId, userData)
-        AsyncStorage.setItem('userid', userId)
+        AsyncStorage.setItem('userId', userId)
 
         resolve(data)
       })
       .catch(err => reject(err))
   })
 }
+
+/**
+ * need to cache if there is no cache found
+ */
 
 const getUserFromCache = () => {
   return new Promise((resolve, reject) => {
@@ -131,7 +135,7 @@ const getUserFromCache = () => {
               resolve(data)
             })
         } else {
-          reject(data)
+          resolve(data)
         }
       })
       .catch(err => reject(err))
