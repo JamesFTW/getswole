@@ -6,19 +6,19 @@ A mobile personal workout tracker built using React Native.
 ## Screens
 **User Onboarding Flow**
 
-![Alt Text](https://drive.google.com/uc?export=view&id=1GgF3EsxyoajeaXGlnONHJBcJH0ysNcWq)
+![Alt Text](https://drive.google.com/uc?export=view&id=1GgF3EsxyoajeaXGlnONHJBcJH0ysNcWq =300)
 
 **Workout Plan Selection Flow**
 
-![Alt Text](https://drive.google.com/uc?export=view&id=1gJJ-3ZEL2gHGVGBttrqdI1feLAGXMzZ4)
+![Alt Text](https://drive.google.com/uc?export=view&id=1gJJ-3ZEL2gHGVGBttrqdI1feLAGXMzZ4 =300)
 
   **Workout Flow**
 
-  ![Alt Text](https://drive.google.com/uc?export=view&id=10_VmvekPAl0im7pt6ZVIHuv5DXRLldtO)
+  ![Alt Text](https://drive.google.com/uc?export=view&id=10_VmvekPAl0im7pt6ZVIHuv5DXRLldtO =300)
 
   **Miscellaneous Navigation** 
 
-![Alt Text](https://drive.google.com/uc?export=view&id=1PHZ6FljeURfgKMItGzLG9shENCjxX7eh)
+![Alt Text](https://drive.google.com/uc?export=view&id=1PHZ6FljeURfgKMItGzLG9shENCjxX7eh =300)
 
 
 
