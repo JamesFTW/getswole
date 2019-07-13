@@ -1,6 +1,7 @@
 Swole 
 ============
 A mobile personal workout tracker built using React Native.
+
 **This project is a work in progress and is not yet intended to be production ready.**
 
 ## Screens
