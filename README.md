@@ -21,11 +21,3 @@ A mobile personal workout tracker built using React Native.
 
 <img src="https://camo.githubusercontent.com/9e12c3321db3bdd82a2e20c41162e66215e2bd6f/68747470733a2f2f64726976652e676f6f676c652e636f6d2f75633f6578706f72743d766965772669643d3150485a36466c6a65555266674b4d4974477a4c47397368454e436a7858376568" alt="Alt Text" data-canonical-src="https://drive.google.com/uc?export=view&amp;id=1PHZ6FljeURfgKMItGzLG9shENCjxX7eh" width="300" style="max-width:100%;">
 
-
-
-
-
-
-  
-
-![code](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Gadus_morhua_Cod-2b-Atlanterhavsparken-Norway.JPG/720px-Gadus_morhua_Cod-2b-Atlanterhavsparken-Norway.JPG)
