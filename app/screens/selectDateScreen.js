@@ -6,7 +6,7 @@ import CalendarComponent        from '../components/calendar.js'
 import BackGroundWrapper        from '../components/backGroundWrapper.js'
 import DateConfirm              from '../components/dateConfirm'
 import { registerUserWorkout }  from '../api'
-import { dayofWeek }            from '../../util'
+import { dayOfWeek }            from '../../util'
 
 export default class SelectDateScreen extends PureComponent {
   constructor(props) {
@@ -61,7 +61,7 @@ export default class SelectDateScreen extends PureComponent {
     const { day, month, year, timestamp } = this.state.data
 
     if (timestamp) {
-      console.log(dayofWeek(timestamp))
+      console.log(dayOfWeek(timestamp))
     }
 
     if (redirectToWorkout) {
