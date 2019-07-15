@@ -39,24 +39,27 @@ const getTodaysWorkout = db => twitterid => {
     db.task(async t => {
       try {
         const userid = await t.one(GET_USER, twitterid)
-        const planid = await t.one(FIND_USERWORKOUT_PLANID, userid.userid)
-        const workoutPlan = await t.one(FIND_USERWORKOUT_PLAN, planid.planid)
+        const planid = await t.oneOrNone(FIND_USERWORKOUT_PLANID, userid.userid)
 
+        if (planid === null) {
+          const res = stringify({ planid: null })
+          resolve(res)
+        }
+
+        const workoutPlan = await t.oneOrNone(FIND_USERWORKOUT_PLAN, planid.planid)
         const workoutIds = workoutPlan.workoutids
         const queries = []
         const today = dayOfWeek(new Date())
 
         //the times for today is not correct
         workoutIds.map(workoutId => {
-          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, today]))
+          queries.push(t.oneOrNone(GET_TODAYS_WORKOUT, [workoutId, 'Thursday']))
         })
 
         const workouts = await t.batch(queries)
         
         if (allEqual(workouts)) {
-          const restDay = JSON.stringify({ 'restDay': true })
-          const res = stringify(restDay)
-
+          const res = stringify({ 'restDay': true })
           return resolve(res)
         }
 
