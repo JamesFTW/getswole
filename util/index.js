@@ -22,6 +22,11 @@ const formatDate = dateObject => {
   return date
 }
 
+const isToday = dateObject => {
+  const today = require('date-fns/is_today')
+  return today(dateObject)
+}
+
 const stringify = data => {
   const jsesc = require("jsesc")
   const res = jsesc(data, {
@@ -48,5 +53,6 @@ module.exports = {
  allEqual,
  isEmptyObj,
  stringify,
- formatDate
+ formatDate,
+ isToday
 }
