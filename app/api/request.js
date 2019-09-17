@@ -1,7 +1,9 @@
 
 //havent tested this yet for prod, but this works for testing
-require('es6-promise').polyfill()
-require('isomorphic-fetch')
+if (process.env.NODE_ENV === 'development') {
+  require('es6-promise').polyfill()
+  require('isomorphic-fetch')
+}
 
 const SAME_ORIGIN = 'same-origin'
 const CONTENT_TYPE = 'Content-Type'
